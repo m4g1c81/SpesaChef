@@ -158,6 +158,17 @@ textarea.inp{min-height:130px;resize:vertical}
 .mini{display:flex;align-items:center;gap:4px}.mini button{width:34px;height:34px;border:0;border-radius:9px;background:var(--soft);font-weight:700;font-size:18px}.mini span{min-width:2ch;text-align:center;font-weight:700}
 .today{background:var(--card);border-radius:18px;box-shadow:0 1px 0 var(--line);padding:16px;margin-top:10px}
 .today small{color:var(--mute);font-weight:700;font-size:13px}.today h3{font-size:21px;margin:2px 0 10px}
+.srow{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-top:1px solid var(--line);min-height:56px}.srow:first-child{border-top:0}
+.srow>span{flex:1;line-height:1.3}.srow small{display:block;color:var(--mute);font-size:13px}
+.seg{display:flex;background:var(--soft);border-radius:12px;padding:3px;gap:2px;flex:none}.seg button{border:0;background:none;border-radius:9px;padding:7px 11px;font-weight:700;font-size:14px;min-height:36px;color:var(--mute)}.seg button.on{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.15)}
+.sw{appearance:none;-webkit-appearance:none;width:52px;height:32px;border-radius:99px;background:var(--line);position:relative;flex:none;cursor:pointer;transition:background .15s;margin:0}.sw::after{content:"";position:absolute;top:3px;left:3px;width:26px;height:26px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform .15s}.sw:checked{background:var(--leaf)}.sw:checked::after{transform:translateX(20px)}
+.srow .btn{flex:none}
+.sbar{position:fixed;left:0;right:0;bottom:0;z-index:6;background:var(--card);border-top:1px solid var(--line);display:none;padding:10px max(16px,env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left));box-shadow:0 -6px 18px -12px rgba(0,0,0,.3)}
+.sbar .in{max-width:680px;margin:auto;display:flex;align-items:center;gap:12px}
+body[data-page=spesa] .sbar{display:block}
+.sb-t{flex:1;text-align:left;border:0;background:none;display:grid;padding:0;line-height:1.1}.sb-t small{color:var(--mute);font-weight:700;font-size:13px}.sb-t b{font:700 28px Rubik,sans-serif;color:var(--tom);font-variant-numeric:tabular-nums}
+.sbar .btn{min-height:52px;padding:10px 20px}
+.top h1{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .top .tl{display:block;font:600 12px "Nunito Sans",sans-serif;color:#cfe5d4;letter-spacing:.2px;margin-top:2px}
 </style>
 </head>
@@ -171,8 +182,8 @@ textarea.inp{min-height:130px;resize:vertical}
  <path d="M420 560 L492 628 L624 480" fill="none" stroke="#f2c230" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"/>
  <circle cx="660" cy="736" r="34" fill="#e0412b"/><path d="M652 704q10-14 22-8" stroke="#2f7d47" stroke-width="10" fill="none" stroke-linecap="round"/>
 </g>
-</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v3.1 · © Marco – diritti riservati</small></div>
-<header class="top"><div class="in"><button class="homeb" id="homeB" aria-label="Torna alla home" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></button><div style="flex:1"><h1>Spesa<span>Chef</span></h1><span class="tl">Ricette · Spesa · Dispensa</span></div><button class="tot" id="topTot" aria-label="Vai al carrello">€ 0,00</button></div></header>
+</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v4.0 · © Marco – diritti riservati</small></div>
+<header class="top"><div class="in"><button class="homeb" id="homeB" aria-label="Indietro" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div style="flex:1"><h1 id="hT">Spesa<span>Chef</span></h1><span class="tl" id="hTl">Ricette · Spesa · Dispensa</span></div><button class="tot" id="topTot" aria-label="Vai al carrello">€ 0,00</button><button class="homeb" id="gear" aria-label="Impostazioni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div></header>
 
 <main>
 <section class="view" id="v-home">
@@ -180,8 +191,9 @@ textarea.inp{min-height:130px;resize:vertical}
   <button class="mode pasti" id="mP"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="112" cy="188" rx="80" ry="8" fill="#000" opacity=".12"/><rect x="46" y="30" width="128" height="150" rx="14" fill="#fff"/><rect x="46" y="30" width="128" height="34" rx="14" fill="#2f7d47"/><rect x="46" y="50" width="128" height="14" fill="#2f7d47"/><circle cx="80" cy="30" r="7" fill="#2b1d00"/><circle cx="140" cy="30" r="7" fill="#2b1d00"/><path d="M66 86h88M66 110h88M66 134h60" stroke="#f2d48a" stroke-width="10" stroke-linecap="round"/><circle cx="160" cy="150" r="30" fill="#e0412b"/><path d="M148 150l9 9 16-18" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Programma pasti</b><small id="hP"></small><span class="go">Ricettario, settimana, tavolate →</span></button>
   <button class="mode spesa" id="mS"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="186" rx="80" ry="8" fill="#000" opacity=".15"/><circle cx="92" cy="52" r="26" fill="#f2c230"/><circle cx="128" cy="58" r="24" fill="#e0412b"/><path d="M124 36q8-10 16-4" stroke="#7cc08f" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M60 58h104l-6 34" fill="none"/><rect x="146" y="40" width="22" height="44" rx="6" fill="#eaf1e6"/><path d="M20 30h26l24 104h106l16-70H58" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 98h118" stroke="#fff" stroke-width="8" opacity=".55"/><circle cx="84" cy="164" r="13" fill="#fff"/><circle cx="160" cy="164" r="13" fill="#fff"/></svg><b>Faccio la spesa</b><small id="hS"></small><span class="go">Lista, carrello, prezzi →</span></button>
   <button class="mode cucina" id="mC"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="188" rx="84" ry="8" fill="#000" opacity=".15"/><path d="M84 40q-12-14 0-28M110 36q-12-14 0-28M136 40q-12-14 0-28" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".7"/><rect x="40" y="86" width="140" height="92" rx="20" fill="#fff"/><rect x="40" y="86" width="140" height="18" rx="9" fill="#ffe2dc"/><rect x="18" y="104" width="30" height="14" rx="7" fill="#fff"/><rect x="172" y="104" width="30" height="14" rx="7" fill="#fff"/><path d="M34 74h152" stroke="#f2c230" stroke-width="12" stroke-linecap="round"/><rect x="96" y="56" width="28" height="16" rx="8" fill="#f2c230"/><circle cx="140" cy="140" r="14" fill="#e0412b" opacity=".85"/><path d="M76 140h36" stroke="#e0412b" stroke-width="8" stroke-linecap="round" opacity=".5"/></svg><b>Cucino</b><small id="hC"></small><span class="go">Oggi in cucina, dispensa →</span></button>
-  <button class="btn ghost wide" id="aiSet" style="margin-top:4px"></button>
-  <p class="foot">SpesaChef v3.1 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
+  <div class="hint" id="bkHint" hidden style="margin-top:4px"></div>
+  <button class="btn ghost wide" id="aiSet" style="margin-top:8px">Impostazioni</button>
+  <p class="foot">SpesaChef v4.0 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
 </section>
 <section class="view" id="v-ricette">
   <div class="row"><input class="inp" id="q" placeholder="Cerca un piatto o un ingrediente" style="flex:1" autocomplete="off"><button class="btn pri" id="newR">+ Aggiungi</button></div>
@@ -191,33 +203,25 @@ textarea.inp{min-height:130px;resize:vertical}
   <div class="grid" id="rgrid"></div>
   </section>
 
-<section class="view" id="v-menu">
-  <div class="row" style="justify-content:space-between">
-    <div class="row"><button class="btn sm ghost" id="wPrev" aria-label="Settimana precedente">‹</button><h2 id="wTit" style="font-size:20px"></h2><button class="btn sm ghost" id="wNext" aria-label="Settimana successiva">›</button></div>
-    <div class="step"><span style="font-weight:700;font-size:14px">Persone</span><button data-p="-1" aria-label="Meno persone">−</button><b id="ppl"></b><button data-p="1" aria-label="Più persone">+</button></div>
-  </div>
+<section class="view" id="v-pasti">
+  <div class="row"><button class="btn ghost" id="toRic" style="flex:1">Ricettario</button><button class="btn ghost" id="newR2" style="flex:1">+ Nuova ricetta</button></div>
+  <div class="sec" style="margin-top:22px"><span>Menu della settimana</span></div>
+  <div class="row" style="justify-content:space-between"><button class="btn sm ghost" id="wPrev" aria-label="Settimana precedente">‹</button><h2 id="wTit" style="font-size:19px"></h2><button class="btn sm ghost" id="wNext" aria-label="Settimana successiva">›</button></div>
+  <p class="st">Tocca un pasto e scegli il piatto: gli ingredienti vanno da soli nella lista della spesa.</p>
   <div id="days"></div>
   <button class="btn pri wide" id="wShop"></button>
+  <div class="sec" style="margin-top:30px;align-items:center"><span>Cene con amici</span><button class="chip" id="nEv">+ Nuova cena</button></div>
+  <div id="tlist"></div>
 </section>
 
-<section class="view" id="v-lista">
+<section class="view" id="v-tavolata"><div id="tbody"></div></section>
+
+<section class="view" id="v-spesa">
   <form class="row" id="addF"><input class="inp" id="addI" placeholder="Aggiungi (es. 2 kg patate)" style="flex:1" autocomplete="off"><button class="btn pri">Aggiungi</button></form>
+  <div class="row" style="margin-top:8px"><label class="btn sm ghost" style="flex:1;display:grid;place-items:center;cursor:pointer"><input type="file" accept="image/*" id="rcp" hidden>Foto scontrino</label><button class="btn sm ghost" id="addP" style="flex:1">+ Altro prodotto</button></div>
   <div id="lbody"></div>
-  <div class="row" style="margin-top:14px" id="lacts"><button class="btn sm ghost" id="clrDone">Togli gli spuntati</button><button class="btn sm ghost" id="clrAll">Svuota lista</button>
-  <label class="row" style="margin-left:auto;font-size:14px;font-weight:700;gap:6px"><input type="checkbox" id="ask" style="width:20px;height:20px;accent-color:var(--leaf)"> Chiedi il prezzo alla spunta</label></div>
-</section>
-
-<section class="view" id="v-carrello">
-  <div class="hero">
-    <div class="row" style="justify-content:space-between"><b style="color:var(--mute)">Stai spendendo</b><button class="btn sm ghost" id="setB">Budget</button></div>
-    <div class="big" id="ctot">€ 0,00</div>
-    <div id="bud" style="color:var(--mute);font-size:14px"></div>
-    <label class="l" for="shopI" style="display:block;font-weight:700;font-size:14px;margin:14px 0 4px">Negozio</label>
-    <input class="inp" id="shopI" list="shops" placeholder="Dove stai facendo la spesa?" autocomplete="off"><datalist id="shops"></datalist>
-    <div class="acts"><button class="btn pri" id="addP">+ Prodotto</button><label class="btn" style="display:grid;place-items:center;cursor:pointer;flex:1 1 120px"><input type="file" accept="image/*" id="rcp" hidden>Foto scontrino</label><button class="btn red" id="close">Chiudi la spesa</button></div>
-  </div>
-  <div class="sec"><span>Nel carrello</span><span id="cn"></span></div>
-  <div id="cbody"></div>
+  <div class="row" style="margin-top:20px;justify-content:space-between" id="lacts"><button class="btn sm ghost" id="toSto">Storico e prezzi</button><button class="btn sm ghost" id="clrAll">Svuota lista</button></div>
+  <datalist id="shops"></datalist>
 </section>
 
 <section class="view" id="v-storico">
@@ -228,34 +232,24 @@ textarea.inp{min-height:130px;resize:vertical}
   <div id="cl" style="margin-top:10px"></div>
 </section>
 
-<section class="view" id="v-dispensa">
-  <div class="row"><input class="inp" id="dq" placeholder="Cerca in dispensa" style="flex:1" autocomplete="off"><button class="btn pri" id="addD">+ Aggiungi</button></div>
-  <div id="dbody"></div>
-</section>
-
-<section class="view" id="v-oggi">
-  <h2 id="oTit" style="font-size:26px"></h2>
+<section class="view" id="v-cucino">
+  <h2 id="oTit" style="font-size:24px"></h2>
   <div id="obody"></div>
-  <div class="sec"><span>Con quello che hai in dispensa</span></div>
+  <div class="sec" style="margin-top:24px"><span>Cosa puoi cucinare con quello che hai</span></div>
   <div id="sugs"></div>
   <div id="aisugs"></div>
   <button class="btn ghost wide" id="aiI">Altre idee con l'IA</button>
+  <div class="sec" style="margin-top:30px;align-items:center"><span>La tua dispensa</span><button class="chip" id="addD">+ Aggiungi</button></div>
+  <div id="dbody"></div>
 </section>
 
-<section class="view" id="v-tavolate"><div id="tbody"></div></section>
+<section class="view" id="v-impostazioni">
+  <div id="setbody"></div>
+  <p class="foot" id="setfoot"></p>
+</section>
 </main>
 
-<nav class="tabs">
-  <button data-t="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/></svg>Home</button>
-  <button data-t="tavolate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="5"/><path d="M3 4v6a2 2 0 0 0 2 2v8M5 4v4M21 4c-2 0-3 2-3 5s1 3 3 3v8"/></svg>Tavolate</button>
-  <button data-t="oggi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14v4a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5z"/><path d="M3 11h18M9 7c0-1.5 1.5-1.5 1.5-3M13.5 7c0-1.5 1.5-1.5 1.5-3"/></svg>Oggi</button>
-  <button data-t="ricette"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 13h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z"/><path d="M4 13h16M9 9c0-2 2-2 2-4M13 9c0-2 2-2 2-4"/></svg>Ricettario</button>
-  <button data-t="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Settimana</button>
-  <button data-t="lista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="m3 6 1.5 1.5L7 5M3 12l1.5 1.5L7 11"/><circle cx="5" cy="18" r="1.3"/></svg>Lista<span class="badge" id="lb" hidden></span></button>
-  <button data-t="carrello"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h10.2L20 8H6.2"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg>Carrello</button>
-  <button data-t="storico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>Storico</button>
-  <button data-t="dispensa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM5 12h14"/><path d="M9 7.5h2M9 16.5h2"/></svg>Dispensa<span class="badge" id="db" hidden></span></button>
-</nav>
+<div class="sbar" id="sbar"><div class="in"><button class="sb-t" id="setB" aria-label="Budget"><small id="bud"></small><b id="ctot">0,00 €</b></button><button class="btn red" id="close">Chiudi la spesa</button></div></div>
 
 <div id="sh"><div class="pane" id="pane" role="dialog" aria-modal="true"></div></div>
 <div id="cook" role="dialog" aria-modal="true" aria-label="Modalità cucina"></div>
@@ -361,7 +355,8 @@ const B=[
 ["Sbuccia la frutta e tagliala a pezzetti.","Condisci con succo di limone e zucchero e mescola.","Lascia riposare in frigo 30 min prima di servire."]]
 ].map((r,i)=>({id:'b'+i,name:r[0],cat:r[1],serv:r[2],ing:r[3].map(x=>({n:x[0],q:x[1],u:x[2],r:x[3]})),st:r[4]}));
 
-let S={mine:[],list:[],cart:[],hist:[],budget:0,ask:true,pantry:[],menu:[],prices:[],codes:{},people:2,shop:'',diet:'',events:[],ai:{prov:'gemini',key:'',model:''}};
+const DEF=()=>({mine:[],list:[],cart:[],hist:[],budget:0,ask:true,pantry:[],menu:[],prices:[],codes:{},people:2,shop:'',diet:'',events:[],ai:{prov:'gemini',key:'',model:''},theme:'',big:false,splash:true,wake:true,expDays:3,lastBackup:0});
+let S=DEF();
 try{const d=JSON.parse(localStorage.getItem(KEY));if(d)S={...S,...d}}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 
@@ -401,37 +396,41 @@ let toastT;
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),2000)}
 
 /* ---------- navigazione ---------- */
-const MODES={pasti:['ricette','menu','tavolate'],spesa:['lista','carrello','storico'],cucina:['oggi','dispensa']};
-const modeOf=t=>Object.keys(MODES).find(m=>MODES[m].includes(t))||null;
+const PARENT={pasti:'home',ricette:'pasti',tavolata:'pasti',spesa:'home',storico:'spesa',cucino:'home',impostazioni:'home'};
+const TITLE={pasti:'Programma pasti',ricette:'Ricettario',tavolata:'Cena con amici',spesa:'Faccio la spesa',storico:'Storico e prezzi',cucino:'Cucino',impostazioni:'Impostazioni'};
+const OLD={menu:'pasti',tavolate:'pasti',lista:'spesa',carrello:'spesa',oggi:'cucino',dispensa:'cucino'};
+let cur='home';
 function go(t){
-  if(t!=='home'&&!modeOf(t))t='home';
-  const m=modeOf(t);
-  document.body.classList.toggle('home',!m);
+  t=OLD[t]||t;if(t!=='home'&&!PARENT[t])t='home';
+  if(t==='tavolata'&&!S.events.some(e=>e.id===curEv))t='pasti';
+  cur=t;document.body.dataset.page=t;document.body.classList.toggle('home',t==='home');
   document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+t));
-  document.querySelectorAll('.tabs button').forEach(b=>{b.classList.toggle('on',b.dataset.t===t);b.classList.toggle('hid',b.dataset.t!=='home'&&modeOf(b.dataset.t)!==m)});
-  $('#homeB').hidden=!m;$('#topTot').hidden=m!=='spesa';
-  if(!m)renderH();if(t==='storico')renderS();if(t==='oggi')renderO();if(t==='tavolate')renderT();
+  $('#homeB').hidden=t==='home';$('#gear').hidden=t!=='home';$('#topTot').hidden=true;
+  $('#hT').innerHTML=t==='home'?'Spesa<span>Chef</span>':esc(TITLE[t]);$('#hTl').textContent=t==='home'?'Ricette · Spesa · Dispensa':'SpesaChef';
+  if(t==='home')renderH();if(t==='impostazioni')renderSet();if(t==='storico')renderS();if(t==='cucino'){renderO();renderD()}if(t==='tavolata')renderT();if(t==='pasti'){renderM();renderTL()}if(t==='spesa'){renderL();renderC()}
   if(location.hash!=='#'+t)history.replaceState(null,'','#'+t);window.scrollTo(0,0)}
 function renderH(){
   const h=new Date().getHours();$('#hi').textContent=h<12?'Buongiorno!':h<18?'Buon pomeriggio!':'Buonasera!';
   const left=S.list.filter(x=>!x.done).length,ct=cartTot();
   $('#hS').textContent=ct?`Carrello aperto: ${money(ct)}`+(left?` · ancora ${left} in lista`:''):left?`${left} ${left>1?'articoli':'articolo'} in lista`:'La lista è vuota';
-  $('#aiSet').textContent=hasAI()?`IA collegata: ${AINAME[S.ai.prov]} · Impostazioni`:'Collega l\'IA (Gemini) · Impostazioni';
+  $('#aiSet').textContent=hasAI()?`Impostazioni · IA: ${AINAME[S.ai.prov]}`:'Impostazioni · collega l\'IA';
+  const hasData=S.list.length+S.hist.length+S.mine.length+S.pantry.length+S.events.length+S.menu.length>0,bd=S.lastBackup?Math.floor((Date.now()-S.lastBackup)/864e5):null;
+  $('#bkHint').hidden=!(hasData&&(bd===null||bd>=30));$('#bkHint').innerHTML=bd===null?'Non hai ancora fatto un backup dei tuoi dati. <button class="chip" id="bkGo" style="min-height:32px;margin-left:4px">Fallo ora</button>':`Ultimo backup ${bd} giorni fa. <button class="chip" id="bkGo" style="min-height:32px;margin-left:4px">Aggiorna</button>`;
+  const bg=$('#bkGo');if(bg)bg.onclick=()=>exportData();
   const t=iso(today0()),slot=h<15?'pranzo':'cena',m=S.menu.find(x=>x.d===t&&x.s===slot&&getR(x.rid));
-  const soon=S.pantry.filter(p=>p.exp&&daysTo(p.exp)<=2).length;
+  const soon=S.pantry.filter(p=>p.exp&&daysTo(p.exp)<=Math.min(2,S.expDays)).length;
   const wk=weekDays().map(iso),planned=S.menu.filter(x=>wk.includes(x.d)&&getR(x.rid)).length,nx=S.events.filter(e=>e.date>=t).sort((a,b)=>a.date.localeCompare(b.date))[0];
   $('#hP').textContent=[nx?`Prossima tavolata: ${nx.name}, ${new Date(nx.date+'T00:00').toLocaleDateString('it-IT',{weekday:'short',day:'numeric',month:'short'})}`:'',planned?`${planned} pasti in settimana`:''].filter(Boolean).join(' · ')||`${allR().length} piatti nel ricettario`;
   $('#hC').textContent=[m?`${slot==='pranzo'?'Oggi a pranzo':'Stasera'}: ${getR(m.rid).name}`:'',soon?`${soon} ${soon>1?'prodotti':'prodotto'} in scadenza`:''].filter(Boolean).join(' · ')||'Niente in programma oggi: scegli cosa cucinare';
 }
-$('#mS').onclick=()=>go(S.cart.length?'carrello':'lista');
-$('#mC').onclick=()=>go('oggi');
-$('#mP').onclick=()=>go('ricette');
-$('#homeB').onclick=()=>go('home');
-$('#aiSet').onclick=()=>aiSettings();
+$('#mS').onclick=()=>go('spesa');
+$('#mC').onclick=()=>go('cucino');
+$('#mP').onclick=()=>go('pasti');
+$('#homeB').onclick=()=>go(PARENT[cur]||'home');
+$('#toRic').onclick=()=>go('ricette');$('#newR2').onclick=()=>addMenu();$('#toSto').onclick=()=>go('storico');$('#nEv').onclick=()=>evSheet(null);
+$('#aiSet').onclick=()=>go('impostazioni');$('#gear').onclick=()=>go('impostazioni');
 $('#rcp').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;if(!hasAI()){aiSettings();toast("Per leggere lo scontrino collega l'IA");return}receipt(f)};
 $('#aiI').onclick=e=>aiIdeas(e.currentTarget);
-document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>go(b.dataset.t));
-$('#topTot').onclick=()=>go('carrello');
 addEventListener('hashchange',()=>go(location.hash.slice(1)));
 
 /* ---------- foglio (dialog) ---------- */
@@ -520,8 +519,8 @@ function editRecipe(name,r){
 /* ---------- modalità cucina ---------- */
 let K=null,wl=null;
 async function lock(){try{if(navigator.wakeLock)wl=await navigator.wakeLock.request('screen')}catch(e){}}
-document.addEventListener('visibilitychange',()=>{if(K&&document.visibilityState==='visible')lock()});
-function cook(r,n){K={r,n,i:0,t:null,iv:null,ring:false};lock();$('#cook').classList.add('on');document.body.style.overflow='hidden';drawK()}
+document.addEventListener('visibilitychange',()=>{if(K&&S.wake!==false&&document.visibilityState==='visible')lock()});
+function cook(r,n){K={r,n,i:0,t:null,iv:null,ring:false};if(S.wake!==false)lock();$('#cook').classList.add('on');document.body.style.overflow='hidden';drawK()}
 function closeCook(){if(!K)return;clearInterval(K.iv);K=null;$('#cook').classList.remove('on');document.body.style.overflow='';try{wl&&wl.release()}catch(e){}wl=null}
 const mmss=s=>{s=Math.max(0,Math.ceil(s));const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return(h?h+':'+pad(m):m)+':'+pad(x)};
 function beep(){try{const a=K&&K.ac;if(!a)return;const t=a.currentTime;for(let k=0;k<3;k++){const o=a.createOscillator(),g=a.createGain();o.frequency.value=880;o.connect(g);g.connect(a.destination);g.gain.setValueAtTime(.3,t+k*.5);g.gain.exponentialRampToValueAtTime(.001,t+k*.5+.35);o.start(t+k*.5);o.stop(t+k*.5+.4)}}catch(e){}try{navigator.vibrate&&navigator.vibrate([400,200,400])}catch(e){}}
@@ -568,18 +567,16 @@ function renderM(){
   S.menu=S.menu.filter(m=>getR(m.rid));
   const ds=weekDays(),t=iso(today0());
   $('#wTit').textContent=wOff===0?'Questa settimana':`${fmtD(ds[0])} – ${fmtD(ds[6])}`;
-  $('#ppl').textContent=S.people;
   $('#days').innerHTML=ds.map(d=>{const k=iso(d);return `<div class="day${k===t?' today':''}"><h3>${DN[d.getDay()]} ${d.getDate()}${k===t?' <span class="tag">oggi</span>':''}</h3>`+['pranzo','cena'].map(s=>{const m=S.menu.find(x=>x.d===k&&x.s===s);return `<div class="slot"><span>${s==='pranzo'?'Pranzo':'Cena'}</span>${m?`<button class="pick" data-open="${m.id}">${esc(getR(m.rid).name)} <small class="tag" style="font-weight:600">${m.n} pers.</small>${m.added?' <small class="tag w">in lista</small>':''}</button><button class="x" data-rm="${m.id}" aria-label="Togli">×</button>`:`<button class="pick e" data-add="${k}|${s}">+ Scegli un piatto</button>`}</div>`}).join('')+'</div>'}).join('');
   const keys=ds.map(iso),todo=S.menu.filter(m=>keys.includes(m.d)&&!m.added&&m.d>=t);
   const left=S.list.filter(x=>!x.done).length;
   $('#wShop').textContent=todo.length?`Metti in lista ${todo.length} ${todo.length>1?'piatti':'piatto'}`:`Vai alla lista della spesa${left?` (${left} da comprare)`:''}`;
-  $('#wShop').disabled=false;$('#wShop').onclick=()=>todo.length?shopFor(todo):go('lista');
+  $('#wShop').disabled=false;$('#wShop').onclick=()=>todo.length?shopFor(todo):go('spesa');
   $('#days').querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const[d,s]=b.dataset.add.split('|');pickRecipe(d,s)});
   $('#days').querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{S.menu.filter(m=>m.id===b.dataset.rm).forEach(unlistMenu);S.menu=S.menu.filter(m=>m.id!==b.dataset.rm);save();renderAll()});
   $('#days').querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>{const m=S.menu.find(x=>x.id===b.dataset.open);openRecipe(m.rid,m.n)});
 }
 $('#wPrev').onclick=()=>{wOff--;renderM()};$('#wNext').onclick=()=>{wOff++;renderM()};
-document.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{S.people=Math.max(1,Math.min(20,S.people+ +b.dataset.p));save();renderM()});
 function pickRecipe(d,s){
   const list=allR().map(r=>{const[h,t]=haveCount(r);return{r,h,t}}).sort((a,b)=>(b.h/b.t)-(a.h/a.t)||a.r.name.localeCompare(b.r.name));
   const dd=new Date(d+'T00:00:00');let n=S.people;
@@ -628,24 +625,34 @@ function unlistMenu(m){
   });
 }
 function renderL(){
-  const L=S.list,left=L.filter(x=>!x.done).length;
-  $('#lb').hidden=!left;$('#lb').textContent=left;
-  $('#ask').checked=S.ask;$('#lacts').style.display=L.length?'':'none';
-  if(!L.length){$('#lbody').innerHTML=`<div class="empty"><svg viewBox="0 0 72 72" fill="none"><rect x="14" y="8" width="44" height="56" rx="6" fill="var(--soft)"/><path d="M24 24h24M24 34h24M24 44h14" stroke="var(--leaf)" stroke-width="4" stroke-linecap="round"/></svg><br>La lista è vuota.<br>Scrivi qui sopra, oppure da <b>Cucino</b> scegli un piatto o il menu della settimana.</div>`;return}
-  let h='';
+  const L=S.list,todo=L.filter(x=>!x.done),done=L.filter(x=>x.done),extra=S.cart.filter(c=>!c.listId||!L.some(x=>x.id===c.listId));
+  if(!L.length&&!S.cart.length){$('#lbody').innerHTML=`<div class="empty"><svg viewBox="0 0 72 72" fill="none"><rect x="14" y="8" width="44" height="56" rx="6" fill="var(--soft)"/><path d="M24 24h24M24 34h24M24 44h14" stroke="var(--leaf)" stroke-width="4" stroke-linecap="round"/></svg><br>La lista è vuota.<br>Scrivi qui sopra, oppure scegli i piatti in <b>Programma pasti</b>: gli ingredienti arrivano da soli.</div>`;$('#clrAll').hidden=true;return}
+  $('#clrAll').hidden=!L.length;
+  const chk='<i><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8.5 3.2 3L13 4.5"/></svg></i>';
+  let h=todo.length?'':`<div class="today" style="text-align:center;margin-top:14px"><h3 style="margin:0">Hai preso tutto!</h3><p class="st" style="margin:6px 0 0">Quando hai finito tocca “Chiudi la spesa” qui sotto.</p></div>`;
   for(const k of REPORD){
-    const its=L.filter(x=>x.r===k).sort((a,b)=>a.done-b.done);if(!its.length)continue;
-    h+=`<div class="sec"><span>${REP[k]}</span><span>${its.filter(x=>x.done).length}/${its.length}</span></div><div class="list">`+its.map(x=>{
-      const c=x.done&&S.cart.find(c=>c.listId===x.id),p=!x.done&&inPantry(x.n);
-      return `<div class="it${x.done?' done':''}" data-id="${x.id}"><button class="ck" aria-label="Spunta ${esc(x.n)}"><i><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 8.5 3.2 3L13 4.5"/></svg></i></button>
-      <div class="tx"><b>${esc(x.n)}</b>${x.from.length||p?`<small>${esc(x.from.join(', '))}${p?' <span class="tag">ne hai in dispensa</span>':''}</small>`:''}</div>
-      ${c?`<span class="pr">${money(c.p*c.n)}</span>`:`<span class="qt">${esc(fmt(x.q,x.u))}</span>`}<button class="x" aria-label="Rimuovi">×</button></div>`}).join('')+'</div>';
+    const its=todo.filter(x=>x.r===k);if(!its.length)continue;
+    h+=`<div class="sec"><span>${REP[k]}</span><span>${its.length}</span></div><div class="list">`+its.map(x=>{const p=inPantry(x.n);
+      return `<div class="it" data-id="${x.id}"><button class="ck" aria-label="Spunta ${esc(x.n)}">${chk}</button><div class="tx"><b>${esc(x.n)}</b>${x.from.length||p?`<small>${esc(x.from.join(', '))}${p?' <span class="tag">ne hai in dispensa</span>':''}</small>`:''}</div><span class="qt">${esc(fmt(x.q,x.u))}</span><button class="x" data-del aria-label="Rimuovi">×</button></div>`}).join('')+'</div>';
+  }
+  const inC=[...done.map(x=>({x,c:S.cart.find(c=>c.listId===x.id)})),...extra.map(c=>({x:null,c}))];
+  if(inC.length){
+    h+=`<div class="sec" style="margin-top:26px"><span>Nel carrello</span><span>${inC.length}</span></div><div class="list">`+inC.map(({x,c})=>x
+      ?`<div class="it done" data-id="${x.id}"><button class="ck" aria-label="Togli la spunta a ${esc(x.n)}">${chk}</button><div class="tx" data-ed><b>${esc(x.n)}</b>${c&&c.n>1?`<small>${c.n} × ${money(c.p)}</small>`:''}</div>${c?`<span class="pr" data-ed>${money(c.p*c.n)}</span>`:'<button class="chip" data-pr style="min-height:34px">+ prezzo</button>'}</div>`
+      :`<div class="it" data-c="${c.id}" style="padding-left:14px"><div class="tx" data-ed><b>${esc(c.name)}</b><small>${c.n>1?c.n+' × '+money(c.p):'fuori lista'}</small></div><span class="pr" data-ed>${money(c.p*c.n)}</span><button class="x" data-cx aria-label="Togli">×</button></div>`).join('')+'</div>';
   }
   $('#lbody').innerHTML=h;
-  $('#lbody').querySelectorAll('.it').forEach(el=>{
-    const x=S.list.find(i=>i.id===el.dataset.id);
+  $('#lbody').querySelectorAll('.it[data-id]').forEach(el=>{
+    const x=S.list.find(i=>i.id===el.dataset.id),c=S.cart.find(c=>c.listId===x.id);
     el.querySelector('.ck').onclick=()=>toggle(x);
-    el.querySelector('.x').onclick=()=>{S.list=S.list.filter(i=>i!==x);S.cart=S.cart.filter(c=>c.listId!==x.id);save();renderAll()};
+    const d=el.querySelector('[data-del]');if(d)d.onclick=()=>{S.list=S.list.filter(i=>i!==x);save();renderAll()};
+    const pr=el.querySelector('[data-pr]');if(pr)pr.onclick=()=>priceSheet({name:x.n,listItem:x});
+    el.querySelectorAll('[data-ed]').forEach(e=>{e.style.cursor='pointer';e.onclick=()=>c?priceSheet({entry:c}):priceSheet({name:x.n,listItem:x})});
+  });
+  $('#lbody').querySelectorAll('.it[data-c]').forEach(el=>{
+    const c=S.cart.find(y=>y.id===el.dataset.c);
+    el.querySelectorAll('[data-ed]').forEach(e=>{e.style.cursor='pointer';e.onclick=()=>priceSheet({entry:c})});
+    el.querySelector('[data-cx]').onclick=()=>{S.cart=S.cart.filter(y=>y!==c);save();renderAll()};
   });
 }
 function toggle(x){
@@ -653,8 +660,6 @@ function toggle(x){
   if(S.ask)priceSheet({name:x.n,listItem:x});else{x.done=true;save();renderAll()}
 }
 $('#addF').onsubmit=e=>{e.preventDefault();const v=$('#addI').value.trim();if(!v)return;const p=parseIng(v);addToList(p.n,p.u==='qb'?0:p.q,p.u==='qb'?'':p.u,p.r);$('#addI').value='';save();renderL()};
-$('#ask').onchange=e=>{S.ask=e.target.checked;save()};
-$('#clrDone').onclick=()=>{S.list=S.list.filter(x=>!x.done);save();renderL()};
 $('#clrAll').onclick=()=>confirmBox('Svuotare la lista?','Tutti gli articoli verranno tolti dalla lista.',()=>{S.list=[];save();renderAll()},'Svuota');
 
 /* ---------- fotocamera: prezzo e codice a barre ---------- */
@@ -761,25 +766,18 @@ function priceSheet({name='',listItem=null,entry=null}){
 /* ---------- carrello ---------- */
 function shopNames(){return[...new Set([...S.hist.map(h=>h.shop),...S.prices.map(p=>p.shop)].filter(Boolean))]}
 function renderC(){
-  const t=cartTot();$('#ctot').textContent=money(t);$('#topTot').textContent=money(t);
-  const b=S.budget;
-  $('#bud').innerHTML=b?`${t<=b?'Restano <b>'+money(b-t)+'</b>':'Sei oltre di <b style="color:var(--tom)">'+money(t-b)+'</b>'} su un budget di ${money(b)}<div class="meter${t>b?' over':''}"><i style="width:${Math.min(100,t/b*100)}%"></i></div>`:'Imposta un budget per vedere quanto ti resta.';
-  if(document.activeElement!==$('#shopI'))$('#shopI').value=S.shop||'';
+  const t=cartTot(),b=S.budget;$('#ctot').textContent=money(t);$('#topTot').textContent=money(t);
+  $('#bud').innerHTML=b?(t<=b?`Restano ${money(b-t)} su ${money(b)}`:`<span style="color:var(--tom)">Oltre il budget di ${money(t-b)}</span>`):'Totale nel carrello';
   $('#shops').innerHTML=shopNames().map(s=>`<option value="${esc(s)}">`).join('');
-  const pcs=S.cart.reduce((a,c)=>a+c.n,0);$('#cn').textContent=pcs?pcs+' pezzi':'';
-  $('#cbody').innerHTML=S.cart.length?'<div class="list">'+S.cart.slice().reverse().map(c=>{const rs=priceRecs(c.name,c.code),l=rs.length&&rs[rs.length-1].p,d=l?c.p-l:0;return `<div class="it" data-id="${c.id}" style="padding-left:14px;cursor:pointer"><div class="tx"><b>${esc(c.name)}</b><small>${c.n>1?c.n+' × '+money(c.p):money(c.p)}${d>0.004?` <span class="tag r">+${money(d)}</span>`:d<-0.004?` <span class="tag">−${money(-d)}</span>`:''}</small></div><span class="pr">${money(c.p*c.n)}</span></div>`}).join('')+'</div>'
-  :`<div class="empty"><svg viewBox="0 0 72 72" fill="none"><path d="M10 14h8l6 30h30l6-22H20" stroke="var(--leaf)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="28" cy="56" r="5" fill="var(--tom)"/><circle cx="50" cy="56" r="5" fill="var(--tom)"/></svg><br>Carrello vuoto. Spunta la lista o fotografa un cartellino.</div>`;
-  $('#cbody').querySelectorAll('.it').forEach(el=>el.onclick=()=>priceSheet({entry:S.cart.find(c=>c.id===el.dataset.id)}));
   const now=new Date(),mk=d=>{d=new Date(d);return d.getFullYear()+'-'+d.getMonth()};
   const mt=S.hist.filter(h=>mk(h.d)===mk(now)).reduce((a,h)=>a+h.tot,0);
   $('#mtot').textContent=S.hist.length?'Questo mese '+money(mt):'';
   $('#hbody').innerHTML=S.hist.length?'<div class="list">'+S.hist.slice(-15).reverse().map(h=>`<div class="hrow"><div><b>${new Date(h.d).toLocaleDateString('it-IT',{weekday:'short',day:'numeric',month:'short'})}</b>${h.shop?' · '+esc(h.shop):''}<div style="color:var(--mute);font-size:13px">${h.n} articoli</div></div><span class="pr">${money(h.tot)}</span></div>`).join('')+'</div>'
   :'<div class="empty" style="padding:16px">Quando chiudi una spesa la trovi qui.</div>';
 }
-$('#shopI').onchange=$('#shopI').oninput=e=>{S.shop=e.target.value.trim();save()};
 $('#addP').onclick=()=>priceSheet({});
 $('#setB').onclick=()=>openSheet(`<h2>Budget della spesa</h2><input class="inp price" id="bv" inputmode="decimal" placeholder="0,00" value="${S.budget?trim(S.budget):''}" autofocus><p class="st">Lascia vuoto per non usare un budget.</p><div class="acts"><button class="btn ghost" data-c>Annulla</button><button class="btn pri" id="bs">Salva</button></div>`,p=>{
-  p.querySelector('[data-c]').onclick=closeSheet;p.querySelector('#bs').onclick=()=>{S.budget=parseFloat(p.querySelector('#bv').value.replace(',','.'))||0;save();closeSheet();renderC()}});
+  p.querySelector('[data-c]').onclick=closeSheet;p.querySelector('#bs').onclick=()=>{S.budget=parseFloat(p.querySelector('#bv').value.replace(',','.'))||0;save();closeSheet();renderC();if($('#v-impostazioni').classList.contains('on'))renderSet()}});
 $('#close').onclick=()=>{
   const done=S.list.filter(x=>x.done);
   if(!S.cart.length&&!done.length){toast('Il carrello è vuoto');return}
@@ -981,7 +979,7 @@ async function aiIdeas(btn){
   if(!S.pantry.length){toast('La dispensa è vuota: aggiungi cosa hai in casa');return}
   btn.disabled=true;btn.textContent='Penso a qualcosa di buono…';
   try{
-    const exp=S.pantry.filter(p=>p.exp&&daysTo(p.exp)<=3).map(p=>p.n);
+    const exp=S.pantry.filter(p=>p.exp&&daysTo(p.exp)<=S.expDays).map(p=>p.n);
     const t=await aiCall(`Ho in casa: ${S.pantry.map(p=>p.n+(p.q?` (${fmt(p.q,p.u)})`:'')).join(', ')}.${exp.length?` Stanno per scadere: ${exp.join(', ')}.`:''}${S.diet?` Deve essere ${DSHORT[S.diet]}.`:''}
 Proponi 3 piatti italiani di casa per ${S.people} persone che usino soprattutto questi ingredienti (prima quelli in scadenza), aggiungendo al massimo pochi ingredienti comuni.
 Rispondi SOLO con un array JSON di 3 ricette, ognuna in questo formato: ${RFMT(S.people)}`);
@@ -994,7 +992,7 @@ Rispondi SOLO con un array JSON di 3 ricette, ognuna in questo formato: ${RFMT(S
 
 /* ---------- oggi in cucina ---------- */
 function suggest(){
-  return allR().map(r=>{const need=r.ing.filter(i=>i.u!=='qb'),have=need.filter(i=>inPantry(i.n)),miss=need.filter(i=>!inPantry(i.n)),exp=have.map(i=>inPantry(i.n)).filter(p=>p.exp&&daysTo(p.exp)<=3);return{r,ratio:need.length?have.length/need.length:0,have,miss,exp}})
+  return allR().map(r=>{const need=r.ing.filter(i=>i.u!=='qb'),have=need.filter(i=>inPantry(i.n)),miss=need.filter(i=>!inPantry(i.n)),exp=have.map(i=>inPantry(i.n)).filter(p=>p.exp&&daysTo(p.exp)<=S.expDays);return{r,ratio:need.length?have.length/need.length:0,have,miss,exp}})
   .filter(x=>x.have.length&&(!S.diet||diets(x.r)[S.diet])).sort((a,b)=>(b.ratio+(b.exp.length?.35:0))-(a.ratio+(a.exp.length?.35:0))).slice(0,5);
 }
 function renderO(){
@@ -1010,7 +1008,7 @@ function renderO(){
   $('#obody').querySelectorAll('[data-cook]').forEach(b=>b.onclick=()=>{const m=S.menu.find(x=>x.id===b.dataset.cook);cook(getR(m.rid),m.n)});
   $('#obody').querySelectorAll('[data-see]').forEach(b=>b.onclick=()=>{const m=S.menu.find(x=>x.id===b.dataset.see);openRecipe(m.rid,m.n)});
   $('#obody').querySelectorAll('[data-ecook]').forEach(b=>b.onclick=()=>{const[e,i]=b.dataset.ecook.split('|');const it=S.events.find(x=>x.id===e).items.find(x=>x.id===i);cook(getR(it.rid),it.n)});
-  $('#obody').querySelectorAll('[data-ev]').forEach(b=>b.onclick=()=>{curEv=b.dataset.ev;go('tavolate')});
+  $('#obody').querySelectorAll('[data-ev]').forEach(b=>b.onclick=()=>{curEv=b.dataset.ev;go('tavolata')});
   const sg=suggest();
   $('#sugs').innerHTML=sg.length?sg.map(x=>`<button class="sug" data-id="${esc(x.r.id)}"><b>${esc(x.r.name)}</b><small>${x.miss.length?'Ti manca: '+esc(x.miss.map(i=>i.n).join(', ')):'Hai tutto!'}${x.exp.length?` · <span class="tag w">usa ${esc([...new Set(x.exp.map(p=>p.n))].join(', '))}</span>`:''}</small><div class="bar"><i style="width:${Math.round(x.ratio*100)}%"></i></div></button>`).join('')
   :'<div class="empty" style="padding:14px">Aggiungi cosa hai in casa e qui ti suggerisco i piatti.</div>';
@@ -1024,23 +1022,18 @@ const GLAB={vegan:['vegano','vegani'],veg:['vegetariano','vegetariani'],gf:['sen
 const gTxt=(k,c)=>c+' '+GLAB[k][c>1?1:0];
 function unmet(r,e){const d=diets(r),u=[];for(const k of ['vegan','veg','gf','lf'])if(e.g[k]&&!d[k])u.push(k);return u}
 function stepsMin(r){return(r.st||[]).reduce((a,x)=>a+mins(x),0)}
+function renderTL(){
+  const t=iso(today0()),up=S.events.filter(x=>!x.date||x.date>=t).sort((a,b)=>(a.date||'9').localeCompare(b.date||'9')),past=S.events.filter(x=>x.date&&x.date<t).sort((a,b)=>b.date.localeCompare(a.date));
+  const card=x=>`<button class="ev" data-id="${x.id}"><b>${esc(x.name)}</b><small>${x.date?new Date(x.date+'T00:00').toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'}):'Data da decidere'} · ${x.N} persone · ${x.items.length} piatti</small></button>`;
+  $('#tlist').innerHTML=(up.length?up.map(card).join(''):'<p class="st">Organizzi una cena? Dimmi quanti siete e chi ha esigenze particolari: ti aiuto con menu, dosi, spesa e cosa preparare prima.</p>')+(past.length?'<details style="margin-top:10px"><summary class="st" style="cursor:pointer;font-weight:700">Cene passate ('+past.length+')</summary>'+past.map(card).join('')+'</details>':'');
+  $('#tlist').querySelectorAll('.ev').forEach(b=>b.onclick=()=>{curEv=b.dataset.id;go('tavolata')});
+}
 function renderT(){
   const tb=$('#tbody');const e=S.events.find(x=>x.id===curEv);
-  if(!e){curEv=null;
-    const t=iso(today0()),up=S.events.filter(x=>x.date>=t).sort((a,b)=>a.date.localeCompare(b.date)),past=S.events.filter(x=>x.date<t).sort((a,b)=>b.date.localeCompare(a.date));
-    const card=x=>`<button class="ev" data-id="${x.id}"><b>${esc(x.name)}</b><small>${x.date?new Date(x.date+'T00:00').toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'}):'Data da decidere'} · ${x.N} persone · ${x.items.length} piatti</small></button>`;
-    tb.innerHTML=`<div class="row" style="justify-content:space-between"><h2 style="font-size:24px">Cene e tavolate</h2><button class="btn pri" id="nEv">+ Nuova</button></div>
-    <p class="st">Dimmi quanti siete e chi ha esigenze particolari: ti aiuto con il menu, le dosi, la spesa e cosa preparare prima.</p>
-    ${up.length?up.map(card).join(''):'<div class="empty">Nessuna tavolata in programma.</div>'}
-    ${past.length?'<div class="sec"><span>Passate</span></div>'+past.map(card).join(''):''}`;
-    $('#nEv').onclick=()=>evSheet(null);
-    tb.querySelectorAll('.ev').forEach(b=>b.onclick=()=>{curEv=b.dataset.id;renderT();window.scrollTo(0,0)});
-    return;
-  }
+  if(!e){tb.innerHTML='';return}
   e.items=e.items.filter(i=>getR(i.rid));
   const gl=Object.entries(e.g).filter(([k,v])=>v).map(([k,v])=>gTxt(k,v));
-  let h=`<button class="btn sm ghost" id="back">‹ Tutte le tavolate</button>
-  <div class="today" style="border-left:6px solid var(--lemon)"><h3 style="margin-bottom:2px">${esc(e.name)}</h3><small>${e.date?new Date(e.date+'T00:00').toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'}):'Data da decidere'} · ${e.N} persone${gl.length?' · tra cui '+esc(gl.join(', ')):''}</small>
+  let h=`<div class="today" style="border-left:6px solid var(--lemon)"><h3 style="margin-bottom:2px">${esc(e.name)}</h3><small>${e.date?new Date(e.date+'T00:00').toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'}):'Data da decidere'} · ${e.N} persone${gl.length?' · tra cui '+esc(gl.join(', ')):''}</small>
   <div class="row" style="margin-top:12px"><button class="btn pri" id="auto" style="flex:1">${e.items.length?'Completa il menu':'Proponi un menu'}</button><button class="btn ghost" id="edE">Modifica</button></div></div>`;
   for(const[c,l]of COURSES){
     const its=e.items.filter(i=>i.course===c);
@@ -1055,10 +1048,9 @@ function renderT(){
   }
   h+=`<button class="btn ghost wide" id="delE" style="color:var(--tom)">Elimina tavolata</button>`;
   tb.innerHTML=h;
-  $('#back').onclick=()=>{curEv=null;renderT()};
   $('#edE').onclick=()=>evSheet(e);
   $('#auto').onclick=()=>{let k=0;COURSES.forEach(([c])=>{if(!e.items.some(i=>i.course===c)){proposeCourse(e,c);k++}});save();renderT();toast(k?'Ecco una proposta: cambia quello che vuoi':'Il menu è già completo')};
-  $('#delE').onclick=()=>confirmBox('Eliminare la tavolata?',e.name,()=>{S.events=S.events.filter(x=>x!==e);curEv=null;save();renderAll()},'Elimina');
+  $('#delE').onclick=()=>confirmBox('Eliminare la tavolata?',e.name,()=>{S.events=S.events.filter(x=>x!==e);curEv=null;save();renderAll();go('pasti')},'Elimina');
   const es=$('#eShop');if(es)es.onclick=()=>shopFor(e.items.filter(i=>!i.added),'Spesa per '+e.name);
   tb.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>pickCourse(e,b.dataset.add));
   tb.querySelectorAll('[data-sug]').forEach(b=>b.onclick=()=>{const c=b.dataset.sug;e.items=e.items.filter(i=>i.course!==c);proposeCourse(e,c);save();renderT()});
@@ -1102,10 +1094,90 @@ function evSheet(e){
     p.querySelector('#ok').onclick=()=>{
       o.name=p.querySelector('#en').value.trim()||'Tavolata';o.date=p.querySelector('#edt').value;
       if(e){const scale=o.N/e.N;Object.assign(e,{name:o.name,date:o.date,g:o.g});if(o.N!==e.N){e.items.forEach(i=>{i.n=Math.max(1,Math.round(i.n*scale));i.added=false});e.N=o.N}}
-      else{const ne={id:uid(),name:o.name,date:o.date,N:o.N,g:o.g,items:[]};S.events.push(ne);curEv=ne.id}
+      else{const ne={id:uid(),name:o.name,date:o.date,N:o.N,g:o.g,items:[]};S.events.push(ne);curEv=ne.id;setTimeout(()=>go('tavolata'),0)}
       save();closeSheet();renderAll();
     };
   });
+}
+
+
+/* ---------- impostazioni ---------- */
+function applyLook(){
+  const r=document.documentElement;
+  if(S.theme){r.dataset.theme=S.theme;r.dataset.ownTheme='1'}else if(r.dataset.ownTheme){delete r.dataset.theme;delete r.dataset.ownTheme}
+  document.body.style.zoom=S.big?'1.12':'';
+  const mc=document.querySelector('meta[name=theme-color]');if(mc)mc.content=S.theme==='dark'?'#163f25':'#1f5c34';
+}
+const sizeKB=()=>{try{return Math.round((localStorage.getItem(KEY)||'').length/1024)}catch(e){return 0}};
+async function exportData(){
+  const d={...S,ai:{...S.ai,key:''}};
+  const blob=new Blob([JSON.stringify({app:'SpesaChef',version:'3.2',date:new Date().toISOString(),data:d},null,1)],{type:'application/json'});
+  const name=`SpesaChef-backup-${iso(new Date())}.json`;
+  try{const f=new File([blob],name,{type:'application/json'});
+    if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'Backup SpesaChef'});S.lastBackup=Date.now();save();renderAll();toast('Backup pronto');return}
+  }catch(e){if(e&&e.name==='AbortError')return}
+  try{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);S.lastBackup=Date.now();save();renderAll();toast('Backup scaricato')}
+  catch(e){toast('Il backup non si può scaricare qui: usa l\'app installata')}
+}
+function importData(file){
+  const fr=new FileReader();
+  fr.onload=()=>{let o;try{o=JSON.parse(fr.result)}catch(e){toast('File non valido');return}
+    if(!o||o.app!=='SpesaChef'||!o.data){toast('Questo non è un backup di SpesaChef');return}
+    const d=o.data,c=k=>(d[k]||[]).length;
+    confirmBox('Ripristinare il backup?',`Backup del ${new Date(o.date).toLocaleString('it-IT',{dateStyle:'medium',timeStyle:'short'})}: ${c('mine')} ricette tue, ${c('list')} articoli in lista, ${c('pantry')} in dispensa, ${c('hist')} spese. I dati attuali verranno sostituiti.`,()=>{
+      const key=S.ai.key;S={...DEF(),...d};if(!S.ai||!S.ai.key)S.ai={...(S.ai||DEF().ai),key};save();applyLook();renderCats();renderAll();go('impostazioni');toast('Backup ripristinato')},'Ripristina');
+  };
+  fr.readAsText(file);
+}
+function renderSet(){
+  const seg=(id,opts,val)=>`<div class="seg" id="${id}">${opts.map(([v,l])=>`<button data-v="${v}" class="${String(val)===String(v)?'on':''}">${l}</button>`).join('')}</div>`;
+  const sw=(id,on)=>`<input type="checkbox" class="sw" id="${id}"${on?' checked':''}>`;
+  const bd=S.lastBackup?new Date(S.lastBackup).toLocaleDateString('it-IT',{day:'numeric',month:'long',year:'numeric'}):'mai';
+  $('#setbody').innerHTML=`
+  <div class="sec"><span>Aspetto</span></div><div class="list">
+    <div class="srow"><span>Tema</span>${seg('sTheme',[['','Auto'],['light','Chiaro'],['dark','Scuro']],S.theme)}</div>
+    <div class="srow"><span>Testo più grande<small>Ingrandisce tutta l'app</small></span>${sw('sBig',S.big)}</div>
+    <div class="srow"><span>Schermata di avvio</span>${sw('sSplash',S.splash!==false)}</div>
+  </div>
+  <div class="sec"><span>Casa</span></div><div class="list">
+    <div class="srow"><span>Persone in casa<small>Dosi predefinite per ricette e menu</small></span>${stepper('sPpl',S.people)}</div>
+    <div class="srow" style="display:block"><span>Dieta di casa<small>Filtra ricettario, idee e suggerimenti</small></span><div class="chips dchips" id="sDiet" style="padding-bottom:0"></div></div>
+  </div>
+  <div class="sec"><span>Spesa</span></div><div class="list">
+    <div class="srow"><span>Chiedi il prezzo alla spunta</span>${sw('sAsk',S.ask)}</div>
+    <div class="srow"><span>Budget della spesa<small>${S.budget?money(S.budget):'Nessuno'}</small></span><button class="btn sm ghost" id="sBud">Cambia</button></div>
+    <div class="srow"><span>Negozio abituale<small>${esc(S.shop||'Nessuno')}</small></span><button class="btn sm ghost" id="sShop">Cambia</button></div>
+  </div>
+  <div class="sec"><span>Cucina e dispensa</span></div><div class="list">
+    <div class="srow"><span>Avvisa delle scadenze<small>Quanti giorni prima</small></span>${seg('sExp',[[1,'1'],[2,'2'],[3,'3'],[5,'5'],[7,'7']],S.expDays)}</div>
+    <div class="srow"><span>Schermo sempre acceso<small>Mentre segui una ricetta</small></span>${sw('sWake',S.wake!==false)}</div>
+  </div>
+  <div class="sec"><span>Intelligenza artificiale</span></div><div class="list">
+    <div class="srow"><span>${hasAI()?AINAME[S.ai.prov]+' collegato':'Non collegata'}<small>Ricette, scontrini e idee dalla dispensa</small></span><button class="btn sm ${hasAI()?'ghost':'pri'}" id="sAI">${hasAI()?'Gestisci':'Collega'}</button></div>
+  </div>
+  <div class="sec"><span>Backup</span></div><div class="list">
+    <div class="srow"><span>Salva un backup<small>Ultimo: ${bd}. Su iPhone scegli “Salva su File” o iCloud Drive.</small></span><button class="btn sm pri" id="sExp2">Salva</button></div>
+    <div class="srow"><span>Ripristina da un backup<small>Sostituisce i dati di questo telefono</small></span><label class="btn sm ghost" style="display:grid;place-items:center;cursor:pointer"><input type="file" accept=".json,application/json" id="sImp" hidden>Apri file</label></div>
+  </div>
+  <div class="sec"><span>Dati</span><span>${sizeKB()} KB usati</span></div><div class="list">
+    <div class="srow"><span>Storico spese e prezzi<small>${S.hist.length} spese, ${S.prices.length} prezzi</small></span><button class="btn sm ghost" id="sClrH">Svuota</button></div>
+    <div class="srow"><span>Cancella tutti i dati<small>Ricette tue, liste, dispensa, menu, tavolate</small></span><button class="btn sm ghost" id="sReset" style="color:var(--tom)">Cancella</button></div>
+  </div>`;
+  $('#setfoot').innerHTML=`SpesaChef v4.0 · Ricette · Spesa · Dispensa<br>${allR().length} ricette (${S.mine.length} tue) · © Marco – diritti riservati`;
+  const segOn=(id,f)=>$('#'+id).querySelectorAll('button').forEach(b=>b.onclick=()=>{f(b.dataset.v);save();applyLook();renderAll();renderSet()});
+  segOn('sTheme',v=>S.theme=v);segOn('sExp',v=>S.expDays=+v);
+  const swOn=(id,f)=>$('#'+id).onchange=e=>{f(e.target.checked);save();applyLook();renderAll()};
+  swOn('sBig',v=>S.big=v);swOn('sSplash',v=>S.splash=v);swOn('sAsk',v=>S.ask=v);swOn('sWake',v=>S.wake=v);
+  bindStep($('#setbody'),'sPpl',()=>S.people,v=>{S.people=v;save();renderM()},1,20);
+  $('#sDiet').innerHTML=`<button class="chip${S.diet?'':' on'}" data-d="">Nessuna</button>`+DIETS.map(([k,l])=>`<button class="chip${S.diet===k?' on':''}" data-d="${k}">${l}</button>`).join('');
+  $('#sDiet').querySelectorAll('button').forEach(b=>b.onclick=()=>{S.diet=b.dataset.d;save();renderCats();renderAll();renderSet()});
+  $('#sBud').onclick=()=>$('#setB').click();
+  $('#sShop').onclick=()=>openSheet(`<h2>Negozio abituale</h2><input class="inp" id="shn" list="shops" value="${esc(S.shop)}" placeholder="Es. Coop" autofocus><div class="acts"><button class="btn ghost" data-c>Annulla</button><button class="btn pri" id="ok">Salva</button></div>`,p=>{p.querySelector('[data-c]').onclick=closeSheet;p.querySelector('#ok').onclick=()=>{S.shop=p.querySelector('#shn').value.trim();save();closeSheet();renderAll();renderSet()}});
+  $('#sAI').onclick=()=>aiSettings();
+  $('#sExp2').onclick=()=>exportData();
+  $('#sImp').onchange=e=>{const f=e.target.files[0];e.target.value='';if(f)importData(f)};
+  $('#sClrH').onclick=()=>confirmBox('Svuotare lo storico?','Spese passate e storico dei prezzi verranno cancellati.',()=>{S.hist=[];S.prices=[];save();renderAll();renderSet()},'Svuota');
+  $('#sReset').onclick=()=>confirmBox('Cancellare tutti i dati?','Ti consiglio di salvare prima un backup. Questa operazione non si può annullare.',()=>confirmBox('Sei proprio sicuro?','Tutti i dati di SpesaChef su questo telefono verranno cancellati.',()=>{const ai=S.ai;S={...DEF(),ai};save();applyLook();renderCats();renderAll();go('home');toast('Dati cancellati')},'Sì, cancella tutto'),'Continua');
 }
 
 /* ---------- dispensa ---------- */
@@ -1114,21 +1186,21 @@ function addPantry(o){
   if(ex){ex.q=(ex.q||0)+(o.q||0);if(o.exp&&(!ex.exp||o.exp<ex.exp))ex.exp=o.exp}
   else S.pantry.push({id:uid(),n:o.n,q:o.q||0,u:o.u||'pz',r:o.r||guess(o.n),exp:o.exp||'',code:o.code||null});
 }
-function expTag(p){if(!p.exp)return '';const d=daysTo(p.exp);return d<0?'<span class="tag r">scaduto</span>':d===0?'<span class="tag r">scade oggi</span>':d===1?'<span class="tag w">scade domani</span>':d<=3?`<span class="tag w">scade tra ${d} giorni</span>`:`<span class="tag" style="color:var(--mute)">${new Date(p.exp+'T00:00').toLocaleDateString('it-IT',{day:'numeric',month:'short'})}</span>`}
+function expTag(p){if(!p.exp)return '';const d=daysTo(p.exp);return d<0?'<span class="tag r">scaduto</span>':d===0?'<span class="tag r">scade oggi</span>':d===1?'<span class="tag w">scade domani</span>':d<=S.expDays?`<span class="tag w">scade tra ${d} giorni</span>`:`<span class="tag" style="color:var(--mute)">${new Date(p.exp+'T00:00').toLocaleDateString('it-IT',{day:'numeric',month:'short'})}</span>`}
 function renderD(){
-  const soon=S.pantry.filter(p=>p.exp&&daysTo(p.exp)<=2).length;$('#db').hidden=!soon;$('#db').textContent=soon;
-  const q=norm($('#dq').value);
-  const P=S.pantry.filter(p=>!q||norm(p.n).includes(q)).sort((a,b)=>(a.exp||'9999').localeCompare(b.exp||'9999')||a.n.localeCompare(b.n));
-  if(!S.pantry.length){$('#dbody').innerHTML='<div class="sec"><span>In dispensa</span></div><div class="empty">La dispensa è vuota. Quando chiudi una spesa, i prodotti finiscono qui da soli.</div>';return}
-  const grp=[['Scaduti o in scadenza',P.filter(p=>p.exp&&daysTo(p.exp)<=3)],['In dispensa',P.filter(p=>!p.exp||daysTo(p.exp)>3)]];
-  $('#dbody').innerHTML=grp.filter(g=>g[1].length).map(([t,a])=>`<div class="sec"><span>${t}</span><span>${a.length}</span></div><div class="list">`+a.map(p=>`<div class="it" data-id="${p.id}" style="padding-left:14px"><div class="tx" style="cursor:pointer"><b>${esc(p.n)}</b><small>${esc(fmt(p.q,p.u))} ${expTag(p)}</small></div><button class="x" data-m aria-label="Togline uno">−</button><button class="x" data-x aria-label="Finito">×</button></div>`).join('')+'</div>').join('');
+  const P=S.pantry.slice().sort((a,b)=>(a.exp||'9999').localeCompare(b.exp||'9999')||a.n.localeCompare(b.n));
+  if(!P.length){$('#dbody').innerHTML='<p class="st">La dispensa è vuota. Quando chiudi una spesa, quello che hai comprato arriva qui da solo.</p>';return}
+  const row=p=>`<div class="it" data-id="${p.id}" style="padding-left:14px"><div class="tx" style="cursor:pointer"><b>${esc(p.n)}</b><small>${esc(fmt(p.q,p.u))} ${expTag(p)}</small></div><button class="x" data-m aria-label="Togline uno">−</button><button class="x" data-x aria-label="Finito">×</button></div>`;
+  const soon=P.filter(p=>p.exp&&daysTo(p.exp)<=S.expDays),rest=P.filter(p=>!soon.includes(p));
+  $('#dbody').innerHTML=(soon.length?'<p class="st" style="margin:0 0 6px;font-weight:700">In scadenza</p><div class="list">'+soon.map(row).join('')+'</div>':'')
+    +(rest.length?`<details${soon.length?'':' open'} style="margin-top:12px"><summary style="cursor:pointer;font-weight:700;min-height:36px">${soon.length?'Tutto il resto':'Tutto quello che hai'} (${rest.length})</summary><div class="list">${rest.map(row).join('')}</div></details>`:'');
   $('#dbody').querySelectorAll('.it').forEach(el=>{const p=S.pantry.find(x=>x.id===el.dataset.id);
     el.querySelector('.tx').onclick=()=>pantrySheet(p);
     el.querySelector('[data-x]').onclick=()=>{S.pantry=S.pantry.filter(x=>x!==p);save();renderAll()};
     el.querySelector('[data-m]').onclick=()=>{const s=p.u==='g'||p.u==='ml'?Math.min(p.q,100):1;p.q-=s;if(p.q<=0.01)S.pantry=S.pantry.filter(x=>x!==p);save();renderAll()};
   });
 }
-$('#dq').oninput=renderD;
+
 $('#addD').onclick=()=>pantrySheet(null);
 function pantrySheet(p){
   const U=[['pz','pezzi'],['g','grammi'],['ml','millilitri'],['mazzetto','mazzetti'],['spicchio','spicchi']];
@@ -1154,9 +1226,10 @@ function pantrySheet(p){
   });
 }
 
-function renderAll(){renderR();renderM();renderL();renderC();renderD();renderS();renderO();renderT();if(document.body.classList.contains('home'))renderH()}
+function renderAll(){renderR();renderM();renderTL();renderL();renderC();renderD();renderS();renderO();renderT();if(document.body.classList.contains('home'))renderH()}
 renderCats();renderAll();go('home');
-const sp=$('#splash');setTimeout(()=>{sp.classList.add('out');setTimeout(()=>sp.remove(),500)},matchMedia('(prefers-reduced-motion: reduce)').matches?500:1400);sp.onclick=()=>sp.classList.add('out');
+applyLook();
+const sp=$('#splash');if(S.splash===false){sp.remove()}else setTimeout(()=>{sp.classList.add('out');setTimeout(()=>sp.remove(),500)},matchMedia('(prefers-reduced-motion: reduce)').matches?500:1400);if(S.splash!==false)sp.onclick=()=>sp.classList.add('out');
 }
 </script>
 </body>
