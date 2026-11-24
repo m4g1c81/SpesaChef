@@ -135,14 +135,29 @@ textarea.inp{min-height:130px;resize:vertical}
 @media (prefers-reduced-motion:reduce){#splash svg{animation:none}}
 .homeb{width:44px;height:44px;border:0;border-radius:12px;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;flex:none}.homeb svg{width:24px;height:24px}.homeb[hidden],.tot[hidden]{display:none}
 .hello h2{font-size:clamp(30px,8vw,40px)}.hello p{margin:4px 0 16px;color:var(--mute);font-size:17px}
-.mode{display:grid;align-content:end;width:100%;min-height:clamp(200px,32vh,280px);border:0;border-radius:26px;padding:22px;margin-bottom:14px;text-align:left;color:#fff;position:relative;overflow:hidden;box-shadow:0 10px 24px -14px rgba(0,0,0,.45);transition:transform .15s}
+.mode{display:grid;align-content:end;width:100%;min-height:clamp(150px,23vh,210px);border:0;border-radius:26px;padding:22px;margin-bottom:14px;text-align:left;color:#fff;position:relative;overflow:hidden;box-shadow:0 10px 24px -14px rgba(0,0,0,.45);transition:transform .15s}
 .mode:active{transform:scale(.98)}
+.mode.pasti{background:linear-gradient(150deg,#f6c445,#de8f12);color:#2b1d00}.mode.pasti .go{background:rgba(255,255,255,.35)}
 .mode.spesa{background:linear-gradient(150deg,#2f7d47,#174a29)}.mode.cucina{background:linear-gradient(150deg,#e8553f,#a82a17)}
-.mode svg{position:absolute;right:-6px;top:10px;width:clamp(150px,44vw,210px);height:auto}
-.mode b{font:700 clamp(28px,8vw,36px)/1.05 Rubik,sans-serif;position:relative}
+.mode svg{position:absolute;right:-4px;top:8px;width:clamp(120px,36vw,170px);height:auto}
+.mode b{font:700 clamp(26px,7.4vw,34px)/1.05 Rubik,sans-serif;position:relative;max-width:68%}
 .mode small{display:block;font-size:15px;font-weight:600;opacity:.92;margin-top:6px;position:relative;max-width:70%}
 .mode .go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:rgba(255,255,255,.2);border-radius:99px;padding:6px 14px;font-weight:700;font-size:14px;width:max-content;position:relative}
-.tabs{grid-template-columns:repeat(4,minmax(0,1fr))}.tabs button.hid{display:none}body.home .tabs{display:none}body.home main{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+.tabs{display:flex}.tabs button{flex:1 1 0}.tabs button.hid{display:none}body.home .tabs{display:none}body.home main{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+.dchips .chip{font-size:13px;min-height:34px;padding:5px 12px}.dchips .chip.on{background:var(--leaf);border-color:var(--leaf);color:#fff}
+.dt{display:inline-block;font-size:11px;font-weight:700;border-radius:6px;padding:1px 6px;margin:2px 3px 0 0;background:var(--soft);color:var(--leaf)}
+.opt{display:flex;gap:14px;align-items:center;width:100%;text-align:left;border:0;background:var(--card);border-radius:16px;padding:14px;margin-top:10px;box-shadow:0 1px 0 var(--line)}
+.opt i{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--soft);color:var(--leaf);font:700 20px Rubik,sans-serif;font-style:normal}
+.opt b{display:block;font-family:Rubik,sans-serif;font-size:17px}.opt small{color:var(--mute);font-size:14px}
+.ev{display:block;width:100%;text-align:left;border:0;background:var(--card);border-radius:16px;padding:14px 16px;margin-top:10px;box-shadow:0 1px 0 var(--line);border-left:6px solid var(--lemon)}
+.ev b{font-family:Rubik,sans-serif;font-size:18px}.ev small{display:block;color:var(--mute);font-size:14px;margin-top:2px}
+.course{background:var(--card);border-radius:16px;box-shadow:0 1px 0 var(--line);padding:10px 12px;margin-top:10px}
+.course h3{font-size:16px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.dish{display:flex;align-items:center;gap:8px;border-top:1px solid var(--line);padding:6px 0}
+.dish .nm{flex:1;border:0;background:none;text-align:left;padding:4px 0;font-weight:700;line-height:1.25}.dish .nm small{display:block;font-weight:600;color:var(--mute);font-size:13px}
+.mini{display:flex;align-items:center;gap:4px}.mini button{width:34px;height:34px;border:0;border-radius:9px;background:var(--soft);font-weight:700;font-size:18px}.mini span{min-width:2ch;text-align:center;font-weight:700}
+.today{background:var(--card);border-radius:18px;box-shadow:0 1px 0 var(--line);padding:16px;margin-top:10px}
+.today small{color:var(--mute);font-weight:700;font-size:13px}.today h3{font-size:21px;margin:2px 0 10px}
 .top .tl{display:block;font:600 12px "Nunito Sans",sans-serif;color:#cfe5d4;letter-spacing:.2px;margin-top:2px}
 </style>
 </head>
@@ -156,19 +171,23 @@ textarea.inp{min-height:130px;resize:vertical}
  <path d="M420 560 L492 628 L624 480" fill="none" stroke="#f2c230" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"/>
  <circle cx="660" cy="736" r="34" fill="#e0412b"/><path d="M652 704q10-14 22-8" stroke="#2f7d47" stroke-width="10" fill="none" stroke-linecap="round"/>
 </g>
-</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v2.2 · © Marco – diritti riservati</small></div>
+</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v3.1 · © Marco – diritti riservati</small></div>
 <header class="top"><div class="in"><button class="homeb" id="homeB" aria-label="Torna alla home" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></button><div style="flex:1"><h1>Spesa<span>Chef</span></h1><span class="tl">Ricette · Spesa · Dispensa</span></div><button class="tot" id="topTot" aria-label="Vai al carrello">€ 0,00</button></div></header>
 
 <main>
 <section class="view" id="v-home">
   <div class="hello"><h2 id="hi">Ciao!</h2><p>Che cosa fai adesso?</p></div>
+  <button class="mode pasti" id="mP"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="112" cy="188" rx="80" ry="8" fill="#000" opacity=".12"/><rect x="46" y="30" width="128" height="150" rx="14" fill="#fff"/><rect x="46" y="30" width="128" height="34" rx="14" fill="#2f7d47"/><rect x="46" y="50" width="128" height="14" fill="#2f7d47"/><circle cx="80" cy="30" r="7" fill="#2b1d00"/><circle cx="140" cy="30" r="7" fill="#2b1d00"/><path d="M66 86h88M66 110h88M66 134h60" stroke="#f2d48a" stroke-width="10" stroke-linecap="round"/><circle cx="160" cy="150" r="30" fill="#e0412b"/><path d="M148 150l9 9 16-18" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Programma pasti</b><small id="hP"></small><span class="go">Ricettario, settimana, tavolate →</span></button>
   <button class="mode spesa" id="mS"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="186" rx="80" ry="8" fill="#000" opacity=".15"/><circle cx="92" cy="52" r="26" fill="#f2c230"/><circle cx="128" cy="58" r="24" fill="#e0412b"/><path d="M124 36q8-10 16-4" stroke="#7cc08f" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M60 58h104l-6 34" fill="none"/><rect x="146" y="40" width="22" height="44" rx="6" fill="#eaf1e6"/><path d="M20 30h26l24 104h106l16-70H58" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 98h118" stroke="#fff" stroke-width="8" opacity=".55"/><circle cx="84" cy="164" r="13" fill="#fff"/><circle cx="160" cy="164" r="13" fill="#fff"/></svg><b>Faccio la spesa</b><small id="hS"></small><span class="go">Lista, carrello, prezzi →</span></button>
-  <button class="mode cucina" id="mC"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="188" rx="84" ry="8" fill="#000" opacity=".15"/><path d="M84 40q-12-14 0-28M110 36q-12-14 0-28M136 40q-12-14 0-28" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".7"/><rect x="40" y="86" width="140" height="92" rx="20" fill="#fff"/><rect x="40" y="86" width="140" height="18" rx="9" fill="#ffe2dc"/><rect x="18" y="104" width="30" height="14" rx="7" fill="#fff"/><rect x="172" y="104" width="30" height="14" rx="7" fill="#fff"/><path d="M34 74h152" stroke="#f2c230" stroke-width="12" stroke-linecap="round"/><rect x="96" y="56" width="28" height="16" rx="8" fill="#f2c230"/><circle cx="140" cy="140" r="14" fill="#e0412b" opacity=".85"/><path d="M76 140h36" stroke="#e0412b" stroke-width="8" stroke-linecap="round" opacity=".5"/></svg><b>Cucino</b><small id="hC"></small><span class="go">Ricette, menu, dispensa →</span></button>
-  <p class="foot">SpesaChef v2.2 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
+  <button class="mode cucina" id="mC"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="188" rx="84" ry="8" fill="#000" opacity=".15"/><path d="M84 40q-12-14 0-28M110 36q-12-14 0-28M136 40q-12-14 0-28" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".7"/><rect x="40" y="86" width="140" height="92" rx="20" fill="#fff"/><rect x="40" y="86" width="140" height="18" rx="9" fill="#ffe2dc"/><rect x="18" y="104" width="30" height="14" rx="7" fill="#fff"/><rect x="172" y="104" width="30" height="14" rx="7" fill="#fff"/><path d="M34 74h152" stroke="#f2c230" stroke-width="12" stroke-linecap="round"/><rect x="96" y="56" width="28" height="16" rx="8" fill="#f2c230"/><circle cx="140" cy="140" r="14" fill="#e0412b" opacity=".85"/><path d="M76 140h36" stroke="#e0412b" stroke-width="8" stroke-linecap="round" opacity=".5"/></svg><b>Cucino</b><small id="hC"></small><span class="go">Oggi in cucina, dispensa →</span></button>
+  <button class="btn ghost wide" id="aiSet" style="margin-top:4px"></button>
+  <p class="foot">SpesaChef v3.1 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
 </section>
 <section class="view" id="v-ricette">
-  <div class="row"><input class="inp" id="q" placeholder="Che cosa vuoi cucinare?" style="flex:1" autocomplete="off"><button class="btn pri" id="newR">+ Ricetta</button></div>
+  <div class="row"><input class="inp" id="q" placeholder="Cerca un piatto o un ingrediente" style="flex:1" autocomplete="off"><button class="btn pri" id="newR">+ Aggiungi</button></div>
   <div class="chips" id="cats"></div>
+  <div class="chips dchips" id="diets" style="padding-top:4px"></div>
+  <p class="st" id="dnote" hidden style="font-size:13px">Etichette calcolate dagli ingredienti: con allergie o celiachia controlla sempre le confezioni (brodo, cioccolato, lievito…). Parmigiano e grana sono naturalmente privi di lattosio ma usano caglio animale.</p>
   <div class="grid" id="rgrid"></div>
   </section>
 
@@ -195,7 +214,7 @@ textarea.inp{min-height:130px;resize:vertical}
     <div id="bud" style="color:var(--mute);font-size:14px"></div>
     <label class="l" for="shopI" style="display:block;font-weight:700;font-size:14px;margin:14px 0 4px">Negozio</label>
     <input class="inp" id="shopI" list="shops" placeholder="Dove stai facendo la spesa?" autocomplete="off"><datalist id="shops"></datalist>
-    <div class="acts"><button class="btn pri" id="addP">+ Prodotto</button><button class="btn red" id="close">Chiudi la spesa</button></div>
+    <div class="acts"><button class="btn pri" id="addP">+ Prodotto</button><label class="btn" style="display:grid;place-items:center;cursor:pointer;flex:1 1 120px"><input type="file" accept="image/*" id="rcp" hidden>Foto scontrino</label><button class="btn red" id="close">Chiudi la spesa</button></div>
   </div>
   <div class="sec"><span>Nel carrello</span><span id="cn"></span></div>
   <div id="cbody"></div>
@@ -211,16 +230,27 @@ textarea.inp{min-height:130px;resize:vertical}
 
 <section class="view" id="v-dispensa">
   <div class="row"><input class="inp" id="dq" placeholder="Cerca in dispensa" style="flex:1" autocomplete="off"><button class="btn pri" id="addD">+ Aggiungi</button></div>
-  <div class="sec"><span>Cosa puoi cucinare con quello che hai</span></div>
-  <div id="sugs"></div>
   <div id="dbody"></div>
 </section>
+
+<section class="view" id="v-oggi">
+  <h2 id="oTit" style="font-size:26px"></h2>
+  <div id="obody"></div>
+  <div class="sec"><span>Con quello che hai in dispensa</span></div>
+  <div id="sugs"></div>
+  <div id="aisugs"></div>
+  <button class="btn ghost wide" id="aiI">Altre idee con l'IA</button>
+</section>
+
+<section class="view" id="v-tavolate"><div id="tbody"></div></section>
 </main>
 
 <nav class="tabs">
   <button data-t="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/></svg>Home</button>
-  <button data-t="ricette"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 13h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z"/><path d="M4 13h16M9 9c0-2 2-2 2-4M13 9c0-2 2-2 2-4"/></svg>Ricette</button>
-  <button data-t="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Menu</button>
+  <button data-t="tavolate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="5"/><path d="M3 4v6a2 2 0 0 0 2 2v8M5 4v4M21 4c-2 0-3 2-3 5s1 3 3 3v8"/></svg>Tavolate</button>
+  <button data-t="oggi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14v4a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5z"/><path d="M3 11h18M9 7c0-1.5 1.5-1.5 1.5-3M13.5 7c0-1.5 1.5-1.5 1.5-3"/></svg>Oggi</button>
+  <button data-t="ricette"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 13h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z"/><path d="M4 13h16M9 9c0-2 2-2 2-4M13 9c0-2 2-2 2-4"/></svg>Ricettario</button>
+  <button data-t="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Settimana</button>
   <button data-t="lista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="m3 6 1.5 1.5L7 5M3 12l1.5 1.5L7 11"/><circle cx="5" cy="18" r="1.3"/></svg>Lista<span class="badge" id="lb" hidden></span></button>
   <button data-t="carrello"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h10.2L20 8H6.2"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg>Carrello</button>
   <button data-t="storico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>Storico</button>
@@ -247,8 +277,8 @@ const KEY='spesachef.v1';
 
 const REP={V:'Frutta e verdura',P:'Pane e pasta',C:'Carne e pesce',L:'Latticini e uova',S:'Surgelati',D:'Dispensa',A:'Altro'};
 const REPORD='VPCLSDA';
-const CATS=['Tutte','Primi','Secondi','Piatti unici','Contorni','Forno','Dolci','Le mie'];
-const CATC={Primi:'#f2c230',Secondi:'#e8735f',"Piatti unici":'#7cc08f',Contorni:'#a6d16a',Forno:'#e9a94c',Dolci:'#e7a0c0'};
+const CATS=['Tutte','Antipasti','Primi','Secondi','Piatti unici','Contorni','Forno','Dolci','Le mie'];
+const CATC={Antipasti:'#8fd0c4',Primi:'#f2c230',Secondi:'#e8735f',"Piatti unici":'#7cc08f',Contorni:'#a6d16a',Forno:'#e9a94c',Dolci:'#e7a0c0'};
 
 const B=[
 ['Spaghetti alla carbonara','Primi',4,[['Spaghetti',320,'g','P'],['Guanciale',150,'g','C'],['Uova',4,'pz','L'],['Pecorino romano',60,'g','L'],['Pepe nero',0,'qb','D']],
@@ -288,14 +318,54 @@ const B=[
 ['Tiramisù','Dolci',6,[['Savoiardi',300,'g','D'],['Mascarpone',500,'g','L'],['Uova',4,'pz','L'],['Zucchero',100,'g','D'],['Caffè',300,'ml','D'],['Cacao amaro',0,'qb','D']],
 ["Prepara il caffè e lascialo raffreddare.","Separa i tuorli dagli albumi. Monta i tuorli con lo zucchero, poi aggiungi il mascarpone.","Monta gli albumi a neve ben ferma e incorporali piano alla crema.","Inzuppa veloce i savoiardi nel caffè e alterna strati di savoiardi e crema.","Lascia in frigo almeno 4 ore e spolvera di cacao prima di servire."]],
 ['Pancake','Dolci',4,[['Farina 00',200,'g','D'],['Latte',300,'ml','L'],['Uova',2,'pz','L'],['Zucchero',30,'g','D'],['Lievito per dolci',8,'g','D'],['Burro',30,'g','L']],
-["Mescola farina, zucchero e lievito.","In un'altra ciotola sbatti uova, latte e burro fuso, poi uniscili alla farina senza lavorare troppo.","Scalda una padella antiaderente appena unta e versa un mestolino di impasto.","Cuoci 2 min finché compaiono le bolle, gira e cuoci ancora 1 min."]]
+["Mescola farina, zucchero e lievito.","In un'altra ciotola sbatti uova, latte e burro fuso, poi uniscili alla farina senza lavorare troppo.","Scalda una padella antiaderente appena unta e versa un mestolino di impasto.","Cuoci 2 min finché compaiono le bolle, gira e cuoci ancora 1 min."]],
+['Bruschette al pomodoro','Antipasti',4,[['Pane casereccio',400,'g','P'],['Pomodori',500,'g','V'],['Aglio',1,'spicchio','V'],['Basilico',1,'mazzetto','V'],['Olio extravergine',0,'qb','D'],['Sale',0,'qb','D']],
+["Taglia i pomodori a cubetti e condiscili con olio, sale e basilico spezzato. Lasciali insaporire 15 min.","Taglia il pane a fette e tostalo in forno o sulla griglia per 5 min.","Strofina l'aglio sul pane caldo e completa con i pomodori."]],
+['Hummus di ceci','Antipasti',4,[['Ceci cotti',400,'g','D'],['Tahina',40,'g','D'],['Limone',1,'pz','V'],['Aglio',1,'spicchio','V'],['Olio extravergine',0,'qb','D'],['Paprika',0,'qb','D']],
+["Scola e sciacqua i ceci, tenendo da parte un po' del loro liquido.","Frulla ceci, tahina, succo di limone, aglio e olio fino a una crema liscia, aggiungendo liquido se serve.","Servi con un filo d'olio e la paprika, insieme a verdure crude o pane."]],
+['Tagliere di salumi e formaggi','Antipasti',6,[['Prosciutto crudo',200,'g','C'],['Salame',150,'g','C'],['Parmigiano',200,'g','L'],['Pecorino',150,'g','L'],['Pane casereccio',300,'g','P'],['Miele',0,'qb','D']],
+["Togli i formaggi dal frigo 30 min prima di servire.","Taglia i formaggi a scaglie o a cubetti e disponi i salumi a ventaglio sul tagliere.","Accompagna con pane, miele e confetture."]],
+['Torta salata spinaci e ricotta','Antipasti',6,[['Pasta sfoglia',1,'pz','P'],['Spinaci',500,'g','V'],['Ricotta',250,'g','L'],['Uova',2,'pz','L'],['Parmigiano',50,'g','L'],['Noce moscata',0,'qb','D']],
+["Cuoci gli spinaci in padella per 5 min, strizzali bene e tritali.","Mescola spinaci, ricotta, uova, parmigiano, sale, pepe e noce moscata.","Stendi la sfoglia in una teglia, versa il ripieno e ripiega i bordi.","Cuoci in forno a 190 °C per 35 min."]],
+['Pasta e ceci','Primi',4,[['Ditalini',280,'g','P'],['Ceci cotti',500,'g','D'],['Pomodori pelati',200,'g','D'],['Aglio',1,'spicchio','V'],['Rosmarino',1,'rametto','V'],['Olio extravergine',0,'qb','D']],
+["Rosola aglio e rosmarino nell'olio per 2 min.","Aggiungi i ceci e i pelati, copri con acqua e cuoci 15 min.","Frulla metà dei ceci e rimettili in pentola per una minestra cremosa.","Aggiungi la pasta e cuoci 10 min, unendo acqua calda se serve."]],
+['Pasta alla Norma','Primi',4,[['Rigatoni',320,'g','P'],['Melanzane',2,'pz','V'],['Passata di pomodoro',500,'ml','D'],['Ricotta salata',80,'g','L'],['Basilico',1,'mazzetto','V'],['Aglio',1,'spicchio','V'],['Olio di semi',0,'qb','D']],
+["Taglia le melanzane a cubetti e friggile finché sono dorate, poi scolale su carta assorbente.","Prepara il sugo con aglio, olio e passata e cuoci 15 min.","Cuoci la pasta al dente, circa 11 min.","Condisci con sugo, melanzane e basilico e completa con ricotta salata grattugiata."]],
+['Risotto alla zucca','Primi',4,[['Riso Carnaroli',320,'g','D'],['Zucca',600,'g','V'],['Cipolla',1,'pz','V'],['Brodo vegetale',1200,'ml','D'],['Burro',40,'g','L'],['Parmigiano',60,'g','L']],
+["Taglia la zucca a cubetti e trita la cipolla. Scalda il brodo.","Fai appassire la cipolla nel burro, aggiungi la zucca e cuoci 10 min.","Unisci il riso, tostalo 2 min, poi aggiungi il brodo un mestolo alla volta per circa 18 min.","Spegni, manteca con il parmigiano e lascia riposare 2 min."]],
+['Spaghetti aglio, olio e peperoncino','Primi',4,[['Spaghetti',320,'g','P'],['Aglio',3,'spicchio','V'],['Prezzemolo',1,'mazzetto','V'],['Olio extravergine',80,'ml','D'],['Peperoncino',0,'qb','D']],
+["Cuoci gli spaghetti in acqua salata, circa 10 min.","Intanto scalda l'olio a fuoco basso con l'aglio a fettine e il peperoncino, senza far bruciare l'aglio.","Scola al dente e salta la pasta in padella con un mestolo di acqua di cottura e il prezzemolo tritato."]],
+['Curry di ceci e spinaci','Secondi',4,[['Ceci cotti',500,'g','D'],['Spinaci',300,'g','V'],['Latte di cocco',400,'ml','D'],['Pomodori pelati',400,'g','D'],['Cipolla',1,'pz','V'],['Riso basmati',300,'g','D'],['Curry',0,'qb','D']],
+["Trita la cipolla e falla appassire nell'olio con il curry per 3 min.","Aggiungi pelati, ceci e latte di cocco e cuoci 15 min.","Unisci gli spinaci e cuoci altri 5 min.","Intanto cuoci il riso basmati, circa 12 min, e servilo con il curry."]],
+['Chili sin carne','Piatti unici',4,[['Fagioli rossi cotti',500,'g','D'],['Mais in scatola',150,'g','D'],['Peperone',1,'pz','V'],['Cipolla',1,'pz','V'],['Pomodori pelati',400,'g','D'],['Cumino',0,'qb','D'],['Paprika',0,'qb','D']],
+["Trita cipolla e peperone e soffriggili nell'olio per 5 min.","Aggiungi le spezie, poi pelati, fagioli e mais.","Cuoci a fuoco basso per 25 min, mescolando ogni tanto.","Servi con riso o con tortillas di mais."]],
+['Polpette di lenticchie','Secondi',4,[['Lenticchie cotte',400,'g','D'],['Pangrattato',80,'g','P'],['Carota',1,'pz','V'],['Cipolla',1,'pz','V'],['Prezzemolo',1,'mazzetto','V'],['Cumino',0,'qb','D']],
+["Grattugia la carota e trita la cipolla.","Schiaccia le lenticchie e impastale con verdure, prezzemolo, cumino, sale e pangrattato.","Forma le polpette e mettile su una teglia con carta forno, con un filo d'olio.","Cuoci in forno a 200 °C per 20 min, girandole a metà."]],
+["Orata al cartoccio",'Secondi',4,[['Orate',2,'pz','C'],['Pomodorini',200,'g','V'],['Olive',50,'g','D'],['Limone',1,'pz','V'],['Prezzemolo',1,'mazzetto','V'],['Olio extravergine',0,'qb','D']],
+["Accendi il forno a 200 °C. Pulisci le orate o falle pulire in pescheria.","Metti ogni orata su un foglio di carta forno con pomodorini, olive, fette di limone, prezzemolo, sale e olio.","Chiudi bene i cartocci e cuoci per 25 min.","Apri i cartocci a tavola."]],
+['Scaloppine al limone','Secondi',4,[['Fettine di vitello',600,'g','C'],['Farina 00',50,'g','D'],['Burro',40,'g','L'],['Limone',1,'pz','V'],['Prezzemolo',1,'mazzetto','V']],
+["Batti le fettine e infarinale leggermente.","Sciogli il burro in padella e cuoci le fettine 2 min per lato.","Aggiungi il succo di limone e un po' d'acqua e lascia addensare la salsa 2 min.","Completa con prezzemolo tritato e servi subito."]],
+['Verdure grigliate','Contorni',4,[['Zucchine',2,'pz','V'],['Melanzane',1,'pz','V'],['Peperoni',2,'pz','V'],['Olio extravergine',0,'qb','D'],['Sale',0,'qb','D']],
+["Taglia le verdure a fette sottili e i peperoni a falde.","Cuocile su una griglia ben calda 3 min per lato.","Condisci con olio, sale e, se ti piace, menta o prezzemolo."]],
+['Insalata di quinoa e verdure','Piatti unici',4,[['Quinoa',300,'g','D'],['Zucchine',1,'pz','V'],['Pomodorini',200,'g','V'],['Ceci cotti',240,'g','D'],['Limone',1,'pz','V'],['Basilico',1,'mazzetto','V'],['Olio extravergine',0,'qb','D']],
+["Sciacqua la quinoa e cuocila in acqua salata per 15 min, poi scolala e falla raffreddare.","Taglia zucchine e pomodorini a cubetti e scotta le zucchine in padella 3 min.","Unisci quinoa, verdure, ceci, basilico, succo di limone, olio e sale."]],
+['Panna cotta','Dolci',6,[['Panna fresca',500,'ml','L'],['Zucchero',80,'g','D'],['Gelatina in fogli',8,'g','D'],['Vaniglia',0,'qb','D']],
+["Ammolla la gelatina in acqua fredda per 10 min.","Scalda la panna con zucchero e vaniglia senza farla bollire, poi spegni e sciogli dentro la gelatina strizzata.","Versa negli stampini e lascia in frigo almeno 4 ore.","Servi con frutti di bosco, caramello o cioccolato."]],
+['Torta di mele','Dolci',8,[['Mele',3,'pz','V'],['Farina 00',250,'g','D'],['Zucchero',150,'g','D'],['Uova',3,'pz','L'],['Burro',100,'g','L'],['Latte',100,'ml','L'],['Lievito per dolci',16,'g','D']],
+["Accendi il forno a 180 °C. Sbuccia le mele e tagliale a fettine.","Monta uova e zucchero, poi aggiungi burro fuso, latte, farina e lievito.","Versa in una teglia imburrata e copri con le mele.","Cuoci per 45 min e lascia raffreddare prima di sformare."]],
+['Torta al cacao vegana','Dolci',8,[['Farina 00',250,'g','D'],['Zucchero',150,'g','D'],['Cacao amaro',40,'g','D'],['Latte di soia',250,'ml','L'],['Olio di semi',80,'ml','D'],['Lievito per dolci',16,'g','D']],
+["Accendi il forno a 180 °C.","Mescola farina, zucchero, cacao e lievito; aggiungi latte di soia e olio e mescola fino a un impasto liscio.","Versa in una teglia foderata e cuoci per 35 min."]],
+['Crostata di marmellata','Dolci',8,[['Farina 00',300,'g','D'],['Burro',150,'g','L'],['Zucchero',120,'g','D'],['Uova',2,'pz','L'],['Marmellata',300,'g','D']],
+["Impasta velocemente farina, burro freddo a pezzi, zucchero e uova fino a una palla liscia.","Avvolgi la frolla nella pellicola e lasciala in frigo 30 min.","Stendi due terzi della frolla in una teglia, riempi con la marmellata e fai le strisce con il resto.","Cuoci in forno a 180 °C per 35 min."]],
+['Macedonia di frutta','Dolci',4,[['Mele',2,'pz','V'],['Banane',2,'pz','V'],['Arance',2,'pz','V'],['Kiwi',2,'pz','V'],['Limone',1,'pz','V'],['Zucchero',30,'g','D']],
+["Sbuccia la frutta e tagliala a pezzetti.","Condisci con succo di limone e zucchero e mescola.","Lascia riposare in frigo 30 min prima di servire."]]
 ].map((r,i)=>({id:'b'+i,name:r[0],cat:r[1],serv:r[2],ing:r[3].map(x=>({n:x[0],q:x[1],u:x[2],r:x[3]})),st:r[4]}));
 
-let S={mine:[],list:[],cart:[],hist:[],budget:0,ask:true,pantry:[],menu:[],prices:[],codes:{},people:2,shop:''};
+let S={mine:[],list:[],cart:[],hist:[],budget:0,ask:true,pantry:[],menu:[],prices:[],codes:{},people:2,shop:'',diet:'',events:[],ai:{prov:'gemini',key:'',model:''}};
 try{const d=JSON.parse(localStorage.getItem(KEY));if(d)S={...S,...d}}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 
-const UL={spicchio:['spicchio','spicchi'],mazzetto:['mazzetto','mazzetti'],rametto:['rametto','rametti'],costa:['costa','coste'],bustina:['bustina','bustine'],pz:['','']};
+const UL={cucchiaio:['cucchiaio','cucchiai'],cucchiaino:['cucchiaino','cucchiaini'],bicchiere:['bicchiere','bicchieri'],pizzico:['pizzico','pizzichi'],foglia:['foglia','foglie'],fetta:['fetta','fette'],vasetto:['vasetto','vasetti'],scatola:['scatola','scatole'],confezione:['confezione','confezioni'],spicchio:['spicchio','spicchi'],mazzetto:['mazzetto','mazzetti'],rametto:['rametto','rametti'],costa:['costa','coste'],bustina:['bustina','bustine'],pz:['','']};
 const trim=v=>String(+(+v).toFixed(2)).replace('.',',');
 function fmt(q,u){
   if(u==='qb')return 'q.b.';
@@ -309,6 +379,20 @@ const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''
 function same(a,b){a=norm(a);b=norm(b);if(!a||!b)return false;if(a===b||a.includes(b)||b.includes(a))return true;const fa=a.split(' ')[0],fb=b.split(' ')[0];return fa.length>=4&&fa===fb}
 const inPantry=n=>S.pantry.find(p=>same(p.n,n));
 const allR=()=>[...B,...S.mine];
+const MEAT=/pollo|manzo|maial|vitello|macinat|guancial|pancett|prosciut|salam|salsicc|speck|bresaola|tacchin|agnello|conigli|spezzatin|carne|salmon|tonno|pesce|merluzz|gamber|vongol|cozz|acciug|alic[ie]|calamar|polpo|baccal|orat[ae]|branzin|sgombr|gelatin|strutto/;
+const ANIMAL=/uov|tuorl|albume|latte(?! (?:di )?(soia|riso|mandorl|avena|cocco))|burro|formagg|mozzar|parmig|pecorin|grana|ricott|mascarp|panna|yogurt|stracchin|scamorz|fontin|gorgonz|miele|savoiard|besciamell|provol|feta|crescenza/;
+const GLUTEN=/farina(?! (?:di )?(riso|mais|ceci|mandorl|grano saraceno|castagne))|pasta|spaghett|penne|trofie|ditalin|fusill|rigaton|tagliatell|lasagn|sfogli|pane|pangratt|grissin|cracker|biscott|savoiard|cous ?cous|farro|orzo|seitan|frisell|piadin|gnocch|semola|bulgur/;
+const LACT=/latte(?! (?:di )?(soia|riso|mandorl|avena|cocco))|burro|mozzar|ricott|mascarp|panna|yogurt|stracchin|scamorz|fontin|gorgonz|besciamell|provol|feta|crescenza|pecorin|formaggio fresco/;
+const DIETS=[['vegan','Vegano'],['veg','Vegetariano'],['gf','Senza glutine'],['lf','Senza lattosio']];
+const DSHORT={vegan:'vegano',veg:'vegetariano',gf:'senza glutine',lf:'senza lattosio'};
+const dietCache=new Map();
+function diets(r){
+  const key=r.id+'|'+r.ing.map(i=>i.n).join(',');if(dietCache.has(key))return dietCache.get(key);
+  const t=r.ing.map(i=>norm(i.n)).join(' | '),chk=(re,tag)=>r.ing.some(i=>{const n=norm(i.n);return !n.includes(tag)&&re.test(n)});
+  const veg=!chk(MEAT,'vegetal'),d={veg,vegan:veg&&!chk(ANIMAL,'vegan'),gf:!chk(GLUTEN,'senza glutine'),lf:!chk(LACT,'senza lattosio')};
+  dietCache.set(key,d);return d;
+}
+const dietTags=r=>{const d=diets(r);return(d.vegan?'<span class="dt">vegano</span>':d.veg?'<span class="dt">vegetariano</span>':'')+(d.gf?'<span class="dt">senza glutine</span>':'')+(d.lf?'<span class="dt">senza lattosio</span>':'')};
 const getR=id=>allR().find(r=>r.id===id);
 const cartTot=()=>S.cart.reduce((a,c)=>a+c.p*c.n,0);
 function mins(t){let m=t.match(/(\d+)(?:\s*[-–]\s*(\d+))?\s*or[ae]\b/i);if(m)return(+(m[2]||m[1]))*60;m=t.match(/(\d+)(?:\s*[-–]\s*(\d+))?\s*min/i);return m?+(m[2]||m[1]):0}
@@ -317,7 +401,7 @@ let toastT;
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),2000)}
 
 /* ---------- navigazione ---------- */
-const MODES={spesa:['lista','carrello','storico'],cucina:['ricette','menu','dispensa']};
+const MODES={pasti:['ricette','menu','tavolate'],spesa:['lista','carrello','storico'],cucina:['oggi','dispensa']};
 const modeOf=t=>Object.keys(MODES).find(m=>MODES[m].includes(t))||null;
 function go(t){
   if(t!=='home'&&!modeOf(t))t='home';
@@ -326,19 +410,26 @@ function go(t){
   document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+t));
   document.querySelectorAll('.tabs button').forEach(b=>{b.classList.toggle('on',b.dataset.t===t);b.classList.toggle('hid',b.dataset.t!=='home'&&modeOf(b.dataset.t)!==m)});
   $('#homeB').hidden=!m;$('#topTot').hidden=m!=='spesa';
-  if(!m)renderH();if(t==='storico')renderS();
+  if(!m)renderH();if(t==='storico')renderS();if(t==='oggi')renderO();if(t==='tavolate')renderT();
   if(location.hash!=='#'+t)history.replaceState(null,'','#'+t);window.scrollTo(0,0)}
 function renderH(){
   const h=new Date().getHours();$('#hi').textContent=h<12?'Buongiorno!':h<18?'Buon pomeriggio!':'Buonasera!';
   const left=S.list.filter(x=>!x.done).length,ct=cartTot();
   $('#hS').textContent=ct?`Carrello aperto: ${money(ct)}`+(left?` · ancora ${left} in lista`:''):left?`${left} ${left>1?'articoli':'articolo'} in lista`:'La lista è vuota';
+  $('#aiSet').textContent=hasAI()?`IA collegata: ${AINAME[S.ai.prov]} · Impostazioni`:'Collega l\'IA (Gemini) · Impostazioni';
   const t=iso(today0()),slot=h<15?'pranzo':'cena',m=S.menu.find(x=>x.d===t&&x.s===slot&&getR(x.rid));
   const soon=S.pantry.filter(p=>p.exp&&daysTo(p.exp)<=2).length;
-  $('#hC').textContent=[m?`${slot==='pranzo'?'Oggi a pranzo':'Stasera'}: ${getR(m.rid).name}`:'',soon?`${soon} ${soon>1?'prodotti':'prodotto'} in scadenza`:''].filter(Boolean).join(' · ')||`${allR().length} ricette pronte`;
+  const wk=weekDays().map(iso),planned=S.menu.filter(x=>wk.includes(x.d)&&getR(x.rid)).length,nx=S.events.filter(e=>e.date>=t).sort((a,b)=>a.date.localeCompare(b.date))[0];
+  $('#hP').textContent=[nx?`Prossima tavolata: ${nx.name}, ${new Date(nx.date+'T00:00').toLocaleDateString('it-IT',{weekday:'short',day:'numeric',month:'short'})}`:'',planned?`${planned} pasti in settimana`:''].filter(Boolean).join(' · ')||`${allR().length} piatti nel ricettario`;
+  $('#hC').textContent=[m?`${slot==='pranzo'?'Oggi a pranzo':'Stasera'}: ${getR(m.rid).name}`:'',soon?`${soon} ${soon>1?'prodotti':'prodotto'} in scadenza`:''].filter(Boolean).join(' · ')||'Niente in programma oggi: scegli cosa cucinare';
 }
 $('#mS').onclick=()=>go(S.cart.length?'carrello':'lista');
-$('#mC').onclick=()=>{const t=iso(today0()),slot=new Date().getHours()<15?'pranzo':'cena';go(S.menu.some(x=>x.d===t&&x.s===slot)?'menu':'ricette')};
+$('#mC').onclick=()=>go('oggi');
+$('#mP').onclick=()=>go('ricette');
 $('#homeB').onclick=()=>go('home');
+$('#aiSet').onclick=()=>aiSettings();
+$('#rcp').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;if(!hasAI()){aiSettings();toast("Per leggere lo scontrino collega l'IA");return}receipt(f)};
+$('#aiI').onclick=e=>aiIdeas(e.currentTarget);
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>go(b.dataset.t));
 $('#topTot').onclick=()=>go('carrello');
 addEventListener('hashchange',()=>go(location.hash.slice(1)));
@@ -354,18 +445,18 @@ function bindStep(p,id,get,set,min=1,max=30){p.querySelectorAll(`[data-s="${id}"
 
 /* ---------- ricette ---------- */
 let cat='Tutte';
-function renderCats(){$('#cats').innerHTML=CATS.map(c=>`<button class="chip${c===cat?' on':''}" data-c="${c}">${c}</button>`).join('');$('#cats').querySelectorAll('button').forEach(b=>b.onclick=()=>{cat=b.dataset.c;renderCats();renderR()})}
+function renderCats(){$('#diets').innerHTML=`<button class="chip${S.diet?'':' on'}" data-d="">Tutte le diete</button>`+DIETS.map(([k,l])=>`<button class="chip${S.diet===k?' on':''}" data-d="${k}">${l}</button>`).join('');$('#diets').querySelectorAll('button').forEach(b=>b.onclick=()=>{S.diet=b.dataset.d;save();renderCats();renderR()});$('#dnote').hidden=!S.diet;$('#cats').innerHTML=CATS.map(c=>`<button class="chip${c===cat?' on':''}" data-c="${c}">${c}</button>`).join('');$('#cats').querySelectorAll('button').forEach(b=>b.onclick=()=>{cat=b.dataset.c;renderCats();renderR()})}
 function haveCount(r){const need=r.ing.filter(i=>i.u!=='qb');return[need.filter(i=>inPantry(i.n)).length,need.length]}
 function renderR(){
   const q=$('#q').value.trim().toLowerCase();
-  const rs=allR().filter(r=>(cat==='Tutte'||(cat==='Le mie'?r.mine:r.cat===cat))&&(!q||r.name.toLowerCase().includes(q)||r.ing.some(i=>i.n.toLowerCase().includes(q))));
-  $('#rgrid').innerHTML=rs.length?rs.map(r=>{const[h,t]=haveCount(r);return `<button class="rc" data-id="${esc(r.id)}" style="--c:${CATC[r.cat]||'var(--soft)'}"><h3>${esc(r.name)}</h3><small>${esc(r.cat)} · ${t} ingredienti${h?` · <span class="tag">${h} in casa</span>`:''}</small></button>`}).join('')
+  const rs=allR().filter(r=>(!S.diet||diets(r)[S.diet])&&(cat==='Tutte'||(cat==='Le mie'?r.mine:r.cat===cat))&&(!q||r.name.toLowerCase().includes(q)||r.ing.some(i=>i.n.toLowerCase().includes(q))));
+  $('#rgrid').innerHTML=rs.length?rs.map(r=>{const[h,t]=haveCount(r);return `<button class="rc" data-id="${esc(r.id)}" style="--c:${CATC[r.cat]||'var(--soft)'}"><h3>${esc(r.name)}</h3><small>${esc(r.cat)} · ${t} ingredienti${h?` · <span class="tag">${h} in casa</span>`:''}<br>${dietTags(r)}</small></button>`}).join('')
   :`<div class="empty" style="grid-column:1/-1">Nessuna ricetta trovata.<br><button class="btn pri" style="margin-top:12px" id="mk">Crea “${esc($('#q').value.trim()||'nuova ricetta')}”</button></div>`;
   $('#rgrid').querySelectorAll('.rc').forEach(b=>b.onclick=()=>openRecipe(b.dataset.id));
   const mk=$('#mk');if(mk)mk.onclick=()=>editRecipe($('#q').value.trim());
 }
 $('#q').oninput=renderR;
-$('#newR').onclick=()=>editRecipe('');
+$('#newR').onclick=()=>addMenu();
 
 function openRecipe(id,n0){
   const r=getR(id);if(!r)return;let n=n0||S.people;
@@ -375,7 +466,7 @@ function openRecipe(id,n0){
     pane.querySelectorAll('#ings input').forEach(c=>c.onchange=()=>{sel[c.dataset.k]=c.checked;cnt()});cnt();
   };
   const cnt=()=>{const k=sel.filter(Boolean).length;pane.querySelector('#go').textContent=k?`Metti ${k} in lista`:'Niente da comprare';pane.querySelector('#go').disabled=!k};
-  openSheet(`<h2>${esc(r.name)}</h2>
+  openSheet(`<h2>${esc(r.name)}</h2><div style="margin:-6px 0 10px">${dietTags(r)}</div>
   <div class="row" style="justify-content:space-between"><span style="font-weight:700">Persone</span>${stepper('srv',n)}</div>
   <p class="st">Togli la spunta a quello che hai già in casa.</p><div id="ings"></div>
   <div class="acts">${r.mine?'<button class="btn ghost" id="del">Elimina</button><button class="btn ghost" id="ed">Modifica</button>':''}<button class="btn" id="ck">Cucina ora</button><button class="btn pri" id="go"></button></div>`,p=>{
@@ -386,18 +477,26 @@ function openRecipe(id,n0){
     draw();
   });
 }
+const UNIT=String.raw`kg|g|gr|grammi|ml|l|lt|litr[oi]|cl|pz|pezz[oi]|spicchi?o?|mazzett[oi]|ramett[oi]|cost[ae]|bustin[ae]|cucchiain[oi]|cucchia[io]|bicchier[ei]|pizzic[oh]i?|fogli[ae]|fett[ae]|vasett[oi]|scatol[ae]|confezion[ei]|lattin[ae]`;
+function normU(u,q){u=(u||'pz').toLowerCase();
+  if(u==='kg')return['g',q*1000];if(u==='gr'||u==='grammi')return['g',q];if(/^(l|lt|litr)/.test(u))return['ml',q*1000];if(u==='cl')return['ml',q*10];if(u.startsWith('pezz'))return['pz',q];
+  const map=[['spicch','spicchio'],['mazz','mazzetto'],['ram','rametto'],['cost','costa'],['bust','bustina'],['cucchiain','cucchiaino'],['cucchia','cucchiaio'],['bicch','bicchiere'],['pizzic','pizzico'],['fogli','foglia'],['fett','fetta'],['vas','vasetto'],['scat','scatola'],['conf','confezione'],['latt','lattina']];
+  for(const[k,v]of map)if(u.startsWith(k))return[v,q];return[u,q]}
 function parseIng(line){
-  line=line.trim();if(!line)return null;
-  const m=line.match(/^(\d+(?:[.,]\d+)?)\s*(kg|g|gr|ml|l|lt|pz|spicchi?o?|mazzett[oi]|ramett[oi]|cost[ae]|bustin[ae])?\.?\s+(.+)$/i);
-  if(!m)return{n:line.replace(/\s*q\.?\s?b\.?$/i,''),q:0,u:'qb',r:guess(line)};
-  let q=parseFloat(m[1].replace(',','.')),u=(m[2]||'pz').toLowerCase();
-  if(u==='kg'){q*=1000;u='g'}else if(u==='gr')u='g';else if(u==='l'||u==='lt'){q*=1000;u='ml'}
-  else if(u.startsWith('spicch'))u='spicchio';else if(u.startsWith('mazz'))u='mazzetto';else if(u.startsWith('ram'))u='rametto';else if(u.startsWith('cost'))u='costa';else if(u.startsWith('bust'))u='bustina';
-  return{n:m[3].trim(),q,u,r:guess(m[3])};
+  line=line.replace(/^[\s\-–•*·▪︎◦]+/,'').replace(/\s+/g,' ').trim();if(!line)return null;
+  const num=String.raw`(\d+(?:[.,]\d+)?|\d+\/\d+|½|¼)`;
+  const toN=x=>x==='½'?.5:x==='¼'?.25:x.includes('/')?(+x.split('/')[0])/(+x.split('/')[1]):parseFloat(x.replace(',','.'));
+  let m=line.match(new RegExp('^'+num+'\\s*('+UNIT+')?\\.?\\s+(?:di\\s+|d\')?(.+)$','i'));
+  if(m){const[u,q]=normU(m[2],toN(m[1]));const n=m[3].replace(/\s*\(.*?\)\s*$/,'').trim();return{n:n.charAt(0).toUpperCase()+n.slice(1),q,u,r:guess(n)}}
+  m=line.match(new RegExp('^(.+?)[\\s:,]+'+num+'\\s*('+UNIT+')?\\.?$','i'));
+  if(m){const[u,q]=normU(m[3],toN(m[2]));const n=m[1].trim();return{n:n.charAt(0).toUpperCase()+n.slice(1),q,u,r:guess(n)}}
+  const n=line.replace(/[\s,]*(q\.?\s?b\.?|quanto basta|a piacere)$/i,'').trim();
+  return{n:n.charAt(0).toUpperCase()+n.slice(1),q:0,u:'qb',r:guess(n)};
 }
 const ingLine=i=>i.u==='qb'?i.n+' q.b.':(i.u==='pz'?i.q:i.q+' '+i.u)+' '+i.n;
 function editRecipe(name,r){
-  openSheet(`<h2>${r?'Modifica ricetta':'Nuova ricetta'}</h2>
+  const ex=!!(r&&r.id&&S.mine.some(x=>x.id===r.id));
+  openSheet(`<h2>${ex?'Modifica ricetta':r?'Controlla e salva':'Nuova ricetta'}</h2>
   <label class="l" for="rn">Nome del piatto</label><input class="inp" id="rn" value="${esc(r?r.name:name)}" autofocus>
   <div class="row" style="margin-top:4px"><div style="flex:1"><label class="l" for="rc">Tipo</label><select class="inp" id="rc">${CATS.slice(1,-1).map(c=>`<option${r&&r.cat===c?' selected':''}>${c}</option>`).join('')}</select></div>
   <div style="width:110px"><label class="l" for="rs">Persone</label><input class="inp" id="rs" type="number" inputmode="numeric" min="1" value="${r?r.serv:4}"></div></div>
@@ -412,8 +511,8 @@ function editRecipe(name,r){
       const nm=p.querySelector('#rn').value.trim();const ing=p.querySelector('#ri').value.split('\n').map(parseIng).filter(Boolean);
       if(!nm||!ing.length){toast('Serve un nome e almeno un ingrediente');return}
       const st=p.querySelector('#rp').value.split('\n').map(s=>s.trim()).filter(Boolean);
-      const o={id:r?r.id:'m'+uid(),mine:true,name:nm,cat:p.querySelector('#rc').value,serv:Math.max(1,+p.querySelector('#rs').value||4),ing,st};
-      S.mine=r?S.mine.map(x=>x.id===r.id?o:x):[...S.mine,o];save();closeSheet();cat='Le mie';renderCats();renderAll();toast('Ricetta salvata');
+      const o={id:ex?r.id:'m'+uid(),mine:true,name:nm,cat:p.querySelector('#rc').value,serv:Math.max(1,+p.querySelector('#rs').value||4),ing,st};
+      S.mine=ex?S.mine.map(x=>x.id===r.id?o:x):[...S.mine,o];save();closeSheet();cat='Le mie';renderCats();renderAll();toast('Ricetta salvata');
     };
   });
 }
@@ -472,10 +571,11 @@ function renderM(){
   $('#ppl').textContent=S.people;
   $('#days').innerHTML=ds.map(d=>{const k=iso(d);return `<div class="day${k===t?' today':''}"><h3>${DN[d.getDay()]} ${d.getDate()}${k===t?' <span class="tag">oggi</span>':''}</h3>`+['pranzo','cena'].map(s=>{const m=S.menu.find(x=>x.d===k&&x.s===s);return `<div class="slot"><span>${s==='pranzo'?'Pranzo':'Cena'}</span>${m?`<button class="pick" data-open="${m.id}">${esc(getR(m.rid).name)} <small class="tag" style="font-weight:600">${m.n} pers.</small>${m.added?' <small class="tag w">in lista</small>':''}</button><button class="x" data-rm="${m.id}" aria-label="Togli">×</button>`:`<button class="pick e" data-add="${k}|${s}">+ Scegli un piatto</button>`}</div>`}).join('')+'</div>'}).join('');
   const keys=ds.map(iso),todo=S.menu.filter(m=>keys.includes(m.d)&&!m.added&&m.d>=t);
-  $('#wShop').textContent=todo.length?`Fai la spesa per ${todo.length} ${todo.length>1?'piatti':'piatto'}`:'Niente di nuovo da mettere in lista';
-  $('#wShop').disabled=!todo.length;$('#wShop').onclick=()=>shopFor(todo);
+  const left=S.list.filter(x=>!x.done).length;
+  $('#wShop').textContent=todo.length?`Metti in lista ${todo.length} ${todo.length>1?'piatti':'piatto'}`:`Vai alla lista della spesa${left?` (${left} da comprare)`:''}`;
+  $('#wShop').disabled=false;$('#wShop').onclick=()=>todo.length?shopFor(todo):go('lista');
   $('#days').querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{const[d,s]=b.dataset.add.split('|');pickRecipe(d,s)});
-  $('#days').querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{S.menu=S.menu.filter(m=>m.id!==b.dataset.rm);save();renderM()});
+  $('#days').querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{S.menu.filter(m=>m.id===b.dataset.rm).forEach(unlistMenu);S.menu=S.menu.filter(m=>m.id!==b.dataset.rm);save();renderAll()});
   $('#days').querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>{const m=S.menu.find(x=>x.id===b.dataset.open);openRecipe(m.rid,m.n)});
 }
 $('#wPrev').onclick=()=>{wOff--;renderM()};$('#wNext').onclick=()=>{wOff++;renderM()};
@@ -486,16 +586,16 @@ function pickRecipe(d,s){
   openSheet(`<h2>${DN[dd.getDay()]} ${dd.getDate()} · ${s}</h2><div class="row" style="justify-content:space-between"><input class="inp" id="pq" placeholder="Cerca" style="flex:1" autocomplete="off">${stepper('pn',n)}</div><div id="pl" style="margin-top:6px"></div>`,p=>{
     bindStep(p,'pn',()=>n,v=>n=v);
     const draw=()=>{const q=p.querySelector('#pq').value.toLowerCase();p.querySelector('#pl').innerHTML=list.filter(x=>!q||x.r.name.toLowerCase().includes(q)).map(x=>`<button class="sug" data-id="${esc(x.r.id)}"><b>${esc(x.r.name)}</b><small>${esc(x.r.cat)}${x.h?` · hai ${x.h} ingredienti su ${x.t}`:''}</small></button>`).join('');
-      p.querySelectorAll('.sug').forEach(b=>b.onclick=()=>{S.menu=S.menu.filter(m=>!(m.d===d&&m.s===s));S.menu.push({id:uid(),d,s,rid:b.dataset.id,n,added:false});save();closeSheet();renderM()})};
+      p.querySelectorAll('.sug').forEach(b=>b.onclick=()=>{S.menu.filter(m=>m.d===d&&m.s===s).forEach(unlistMenu);S.menu=S.menu.filter(m=>!(m.d===d&&m.s===s));const ne={id:uid(),d,s,rid:b.dataset.id,n,added:false};S.menu.push(ne);let k=0;if(d>=iso(today0()))k=listMenu(ne);save();closeSheet();renderAll();toast(k?`${k} ingredienti aggiunti alla spesa`:'Piatto aggiunto: hai già tutto in casa')})};
     p.querySelector('#pq').oninput=draw;draw();
   });
 }
-function shopFor(entries){
+function shopFor(entries,title='Spesa per il menu'){
   const agg=new Map();
   entries.forEach(m=>{const r=getR(m.rid),f=m.n/r.serv;r.ing.forEach(i=>{const k=norm(i.n)+'|'+i.u;const a=agg.get(k)||{n:i.n,u:i.u,r:i.r,q:0,from:new Set()};a.q+=i.u==='qb'?0:i.q*f;a.from.add(r.name);agg.set(k,a)})});
   const rows=[...agg.values()].sort((a,b)=>REPORD.indexOf(a.r)-REPORD.indexOf(b.r));
   const sel=rows.map(a=>a.u!=='qb'&&!inPantry(a.n));
-  openSheet(`<h2>Spesa per il menu</h2><p class="st">${entries.length} piatti. Togli la spunta a quello che hai già.</p>${rows.map((a,k)=>`<label class="ing"><input type="checkbox" data-k="${k}"${sel[k]?' checked':''}><span>${esc(a.n)} ${a.u!=='qb'&&inPantry(a.n)?'<span class="tag">in dispensa</span>':''}<br><small style="color:var(--mute)">${esc([...a.from].join(', '))}</small></span><span class="qt" style="flex:none">${esc(fmt(a.q,a.u))}</span></label>`).join('')}
+  openSheet(`<h2>${esc(title)}</h2><p class="st">${entries.length} piatti. Togli la spunta a quello che hai già.</p>${rows.map((a,k)=>`<label class="ing"><input type="checkbox" data-k="${k}"${sel[k]?' checked':''}><span>${esc(a.n)} ${a.u!=='qb'&&inPantry(a.n)?'<span class="tag">in dispensa</span>':''}<br><small style="color:var(--mute)">${esc([...a.from].join(', '))}</small></span><span class="qt" style="flex:none">${esc(fmt(a.q,a.u))}</span></label>`).join('')}
   <div class="acts"><button class="btn ghost" data-c>Annulla</button><button class="btn pri" id="ok">Metti in lista</button></div>`,p=>{
     p.querySelectorAll('input').forEach(c=>c.onchange=()=>sel[c.dataset.k]=c.checked);
     p.querySelector('[data-c]').onclick=closeSheet;
@@ -504,11 +604,28 @@ function shopFor(entries){
 }
 
 /* ---------- lista ---------- */
-function addToList(n,q,u,r,from=[]){
+function addToList(n,q,u,r,from=[],mid=null){
   const key=norm(n)+'|'+u;
-  const ex=S.list.find(x=>!x.done&&(norm(x.n)+'|'+x.u)===key);
-  if(ex){ex.q+=q;from.forEach(f=>{if(!ex.from.includes(f))ex.from.push(f)})}
-  else S.list.push({id:uid(),n,q,u,r:r||guess(n),done:false,from:[...from]});
+  let ex=S.list.find(x=>!x.done&&(norm(x.n)+'|'+x.u)===key);
+  if(ex){ex.q+=q;from.forEach(f=>{if(!ex.from.includes(f))ex.from.push(f)});if(!mid)ex.auto=false}
+  else{ex={id:uid(),n,q,u,r:r||guess(n),done:false,from:[...from],auto:!!mid};S.list.push(ex)}
+  if(mid){(ex.src=ex.src||[]).push({m:mid,q,f:from[0]||''})}
+}
+const DSH=['dom','lun','mar','mer','gio','ven','sab'];
+function listMenu(m){
+  const r=getR(m.rid);if(!r)return 0;const f=m.n/r.serv,dd=new Date(m.d+'T00:00:00');
+  m.lab=`${r.name} (${DSH[dd.getDay()]} ${dd.getDate()})`;let k=0;
+  r.ing.forEach(i=>{if(i.u==='qb'||inPantry(i.n))return;addToList(i.n,i.q*f,i.u,i.r,[m.lab],m.id);k++});
+  m.added=true;return k;
+}
+function unlistMenu(m){
+  if(!m||!m.added)return;
+  S.list=S.list.filter(x=>{
+    if(x.done||!x.src)return true;const mine=x.src.filter(c=>c.m===m.id);if(!mine.length)return true;
+    x.q-=mine.reduce((a,c)=>a+c.q,0);x.src=x.src.filter(c=>c.m!==m.id);
+    if(!x.src.some(c=>c.f===m.lab))x.from=x.from.filter(f=>f!==m.lab);
+    return x.auto?(x.src.length>0&&x.q>0.01):x.q>0.01;
+  });
 }
 function renderL(){
   const L=S.list,left=L.filter(x=>!x.done).length;
@@ -692,6 +809,305 @@ function renderS(){
 }
 $('#cq').oninput=renderS;
 
+
+/* ---------- aggiungi ricetta: testo, link, IA ---------- */
+function addMenu(){
+  openSheet(`<h2>Aggiungi una ricetta</h2>
+  <button class="opt" data-o="ai"><i>IA</i><span><b>Chiedi all'IA</b><small>${hasAI()?AINAME[S.ai.prov]+' collegato: scrivi il piatto e arriva la ricetta':'Scrivi il piatto, l\'IA prepara ingredienti e passaggi'}</small></span></button>
+  <button class="opt" data-o="link"><i>www</i><span><b>Da un sito internet</b><small>GialloZafferano, Cucchiaio d'Argento, blog…</small></span></button>
+  <button class="opt" data-o="paste"><i>Aa</i><span><b>Incolla una ricetta</b><small>Da un sito, un messaggio o una nota</small></span></button>
+  <button class="opt" data-o="hand"><i>+</i><span><b>Scrivila tu</b><small>Nome, ingredienti e procedimento</small></span></button>
+  <button class="btn ghost wide" data-c>Annulla</button>`,p=>{
+    p.querySelector('[data-c]').onclick=closeSheet;
+    p.querySelector('[data-o=hand]').onclick=()=>editRecipe($('#q').value.trim());
+    p.querySelector('[data-o=paste]').onclick=()=>pasteSheet();
+    p.querySelector('[data-o=link]').onclick=()=>linkSheet();
+    p.querySelector('[data-o=ai]').onclick=()=>aiSheet();
+  });
+}
+function pasteSheet(intro=''){
+  openSheet(`<h2>Incolla una ricetta</h2>${intro}
+  <textarea class="inp" id="pt" style="min-height:220px" placeholder="Pasta e patate&#10;Ingredienti per 4 persone&#10;300 g di pasta mista&#10;3 patate&#10;…&#10;Preparazione&#10;Sbuccia le patate…"></textarea>
+  <p class="st">Funziona meglio se ci sono le parole “Ingredienti” e “Preparazione”. Dopo potrai controllare tutto prima di salvare.</p>
+  <div class="acts"><button class="btn ghost" data-c>Annulla</button><button class="btn pri" id="ok">Leggi la ricetta</button></div>`,p=>{
+    p.querySelector('[data-c]').onclick=closeSheet;
+    p.querySelector('#ok').onclick=()=>{const r=parseRecipe(p.querySelector('#pt').value);if(!r||!r.ing.length){p.querySelector('.st').textContent='Non riesco a trovare gli ingredienti: controlla che ci siano, uno per riga.';return}editRecipe('',r)};
+  });
+}
+function recipeFromObj(o){
+  if(!o||typeof o!=='object')return null;
+  const ing=(o.ingredienti||o.ingredients||[]).map(x=>{if(typeof x==='string')return parseIng(x);const nm=x.nome||x.name||'';const q=+x.quantita||+x.quantity||0;const u=String(x.unita||x.unit||'').toLowerCase();if(!q||u==='qb'||u==='q.b.')return{n:nm,q:0,u:'qb',r:guess(nm)};const[uu,qq]=normU(u||'pz',q);return{n:nm,q:qq,u:uu,r:guess(nm)}}).filter(x=>x&&x.n);
+  const cat=CATS.includes(o.categoria)&&o.categoria!=='Tutte'&&o.categoria!=='Le mie'?o.categoria:'Primi';
+  return{name:o.nome||o.name||'Ricetta',cat,serv:Math.max(1,+o.persone||+o.servings||4),ing,st:(o.passaggi||o.steps||[]).map(String)};
+}
+function parseRecipe(t){
+  t=String(t||'').trim();if(!t)return null;
+  if(/^[^\n]{0,40}[\[{]/.test(t)||/```/.test(t)){try{const o0=pickJSON(t),o=Array.isArray(o0)?o0[0]:o0;return recipeFromObj(o)}catch(e){}}
+  const j=t.indexOf('{'),k=t.lastIndexOf('}');
+  if(j>=0&&k>j){try{const o=JSON.parse(t.slice(j,k+1));
+    const ing=(o.ingredienti||o.ingredients||[]).map(x=>{if(typeof x==='string')return parseIng(x);const q=+x.quantita||+x.quantity||0;let u=String(x.unita||x.unit||'').toLowerCase();if(!q||u==='qb'||u==='q.b.')return{n:x.nome||x.name,q:0,u:'qb',r:guess(x.nome||x.name||'')};const[uu,qq]=normU(u||'pz',q);return{n:x.nome||x.name,q:qq,u:uu,r:guess(x.nome||x.name||'')}}).filter(x=>x&&x.n);
+    const cat=CATS.includes(o.categoria)&&o.categoria!=='Tutte'&&o.categoria!=='Le mie'?o.categoria:'Primi';
+    return{name:o.nome||o.name||'Ricetta',cat,serv:Math.max(1,+o.persone||+o.servings||4),ing,st:(o.passaggi||o.steps||[]).map(String)};
+  }catch(e){}}
+  const L=t.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+  let name=L[0].replace(/^ricetta[:\s]*/i,''),serv=4,ing=[],st=[],mode='',i0=1;
+  const sv=t.match(/(?:per|dosi per)\s*(\d+)\s*(?:persone|porzioni|pers)/i)||t.match(/(\d+)\s*(?:persone|porzioni)/i);if(sv)serv=+sv[1];
+  if(/^ingredienti/i.test(L[0])){name='Ricetta importata';i0=0}
+  for(const l of L.slice(i0)){
+    if(/^ingredienti/i.test(l)){mode='i';continue}
+    if(/^(procedimento|preparazione|istruzioni|passaggi|metodo|come si prepara)/i.test(l)){mode='p';continue}
+    if(/^(dosi|porzioni|persone|tempo|difficolt|costo|cottura)\b/i.test(l))continue;
+    if(mode==='i'){const x=parseIng(l);if(x)ing.push(x)}
+    else if(mode==='p'){st.push(l.replace(/^(\d+[.)]|passo \d+[:.]?|[-•*])\s*/i,''))}
+    else{if(/^[\-–•*]?\s*\d/.test(l)&&l.length<70){const x=parseIng(l);if(x)ing.push(x)}else if(l.length>=70)st.push(l)}
+  }
+  return{name,cat:'Primi',serv,ing,st};
+}
+function linkSheet(){
+  openSheet(`<h2>Da un sito internet</h2>
+  <label class="l" for="lu">Link della ricetta</label><input class="inp" id="lu" type="url" placeholder="https://…" autofocus>
+  <div class="hint" style="margin-top:12px">Per leggere i siti da sola, l'app ha bisogno del <b>ponte</b> che attiveremo nel prossimo passo. Per ora: apri la ricetta, seleziona e copia il testo da “Ingredienti” fino alla fine della preparazione, poi incollalo qui.</div>
+  <div class="acts"><button class="btn ghost" data-c>Annulla</button><a class="btn ghost" id="op" target="_blank" rel="noopener" style="display:grid;place-items:center;text-decoration:none">Apri il sito</a><button class="btn pri" id="ok">Incolla il testo</button></div>`,p=>{
+    p.querySelector('[data-c]').onclick=closeSheet;
+    const lu=p.querySelector('#lu'),op=p.querySelector('#op');
+    const upd=()=>{const v=lu.value.trim();if(/^https?:\/\//i.test(v))op.href=v;else op.removeAttribute('href')};lu.oninput=upd;upd();
+    p.querySelector('#ok').onclick=()=>pasteSheet('<p class="st">Incolla qui il testo copiato dal sito.</p>');
+  });
+}
+function aiPrompt(dish,n,diet){
+  return `Scrivi la ricetta "${dish}" per ${n} persone${diet?`, adatta a chi è ${DSHORT[diet]}`:''}, come la farebbe una brava cuoca italiana di casa.
+Rispondi SOLO con questo JSON, senza altro testo:
+{"nome":"","categoria":"Antipasti|Primi|Secondi|Piatti unici|Contorni|Forno|Dolci","persone":${n},"ingredienti":[{"nome":"","quantita":0,"unita":"g|ml|pz|spicchio|mazzetto|rametto|costa|cucchiaio|qb"}],"passaggi":["un passaggio per voce, con i tempi scritti come 10 min o 1 ora"]}`;
+}
+function aiSheet(){
+  let n=S.people;
+  openSheet(`<h2>Chiedi all'IA</h2>
+  <label class="l" for="ad">Che piatto vuoi?</label><input class="inp" id="ad" placeholder="Es. lasagne vegetariane, tiramisù senza glutine" value="${esc($('#q').value.trim())}" autofocus>
+  <div class="row" style="justify-content:space-between;margin-top:10px"><span style="font-weight:700">Persone</span>${stepper('an',n)}</div>
+  <label class="l" for="adi">Dieta</label><select class="inp" id="adi"><option value="">Nessuna in particolare</option>${DIETS.map(([k,l])=>`<option value="${k}">${l}</option>`).join('')}</select>
+  ${hasAI()?`<button class="btn pri wide" id="gen">Crea la ricetta con ${AINAME[S.ai.prov]}</button><p class="st" id="gs"></p><details><summary style="font-weight:700;cursor:pointer;min-height:32px">Oppure con copia e incolla</summary>`:`<div class="hint" style="margin-top:12px">Collega Gemini nelle <button class="chip" id="set" style="min-height:30px;padding:3px 10px">Impostazioni IA</button> e la ricetta arriva da sola. Oppure: <b>1.</b> tocca “Copia la richiesta”, <b>2.</b> incollala in Gemini o Claude, <b>3.</b> incolla qui sotto la risposta.</div>`}
+  <button class="btn ${hasAI()?'':'pri '}wide" id="cp">Copia la richiesta</button>
+  <textarea class="inp" id="apr" readonly hidden style="min-height:120px;margin-top:10px;font-size:14px"></textarea>
+  <label class="l" for="ans">Risposta dell'IA</label><textarea class="inp" id="ans" placeholder="Incolla qui la risposta"></textarea>
+  <button class="btn wide" id="ok">Importa la risposta</button>${hasAI()?'</details>':''}
+  <button class="btn ghost wide" data-c>Annulla</button>`,p=>{
+    const st=p.querySelector('#set');if(st)st.onclick=aiSettings;
+    const gen=p.querySelector('#gen');if(gen)gen.onclick=async()=>{const d=p.querySelector('#ad').value.trim();if(!d){toast('Scrivi prima il piatto');return}
+      gen.disabled=true;gen.textContent='Sto scrivendo la ricetta…';const gs=p.querySelector('#gs');gs.textContent='';
+      try{const r=recipeFromObj((x=>Array.isArray(x)?x[0]:x)(pickJSON(await aiCall(aiPrompt(d,n,p.querySelector('#adi').value)))));if(!r||!r.ing.length)throw new Error('La risposta non contiene una ricetta');editRecipe('',r)}
+      catch(e){gs.innerHTML='<b style="color:var(--tom)">'+esc(aiErr(e))+'</b>';gen.disabled=false;gen.textContent='Riprova'}};
+    bindStep(p,'an',()=>n,v=>n=v);
+    p.querySelector('[data-c]').onclick=closeSheet;
+    p.querySelector('#cp').onclick=async()=>{const d=p.querySelector('#ad').value.trim();if(!d){toast('Scrivi prima il piatto');return}
+      const t=aiPrompt(d,n,p.querySelector('#adi').value),ta=p.querySelector('#apr');ta.value=t;
+      try{await navigator.clipboard.writeText(t);toast("Richiesta copiata: incollala nell'app dell'IA");ta.hidden=true}catch(e){ta.hidden=false;ta.focus();ta.select();toast('Copia il testo selezionato')}};
+    p.querySelector('#ok').onclick=()=>{const r=parseRecipe(p.querySelector('#ans').value);if(!r||!r.ing.length){toast('Non trovo la ricetta nella risposta');return}editRecipe('',r)};
+  });
+}
+
+
+/* ---------- intelligenza artificiale ---------- */
+const AIDEF={gemini:'gemini-flash-latest',claude:'claude-haiku-5-5'};
+const AINAME={gemini:'Gemini',claude:'Claude'};
+const hasAI=()=>!!(S.ai&&S.ai.key);
+function pickJSON(t){t=String(t||'');const a=t.search(/[\[{]/),b=Math.max(t.lastIndexOf('}'),t.lastIndexOf(']'));if(a<0||b<a)throw new Error('Risposta non valida');return JSON.parse(t.slice(a,b+1))}
+const aiErr=e=>/fetch|network|load failed/i.test(e&&e.message||'')?"Non riesco a raggiungere l'IA. Controlla la connessione. Nell'anteprima su Claude non funziona: usa l'app installata.":(e&&e.message||'Errore sconosciuto');
+async function aiCall(prompt,img){
+  const a=S.ai,model=a.model||AIDEF[a.prov];
+  if(!a.key)throw new Error("Prima collega l'IA nelle impostazioni.");
+  if(a.prov==='claude'){
+    const content=[];if(img)content.push({type:'image',source:{type:'base64',media_type:'image/jpeg',data:img}});content.push({type:'text',text:prompt});
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'content-type':'application/json','x-api-key':a.key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},body:JSON.stringify({model,max_tokens:4000,messages:[{role:'user',content}]})});
+    const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error((j.error&&j.error.message)||('Errore '+r.status));
+    return(j.content||[]).map(c=>c.text||'').join('');
+  }
+  const parts=[{text:prompt}];if(img)parts.push({inline_data:{mime_type:'image/jpeg',data:img}});
+  const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,{method:'POST',headers:{'content-type':'application/json','x-goog-api-key':a.key},body:JSON.stringify({contents:[{role:'user',parts}],generationConfig:{temperature:.4,responseMimeType:'application/json'}})});
+  const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error((j.error&&j.error.message)||('Errore '+r.status));
+  const c=j.candidates&&j.candidates[0];if(!c||!c.content)throw new Error('Nessuna risposta: forse hai raggiunto il limite gratuito di oggi.');
+  return c.content.parts.map(x=>x.text||'').join('');
+}
+async function imgB64(file){const c=await prep(file,1600,false);return c.toDataURL('image/jpeg',.85).split(',')[1]}
+function aiSettings(){
+  const a={...S.ai};
+  openSheet(`<h2>Impostazioni IA</h2>
+  <label class="l" for="ap">Servizio</label><select class="inp" id="ap"><option value="gemini"${a.prov==='gemini'?' selected':''}>Google Gemini</option><option value="claude"${a.prov==='claude'?' selected':''}>Anthropic Claude</option></select>
+  <div class="hint" id="howto" style="margin-top:10px"></div>
+  <label class="l" for="ak">Chiave API</label><input class="inp" id="ak" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(a.key)}" placeholder="Incolla qui la chiave">
+  <p class="st">La chiave resta salvata solo su questo telefono, non finisce su GitHub.</p>
+  <details><summary style="font-weight:700;cursor:pointer;min-height:32px">Avanzate</summary><label class="l" for="am">Modello</label><input class="inp" id="am" value="${esc(a.model)}" autocapitalize="off" spellcheck="false"></details>
+  <button class="btn wide" id="tst">Prova la connessione</button><p class="st" id="ts"></p>
+  <div class="acts">${a.key?'<button class="btn ghost" id="rmk">Scollega</button>':''}<button class="btn ghost" data-c>Annulla</button><button class="btn pri" id="ok">Salva</button></div>`,p=>{
+    const ap=p.querySelector('#ap'),am=p.querySelector('#am'),hw=p.querySelector('#howto');
+    const how=()=>{am.placeholder=AIDEF[ap.value];hw.innerHTML=ap.value==='gemini'
+      ?'<b>Come avere la chiave:</b> apri <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>, accedi con il tuo account Google, tocca <b>Create API key</b> e copiala. Se c\'è il piano gratuito non paghi nulla, ma Google può usare le richieste per migliorare i suoi prodotti.'
+      :'<b>Come avere la chiave:</b> apri <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>, ricarica del credito e crea una chiave. Si paga a consumo.'};
+    ap.onchange=how;how();
+    const read=()=>({prov:ap.value,key:p.querySelector('#ak').value.trim(),model:am.value.trim()});
+    p.querySelector('[data-c]').onclick=closeSheet;
+    const rk=p.querySelector('#rmk');if(rk)rk.onclick=()=>{S.ai={prov:ap.value,key:'',model:''};save();closeSheet();toast('IA scollegata');renderAll()};
+    p.querySelector('#tst').onclick=async()=>{const ts=p.querySelector('#ts'),old=S.ai;S.ai=read();ts.textContent='Provo…';
+      try{const t=await aiCall('Rispondi solo con questo JSON: {"ok":true}');pickJSON(t);ts.innerHTML='<b style="color:var(--leaf)">Funziona! '+AINAME[S.ai.prov]+' è collegato.</b>'}catch(e){ts.innerHTML='<b style="color:var(--tom)">Non funziona:</b> '+esc(aiErr(e))}finally{S.ai=old}};
+    p.querySelector('#ok').onclick=()=>{S.ai=read();save();closeSheet();renderAll();toast(S.ai.key?AINAME[S.ai.prov]+' collegato':'Impostazioni salvate')};
+  });
+}
+const RFMT=n=>`{"nome":"","categoria":"Antipasti|Primi|Secondi|Piatti unici|Contorni|Forno|Dolci","persone":${n},"ingredienti":[{"nome":"","quantita":0,"unita":"g|ml|pz|spicchio|mazzetto|rametto|costa|cucchiaio|qb"}],"passaggi":["un passaggio per voce, con i tempi scritti come 10 min o 1 ora"]}`;
+async function receipt(file){
+  toast('Leggo lo scontrino…');
+  try{
+    const t=await aiCall(`Questa è la foto di uno scontrino di un negozio italiano. Estrai gli articoli acquistati.
+Rispondi SOLO con questo JSON: {"negozio":"","articoli":[{"nome":"","prezzo":0.00,"quantita":1}],"totale":0.00}
+- "nome": nome del prodotto leggibile, sciogli le abbreviazioni quando le capisci (es. "MOZZ.FIORDIL." = "Mozzarella fior di latte").
+- "prezzo": prezzo di UN pezzo in euro. Se c'è "2 x 1,50" la quantità è 2 e il prezzo 1.50. Per i prodotti a peso usa il prezzo pagato e quantità 1.
+- Se un articolo ha uno sconto subito sotto, sottrailo al suo prezzo.
+- Ignora subtotali, buoni, punti, contanti, resto, IVA e righe di pagamento.`,await imgB64(file));
+    const o=pickJSON(t),its=(o.articoli||[]).filter(x=>x&&x.nome&&+x.prezzo>0);
+    if(!its.length){toast('Non ho trovato articoli nella foto');return}
+    const sum=its.reduce((a,x)=>a+(+x.prezzo)*(+x.quantita||1),0);
+    openSheet(`<h2>Scontrino${o.negozio?' · '+esc(o.negozio):''}</h2>
+    <p class="st">Somma degli articoli <b>${money(sum)}</b>${+o.totale?` · totale sullo scontrino <b>${money(+o.totale)}</b>${Math.abs(sum-o.totale)>0.05?' <span class="tag r">controlla</span>':' <span class="tag">torna</span>'}`:''}</p>
+    ${its.map((x,k)=>`<label class="ing"><input type="checkbox" data-k="${k}" checked><span>${esc(x.nome)}${(+x.quantita||1)>1?` <small style="color:var(--mute)">${+x.quantita} × ${money(+x.prezzo)}</small>`:''}</span><span class="pr" style="flex:none">${money((+x.prezzo)*(+x.quantita||1))}</span></label>`).join('')}
+    <p class="st">Gli articoli che corrispondono alla lista vengono spuntati da soli.</p>
+    <div class="acts"><button class="btn ghost" data-c>Annulla</button><button class="btn red" id="ok">Metti nel carrello</button></div>`,p=>{
+      p.querySelector('[data-c]').onclick=closeSheet;
+      p.querySelector('#ok').onclick=()=>{let k=0,m=0;p.querySelectorAll('input:checked').forEach(c=>{const x=its[c.dataset.k];const li=S.list.find(l=>!l.done&&same(l.n,x.nome));if(li){li.done=true;m++}
+        S.cart.push({id:uid(),name:x.nome,p:+x.prezzo,n:Math.max(1,Math.round(+x.quantita||1)),code:null,listId:li?li.id:null,t:Date.now()});k++});
+        if(o.negozio&&!S.shop)S.shop=o.negozio;save();closeSheet();renderAll();toast(`${k} articoli nel carrello${m?`, ${m} spuntati in lista`:''}`)};
+    });
+  }catch(e){openSheet(`<h2>Scontrino non letto</h2><p>${esc(aiErr(e))}</p><div class="acts"><button class="btn ghost" data-c>Chiudi</button>${hasAI()?'':'<button class="btn pri" id="set">Collega l\'IA</button>'}</div>`,p=>{p.querySelector('[data-c]').onclick=closeSheet;const b=p.querySelector('#set');if(b)b.onclick=aiSettings})}
+}
+async function aiIdeas(btn){
+  if(!hasAI()){aiSettings();return}
+  if(!S.pantry.length){toast('La dispensa è vuota: aggiungi cosa hai in casa');return}
+  btn.disabled=true;btn.textContent='Penso a qualcosa di buono…';
+  try{
+    const exp=S.pantry.filter(p=>p.exp&&daysTo(p.exp)<=3).map(p=>p.n);
+    const t=await aiCall(`Ho in casa: ${S.pantry.map(p=>p.n+(p.q?` (${fmt(p.q,p.u)})`:'')).join(', ')}.${exp.length?` Stanno per scadere: ${exp.join(', ')}.`:''}${S.diet?` Deve essere ${DSHORT[S.diet]}.`:''}
+Proponi 3 piatti italiani di casa per ${S.people} persone che usino soprattutto questi ingredienti (prima quelli in scadenza), aggiungendo al massimo pochi ingredienti comuni.
+Rispondi SOLO con un array JSON di 3 ricette, ognuna in questo formato: ${RFMT(S.people)}`);
+    const arr=pickJSON(t),rs=(Array.isArray(arr)?arr:[arr]).map(recipeFromObj).filter(r=>r&&r.ing.length);
+    $('#aisugs').innerHTML=rs.map((r,k)=>`<button class="sug" data-k="${k}"><b>${esc(r.name)}</b><small>${esc(r.ing.filter(i=>i.u!=='qb').map(i=>i.n).join(', '))}</small><small style="color:var(--leaf);font-weight:700">Tocca per vederla e salvarla</small></button>`).join('');
+    $('#aisugs').querySelectorAll('.sug').forEach(b=>b.onclick=()=>editRecipe('',rs[b.dataset.k]));
+  }catch(e){toast(aiErr(e))}
+  btn.disabled=false;btn.textContent="Altre idee con l'IA";
+}
+
+/* ---------- oggi in cucina ---------- */
+function suggest(){
+  return allR().map(r=>{const need=r.ing.filter(i=>i.u!=='qb'),have=need.filter(i=>inPantry(i.n)),miss=need.filter(i=>!inPantry(i.n)),exp=have.map(i=>inPantry(i.n)).filter(p=>p.exp&&daysTo(p.exp)<=3);return{r,ratio:need.length?have.length/need.length:0,have,miss,exp}})
+  .filter(x=>x.have.length&&(!S.diet||diets(x.r)[S.diet])).sort((a,b)=>(b.ratio+(b.exp.length?.35:0))-(a.ratio+(a.exp.length?.35:0))).slice(0,5);
+}
+function renderO(){
+  const d=today0(),t=iso(d);
+  $('#oTit').textContent='Oggi, '+d.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
+  const meals=S.menu.filter(m=>m.d===t&&getR(m.rid)).sort((a,b)=>a.s.localeCompare(b.s)).reverse();
+  const evs=S.events.filter(e=>e.date===t);
+  let h=meals.map(m=>{const r=getR(m.rid);return `<div class="today"><small>${m.s==='pranzo'?'Pranzo':'Cena'} · ${m.n} persone</small><h3>${esc(r.name)}</h3><div class="row"><button class="btn pri" data-cook="${m.id}" style="flex:1">Cucina ora</button><button class="btn ghost" data-see="${m.id}">Ingredienti</button></div></div>`}).join('');
+  h+=evs.map(e=>`<div class="today" style="border-left:6px solid var(--lemon)"><small>Tavolata · ${e.N} persone</small><h3>${esc(e.name)}</h3>${e.items.filter(i=>getR(i.rid)).map(i=>`<div class="dish"><span class="nm">${esc(getR(i.rid).name)}<small>${COURSES.find(c=>c[0]===i.course)[1]} · ${i.n} pers.</small></span><button class="btn sm pri" data-ecook="${e.id}|${i.id}">Cucina</button></div>`).join('')||'<p class="st">Menu ancora da decidere.</p>'}<button class="btn ghost wide" data-ev="${e.id}">Apri la tavolata</button></div>`).join('');
+  if(!h)h=`<div class="today"><h3 style="margin-bottom:4px">Niente in programma oggi</h3><p class="st" style="margin:0 0 12px">Scegli dal ricettario o guarda cosa puoi fare con quello che hai qui sotto.</p><button class="btn pri" id="toR">Apri il ricettario</button></div>`;
+  $('#obody').innerHTML=h;
+  const tr=$('#toR');if(tr)tr.onclick=()=>go('ricette');
+  $('#obody').querySelectorAll('[data-cook]').forEach(b=>b.onclick=()=>{const m=S.menu.find(x=>x.id===b.dataset.cook);cook(getR(m.rid),m.n)});
+  $('#obody').querySelectorAll('[data-see]').forEach(b=>b.onclick=()=>{const m=S.menu.find(x=>x.id===b.dataset.see);openRecipe(m.rid,m.n)});
+  $('#obody').querySelectorAll('[data-ecook]').forEach(b=>b.onclick=()=>{const[e,i]=b.dataset.ecook.split('|');const it=S.events.find(x=>x.id===e).items.find(x=>x.id===i);cook(getR(it.rid),it.n)});
+  $('#obody').querySelectorAll('[data-ev]').forEach(b=>b.onclick=()=>{curEv=b.dataset.ev;go('tavolate')});
+  const sg=suggest();
+  $('#sugs').innerHTML=sg.length?sg.map(x=>`<button class="sug" data-id="${esc(x.r.id)}"><b>${esc(x.r.name)}</b><small>${x.miss.length?'Ti manca: '+esc(x.miss.map(i=>i.n).join(', ')):'Hai tutto!'}${x.exp.length?` · <span class="tag w">usa ${esc([...new Set(x.exp.map(p=>p.n))].join(', '))}</span>`:''}</small><div class="bar"><i style="width:${Math.round(x.ratio*100)}%"></i></div></button>`).join('')
+  :'<div class="empty" style="padding:14px">Aggiungi cosa hai in casa e qui ti suggerisco i piatti.</div>';
+  $('#sugs').querySelectorAll('.sug').forEach(b=>b.onclick=()=>openRecipe(b.dataset.id));
+}
+
+/* ---------- tavolate ---------- */
+const COURSES=[['ant','Antipasto',['Antipasti']],['pri','Primo',['Primi','Piatti unici','Forno']],['sec','Secondo',['Secondi','Forno']],['con','Contorno',['Contorni']],['dol','Dolce',['Dolci']]];
+let curEv=null;
+const GLAB={vegan:['vegano','vegani'],veg:['vegetariano','vegetariani'],gf:['senza glutine','senza glutine'],lf:['senza lattosio','senza lattosio']};
+const gTxt=(k,c)=>c+' '+GLAB[k][c>1?1:0];
+function unmet(r,e){const d=diets(r),u=[];for(const k of ['vegan','veg','gf','lf'])if(e.g[k]&&!d[k])u.push(k);return u}
+function stepsMin(r){return(r.st||[]).reduce((a,x)=>a+mins(x),0)}
+function renderT(){
+  const tb=$('#tbody');const e=S.events.find(x=>x.id===curEv);
+  if(!e){curEv=null;
+    const t=iso(today0()),up=S.events.filter(x=>x.date>=t).sort((a,b)=>a.date.localeCompare(b.date)),past=S.events.filter(x=>x.date<t).sort((a,b)=>b.date.localeCompare(a.date));
+    const card=x=>`<button class="ev" data-id="${x.id}"><b>${esc(x.name)}</b><small>${x.date?new Date(x.date+'T00:00').toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'}):'Data da decidere'} · ${x.N} persone · ${x.items.length} piatti</small></button>`;
+    tb.innerHTML=`<div class="row" style="justify-content:space-between"><h2 style="font-size:24px">Cene e tavolate</h2><button class="btn pri" id="nEv">+ Nuova</button></div>
+    <p class="st">Dimmi quanti siete e chi ha esigenze particolari: ti aiuto con il menu, le dosi, la spesa e cosa preparare prima.</p>
+    ${up.length?up.map(card).join(''):'<div class="empty">Nessuna tavolata in programma.</div>'}
+    ${past.length?'<div class="sec"><span>Passate</span></div>'+past.map(card).join(''):''}`;
+    $('#nEv').onclick=()=>evSheet(null);
+    tb.querySelectorAll('.ev').forEach(b=>b.onclick=()=>{curEv=b.dataset.id;renderT();window.scrollTo(0,0)});
+    return;
+  }
+  e.items=e.items.filter(i=>getR(i.rid));
+  const gl=Object.entries(e.g).filter(([k,v])=>v).map(([k,v])=>gTxt(k,v));
+  let h=`<button class="btn sm ghost" id="back">‹ Tutte le tavolate</button>
+  <div class="today" style="border-left:6px solid var(--lemon)"><h3 style="margin-bottom:2px">${esc(e.name)}</h3><small>${e.date?new Date(e.date+'T00:00').toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'}):'Data da decidere'} · ${e.N} persone${gl.length?' · tra cui '+esc(gl.join(', ')):''}</small>
+  <div class="row" style="margin-top:12px"><button class="btn pri" id="auto" style="flex:1">${e.items.length?'Completa il menu':'Proponi un menu'}</button><button class="btn ghost" id="edE">Modifica</button></div></div>`;
+  for(const[c,l]of COURSES){
+    const its=e.items.filter(i=>i.course===c);
+    h+=`<div class="course"><h3>${l}<span class="row" style="gap:6px"><button class="btn sm ghost" data-sug="${c}">Proponi</button><button class="btn sm" data-add="${c}">+ Scegli</button></span></h3>`+
+    (its.length?its.map(i=>{const r=getR(i.rid),u=unmet(r,e);return `<div class="dish"><button class="nm" data-open="${i.id}">${esc(r.name)}<small>${i.alt?'Alternativa per '+esc(i.alt):u.length?'<span style="color:var(--tom)">Non va bene per: '+esc(u.map(k=>gTxt(k,e.g[k])).join(', '))+'</span>':'Va bene per tutti'}</small></button><span class="mini"><button data-dn="${i.id}" aria-label="Meno porzioni">−</button><span>${i.n}</span><button data-up="${i.id}" aria-label="Più porzioni">+</button></span><button class="x" data-rm="${i.id}" aria-label="Togli">×</button></div>`}).join(''):'<p class="st" style="margin:6px 0 2px">Nessun piatto.</p>')+'</div>';
+  }
+  if(e.items.length){
+    const ph={0:[],1:[],2:[]};e.items.forEach(i=>{const r=getR(i.rid),m=stepsMin(r),fr=(r.st||[]).some(x=>/frigo/i.test(x)&&/\bor[ae]\b/i.test(x));ph[m>=120||fr?0:m>=45?1:2].push(`${esc(r.name)}${m?` <span class="dt">circa ${m>=60?Math.floor(m/60)+' h'+(m%60?' '+(m%60)+' min':''):m+' min'}</span>`:''}`)});
+    h+=`<div class="sec"><span>Piano di lavoro</span></div><div class="list">`+[['Il giorno prima',0],['Qualche ora prima',1],['All\'ultimo momento',2]].filter(([t,k])=>ph[k].length).map(([t,k])=>`<div class="hrow" style="display:block"><b>${t}</b><div style="font-size:15px;margin-top:2px">${ph[k].join('<br>')}</div></div>`).join('')+'</div>';
+    const todo=e.items.filter(i=>!i.added);
+    h+=`<button class="btn pri wide" id="eShop"${todo.length?'':' disabled'}>${todo.length?`Fai la spesa per ${todo.length} ${todo.length>1?'piatti':'piatto'}`:'Tutto già in lista'}</button>`;
+  }
+  h+=`<button class="btn ghost wide" id="delE" style="color:var(--tom)">Elimina tavolata</button>`;
+  tb.innerHTML=h;
+  $('#back').onclick=()=>{curEv=null;renderT()};
+  $('#edE').onclick=()=>evSheet(e);
+  $('#auto').onclick=()=>{let k=0;COURSES.forEach(([c])=>{if(!e.items.some(i=>i.course===c)){proposeCourse(e,c);k++}});save();renderT();toast(k?'Ecco una proposta: cambia quello che vuoi':'Il menu è già completo')};
+  $('#delE').onclick=()=>confirmBox('Eliminare la tavolata?',e.name,()=>{S.events=S.events.filter(x=>x!==e);curEv=null;save();renderAll()},'Elimina');
+  const es=$('#eShop');if(es)es.onclick=()=>shopFor(e.items.filter(i=>!i.added),'Spesa per '+e.name);
+  tb.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>pickCourse(e,b.dataset.add));
+  tb.querySelectorAll('[data-sug]').forEach(b=>b.onclick=()=>{const c=b.dataset.sug;e.items=e.items.filter(i=>i.course!==c);proposeCourse(e,c);save();renderT()});
+  const it=id=>e.items.find(i=>i.id===id);
+  tb.querySelectorAll('[data-rm]').forEach(b=>b.onclick=()=>{e.items=e.items.filter(i=>i.id!==b.dataset.rm);save();renderT()});
+  tb.querySelectorAll('[data-up]').forEach(b=>b.onclick=()=>{const i=it(b.dataset.up);i.n=Math.min(99,i.n+1);i.added=false;save();renderT()});
+  tb.querySelectorAll('[data-dn]').forEach(b=>b.onclick=()=>{const i=it(b.dataset.dn);i.n=Math.max(1,i.n-1);i.added=false;save();renderT()});
+  tb.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>{const i=it(b.dataset.open);openRecipe(i.rid,i.n)});
+}
+function cands(e,c){const cats=COURSES.find(x=>x[0]===c)[2],used=new Set(e.items.map(i=>i.rid));return allR().filter(r=>cats.includes(r.cat)&&!used.has(r.id)).map(r=>({r,u:unmet(r,e)}))}
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function proposeCourse(e,c){
+  const cs=shuffle(cands(e,c)).sort((a,b)=>a.u.reduce((s,k)=>s+e.g[k],0)-b.u.reduce((s,k)=>s+e.g[k],0));
+  if(!cs.length)return;
+  const best=cs[0];
+  if(!best.u.length){e.items.push({id:uid(),course:c,rid:best.r.id,n:e.N,added:false});return}
+  const need=Math.min(e.N-1,best.u.reduce((s,k)=>s+e.g[k],0));
+  const alt=cs.find(x=>x!==best&&best.u.every(k=>!x.u.includes(k)));
+  if(alt&&need>0){e.items.push({id:uid(),course:c,rid:best.r.id,n:Math.max(1,e.N-need),added:false});e.items.push({id:uid(),course:c,rid:alt.r.id,n:need,added:false,alt:best.u.map(k=>gTxt(k,e.g[k])).join(', ')})}
+  else e.items.push({id:uid(),course:c,rid:best.r.id,n:e.N,added:false});
+}
+function pickCourse(e,c){
+  const cs=cands(e,c).sort((a,b)=>a.u.length-b.u.length||a.r.name.localeCompare(b.r.name));
+  openSheet(`<h2>${COURSES.find(x=>x[0]===c)[1]} per ${esc(e.name)}</h2>${cs.length?cs.map(x=>`<button class="sug" data-id="${esc(x.r.id)}"><b>${esc(x.r.name)}</b><small>${x.u.length?'<span style="color:var(--tom)">Non va bene per: '+esc(x.u.map(k=>gTxt(k,e.g[k])).join(', '))+'</span>':'Va bene per tutti'}</small><div>${dietTags(x.r)}</div></button>`).join(''):'<div class="empty">Nessun altro piatto in questa portata. Aggiungine uno dal ricettario.</div>'}<button class="btn ghost wide" data-c>Chiudi</button>`,p=>{
+    p.querySelector('[data-c]').onclick=closeSheet;
+    p.querySelectorAll('.sug').forEach(b=>b.onclick=()=>{e.items.push({id:uid(),course:c,rid:b.dataset.id,n:e.N,added:false});save();closeSheet();renderT()});
+  });
+}
+function evSheet(e){
+  const o=e?{...e,g:{...e.g}}:{name:'Cena con gli amici',date:'',N:8,g:{vegan:0,veg:0,gf:0,lf:0}};
+  openSheet(`<h2>${e?'Modifica tavolata':'Nuova tavolata'}</h2>
+  <label class="l" for="en">Nome</label><input class="inp" id="en" value="${esc(o.name)}">
+  <label class="l" for="edt">Data</label><input class="inp" id="edt" type="date" value="${esc(o.date)}">
+  <div class="row" style="justify-content:space-between;margin-top:14px"><b>Persone in tutto</b>${stepper('eN',o.N)}</div>
+  <p class="st" style="margin-top:14px">Di cui con esigenze particolari:</p>
+  ${DIETS.map(([k,l])=>`<div class="row" style="justify-content:space-between;margin-top:8px"><span>${l}</span>${stepper('g_'+k,o.g[k])}</div>`).join('')}
+  <div class="acts"><button class="btn ghost" data-c>Annulla</button><button class="btn pri" id="ok">${e?'Salva':'Crea'}</button></div>`,p=>{
+    p.querySelector('[data-c]').onclick=closeSheet;
+    bindStep(p,'eN',()=>o.N,v=>o.N=v,1,99);
+    DIETS.forEach(([k])=>bindStep(p,'g_'+k,()=>o.g[k],v=>o.g[k]=Math.min(v,o.N),0,99));
+    p.querySelector('#ok').onclick=()=>{
+      o.name=p.querySelector('#en').value.trim()||'Tavolata';o.date=p.querySelector('#edt').value;
+      if(e){const scale=o.N/e.N;Object.assign(e,{name:o.name,date:o.date,g:o.g});if(o.N!==e.N){e.items.forEach(i=>{i.n=Math.max(1,Math.round(i.n*scale));i.added=false});e.N=o.N}}
+      else{const ne={id:uid(),name:o.name,date:o.date,N:o.N,g:o.g,items:[]};S.events.push(ne);curEv=ne.id}
+      save();closeSheet();renderAll();
+    };
+  });
+}
+
 /* ---------- dispensa ---------- */
 function addPantry(o){
   const ex=S.pantry.find(p=>norm(p.n)===norm(o.n)&&p.u===o.u);
@@ -699,16 +1115,8 @@ function addPantry(o){
   else S.pantry.push({id:uid(),n:o.n,q:o.q||0,u:o.u||'pz',r:o.r||guess(o.n),exp:o.exp||'',code:o.code||null});
 }
 function expTag(p){if(!p.exp)return '';const d=daysTo(p.exp);return d<0?'<span class="tag r">scaduto</span>':d===0?'<span class="tag r">scade oggi</span>':d===1?'<span class="tag w">scade domani</span>':d<=3?`<span class="tag w">scade tra ${d} giorni</span>`:`<span class="tag" style="color:var(--mute)">${new Date(p.exp+'T00:00').toLocaleDateString('it-IT',{day:'numeric',month:'short'})}</span>`}
-function suggest(){
-  return allR().map(r=>{const need=r.ing.filter(i=>i.u!=='qb'),have=need.filter(i=>inPantry(i.n)),miss=need.filter(i=>!inPantry(i.n)),exp=have.map(i=>inPantry(i.n)).filter(p=>p.exp&&daysTo(p.exp)<=3);return{r,ratio:need.length?have.length/need.length:0,have,miss,exp}})
-  .filter(x=>x.have.length).sort((a,b)=>(b.ratio+(b.exp.length?.35:0))-(a.ratio+(a.exp.length?.35:0))).slice(0,4);
-}
 function renderD(){
   const soon=S.pantry.filter(p=>p.exp&&daysTo(p.exp)<=2).length;$('#db').hidden=!soon;$('#db').textContent=soon;
-  const sg=suggest();
-  $('#sugs').innerHTML=sg.length?sg.map(x=>`<button class="sug" data-id="${esc(x.r.id)}"><b>${esc(x.r.name)}</b><small>${x.miss.length?'Ti manca: '+esc(x.miss.map(i=>i.n).join(', ')):'Hai tutto!'}${x.exp.length?` · <span class="tag w">usa ${esc([...new Set(x.exp.map(p=>p.n))].join(', '))}</span>`:''}</small><div class="bar"><i style="width:${Math.round(x.ratio*100)}%"></i></div></button>`).join('')
-  :'<div class="empty" style="padding:14px">Aggiungi cosa hai in casa e qui ti suggerisco i piatti.</div>';
-  $('#sugs').querySelectorAll('.sug').forEach(b=>b.onclick=()=>openRecipe(b.dataset.id));
   const q=norm($('#dq').value);
   const P=S.pantry.filter(p=>!q||norm(p.n).includes(q)).sort((a,b)=>(a.exp||'9999').localeCompare(b.exp||'9999')||a.n.localeCompare(b.n));
   if(!S.pantry.length){$('#dbody').innerHTML='<div class="sec"><span>In dispensa</span></div><div class="empty">La dispensa è vuota. Quando chiudi una spesa, i prodotti finiscono qui da soli.</div>';return}
@@ -746,7 +1154,7 @@ function pantrySheet(p){
   });
 }
 
-function renderAll(){renderR();renderM();renderL();renderC();renderD();renderS();if(document.body.classList.contains('home'))renderH()}
+function renderAll(){renderR();renderM();renderL();renderC();renderD();renderS();renderO();renderT();if(document.body.classList.contains('home'))renderH()}
 renderCats();renderAll();go('home');
 const sp=$('#splash');setTimeout(()=>{sp.classList.add('out');setTimeout(()=>sp.remove(),500)},matchMedia('(prefers-reduced-motion: reduce)').matches?500:1400);sp.onclick=()=>sp.classList.add('out');
 }
