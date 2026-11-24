@@ -6,6 +6,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="SpesaChef">
 <meta name="theme-color" content="#1f5c34">
+<meta name="description" content="SpesaChef – Ricette · Spesa · Dispensa">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="apple-touch-startup-image" href="splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
 <title>SpesaChef</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +35,7 @@ button{cursor:pointer}
 :focus-visible{outline:3px solid var(--lemon);outline-offset:2px}
 .top{position:sticky;top:0;z-index:5;background:var(--basil);color:#fff;padding:calc(env(safe-area-inset-top) + 12px) max(16px,env(safe-area-inset-right)) 12px max(16px,env(safe-area-inset-left))}
 .top .in{max-width:680px;margin:auto;display:flex;align-items:center;gap:12px}
-.top h1{font-size:24px;flex:1}.top h1 span{color:var(--lemon)}
+.top h1{font-size:24px}.top h1 span{color:var(--lemon)}
 .tot{background:#fff;color:#14201a;border:0;border-radius:999px;padding:6px 14px;font:700 17px Rubik,sans-serif;white-space:nowrap;min-height:40px}
 main{max-width:680px;margin:auto;padding:16px max(16px,env(safe-area-inset-right)) calc(96px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
 .view{display:none}.view.on{display:block}
@@ -120,17 +125,36 @@ textarea.inp{min-height:130px;resize:vertical}
 @media (prefers-reduced-motion:reduce){.kclock.ring{animation:none}}
 .dots{display:flex;gap:6px;justify-content:center;margin:10px 0;flex-wrap:wrap}.dots i{width:9px;height:9px;border-radius:50%;background:var(--line)}.dots i.on{background:var(--leaf)}
 .knav{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:10px;max-width:760px;width:100%;margin:0 auto}.knav .btn{min-height:60px;font-size:18px}
+#splash{position:fixed;inset:0;z-index:50;background:radial-gradient(ellipse at 25% 12%,#3f9a5b,#174a29 75%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transition:opacity .45s ease}
+#splash svg{width:min(52vw,240px);height:auto;margin-top:-8vh;animation:pop .7s cubic-bezier(.2,1.4,.4,1) both}
+#splash h1{font-size:clamp(44px,13vw,64px);letter-spacing:-.5px}#splash h1 span{color:var(--lemon)}
+#splash p{margin:6px 0 0;font-weight:600;font-size:18px;color:#cfe5d4;letter-spacing:.3px}
+#splash small{position:absolute;bottom:calc(32px + env(safe-area-inset-bottom));color:#9cc4a6;font-size:13px;font-weight:600}
+#splash.out{opacity:0;pointer-events:none}
+@keyframes pop{from{transform:scale(.6) rotate(-8deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){#splash svg{animation:none}}
+.top .tl{display:block;font:600 12px "Nunito Sans",sans-serif;color:#cfe5d4;letter-spacing:.2px;margin-top:2px}
 </style>
 </head>
 <body>
-<header class="top"><div class="in"><h1>Spesa<span>Chef</span></h1><button class="tot" id="topTot" aria-label="Vai al carrello">€ 0,00</button></div></header>
+<div id="splash" aria-hidden="true"><svg viewBox="140 150 744 760"><g transform="translate(512 535) scale(.86) translate(-512 -490)">
+ <ellipse cx="512" cy="838" rx="250" ry="28" fill="#000" opacity=".18"/>
+ <circle cx="345" cy="430" r="135" fill="#fff"/><circle cx="679" cy="430" r="135" fill="#fff"/><circle cx="512" cy="360" r="175" fill="#fff"/>
+ <rect x="365" y="420" width="294" height="280" fill="#fff"/>
+ <rect x="335" y="672" width="354" height="128" rx="36" fill="#eef4ec"/>
+ <rect x="335" y="672" width="354" height="26" rx="13" fill="#d7e4d3"/>
+ <path d="M420 560 L492 628 L624 480" fill="none" stroke="#f2c230" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"/>
+ <circle cx="660" cy="736" r="34" fill="#e0412b"/><path d="M652 704q10-14 22-8" stroke="#2f7d47" stroke-width="10" fill="none" stroke-linecap="round"/>
+</g>
+</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v2.1 · © Marco – diritti riservati</small></div>
+<header class="top"><div class="in"><div style="flex:1"><h1>Spesa<span>Chef</span></h1><span class="tl">Ricette · Spesa · Dispensa</span></div><button class="tot" id="topTot" aria-label="Vai al carrello">€ 0,00</button></div></header>
 
 <main>
 <section class="view" id="v-ricette">
   <div class="row"><input class="inp" id="q" placeholder="Che cosa vuoi cucinare?" style="flex:1" autocomplete="off"><button class="btn pri" id="newR">+ Ricetta</button></div>
   <div class="chips" id="cats"></div>
   <div class="grid" id="rgrid"></div>
-  <p class="foot">SpesaChef v2.0 · © Marco – diritti riservati</p>
+  <p class="foot">SpesaChef v2.1 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
 </section>
 
 <section class="view" id="v-menu">
@@ -685,6 +709,7 @@ function pantrySheet(p){
 
 function renderAll(){renderR();renderM();renderL();renderC();renderD()}
 renderCats();renderAll();go(location.hash.slice(1)||'ricette');
+const sp=$('#splash');setTimeout(()=>{sp.classList.add('out');setTimeout(()=>sp.remove(),500)},matchMedia('(prefers-reduced-motion: reduce)').matches?500:1400);sp.onclick=()=>sp.classList.add('out');
 }
 </script>
 </body>
