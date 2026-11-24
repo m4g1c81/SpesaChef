@@ -133,6 +133,16 @@ textarea.inp{min-height:130px;resize:vertical}
 #splash.out{opacity:0;pointer-events:none}
 @keyframes pop{from{transform:scale(.6) rotate(-8deg);opacity:0}}
 @media (prefers-reduced-motion:reduce){#splash svg{animation:none}}
+.homeb{width:44px;height:44px;border:0;border-radius:12px;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;flex:none}.homeb svg{width:24px;height:24px}.homeb[hidden],.tot[hidden]{display:none}
+.hello h2{font-size:clamp(30px,8vw,40px)}.hello p{margin:4px 0 16px;color:var(--mute);font-size:17px}
+.mode{display:grid;align-content:end;width:100%;min-height:clamp(200px,32vh,280px);border:0;border-radius:26px;padding:22px;margin-bottom:14px;text-align:left;color:#fff;position:relative;overflow:hidden;box-shadow:0 10px 24px -14px rgba(0,0,0,.45);transition:transform .15s}
+.mode:active{transform:scale(.98)}
+.mode.spesa{background:linear-gradient(150deg,#2f7d47,#174a29)}.mode.cucina{background:linear-gradient(150deg,#e8553f,#a82a17)}
+.mode svg{position:absolute;right:-6px;top:10px;width:clamp(150px,44vw,210px);height:auto}
+.mode b{font:700 clamp(28px,8vw,36px)/1.05 Rubik,sans-serif;position:relative}
+.mode small{display:block;font-size:15px;font-weight:600;opacity:.92;margin-top:6px;position:relative;max-width:70%}
+.mode .go{display:inline-flex;align-items:center;gap:6px;margin-top:12px;background:rgba(255,255,255,.2);border-radius:99px;padding:6px 14px;font-weight:700;font-size:14px;width:max-content;position:relative}
+.tabs{grid-template-columns:repeat(4,minmax(0,1fr))}.tabs button.hid{display:none}body.home .tabs{display:none}body.home main{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
 .top .tl{display:block;font:600 12px "Nunito Sans",sans-serif;color:#cfe5d4;letter-spacing:.2px;margin-top:2px}
 </style>
 </head>
@@ -146,16 +156,21 @@ textarea.inp{min-height:130px;resize:vertical}
  <path d="M420 560 L492 628 L624 480" fill="none" stroke="#f2c230" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"/>
  <circle cx="660" cy="736" r="34" fill="#e0412b"/><path d="M652 704q10-14 22-8" stroke="#2f7d47" stroke-width="10" fill="none" stroke-linecap="round"/>
 </g>
-</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v2.1 · © Marco – diritti riservati</small></div>
-<header class="top"><div class="in"><div style="flex:1"><h1>Spesa<span>Chef</span></h1><span class="tl">Ricette · Spesa · Dispensa</span></div><button class="tot" id="topTot" aria-label="Vai al carrello">€ 0,00</button></div></header>
+</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v2.2 · © Marco – diritti riservati</small></div>
+<header class="top"><div class="in"><button class="homeb" id="homeB" aria-label="Torna alla home" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></button><div style="flex:1"><h1>Spesa<span>Chef</span></h1><span class="tl">Ricette · Spesa · Dispensa</span></div><button class="tot" id="topTot" aria-label="Vai al carrello">€ 0,00</button></div></header>
 
 <main>
+<section class="view" id="v-home">
+  <div class="hello"><h2 id="hi">Ciao!</h2><p>Che cosa fai adesso?</p></div>
+  <button class="mode spesa" id="mS"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="186" rx="80" ry="8" fill="#000" opacity=".15"/><circle cx="92" cy="52" r="26" fill="#f2c230"/><circle cx="128" cy="58" r="24" fill="#e0412b"/><path d="M124 36q8-10 16-4" stroke="#7cc08f" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M60 58h104l-6 34" fill="none"/><rect x="146" y="40" width="22" height="44" rx="6" fill="#eaf1e6"/><path d="M20 30h26l24 104h106l16-70H58" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 98h118" stroke="#fff" stroke-width="8" opacity=".55"/><circle cx="84" cy="164" r="13" fill="#fff"/><circle cx="160" cy="164" r="13" fill="#fff"/></svg><b>Faccio la spesa</b><small id="hS"></small><span class="go">Lista, carrello, prezzi →</span></button>
+  <button class="mode cucina" id="mC"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="188" rx="84" ry="8" fill="#000" opacity=".15"/><path d="M84 40q-12-14 0-28M110 36q-12-14 0-28M136 40q-12-14 0-28" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".7"/><rect x="40" y="86" width="140" height="92" rx="20" fill="#fff"/><rect x="40" y="86" width="140" height="18" rx="9" fill="#ffe2dc"/><rect x="18" y="104" width="30" height="14" rx="7" fill="#fff"/><rect x="172" y="104" width="30" height="14" rx="7" fill="#fff"/><path d="M34 74h152" stroke="#f2c230" stroke-width="12" stroke-linecap="round"/><rect x="96" y="56" width="28" height="16" rx="8" fill="#f2c230"/><circle cx="140" cy="140" r="14" fill="#e0412b" opacity=".85"/><path d="M76 140h36" stroke="#e0412b" stroke-width="8" stroke-linecap="round" opacity=".5"/></svg><b>Cucino</b><small id="hC"></small><span class="go">Ricette, menu, dispensa →</span></button>
+  <p class="foot">SpesaChef v2.2 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
+</section>
 <section class="view" id="v-ricette">
   <div class="row"><input class="inp" id="q" placeholder="Che cosa vuoi cucinare?" style="flex:1" autocomplete="off"><button class="btn pri" id="newR">+ Ricetta</button></div>
   <div class="chips" id="cats"></div>
   <div class="grid" id="rgrid"></div>
-  <p class="foot">SpesaChef v2.1 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
-</section>
+  </section>
 
 <section class="view" id="v-menu">
   <div class="row" style="justify-content:space-between">
@@ -184,9 +199,14 @@ textarea.inp{min-height:130px;resize:vertical}
   </div>
   <div class="sec"><span>Nel carrello</span><span id="cn"></span></div>
   <div id="cbody"></div>
-  <button class="btn ghost wide" id="cmp">Confronta i prezzi</button>
-  <div class="sec"><span>Spese passate</span><span id="mtot"></span></div>
+</section>
+
+<section class="view" id="v-storico">
+  <div class="sec" style="margin-top:4px"><span>Spese passate</span><span id="mtot"></span></div>
   <div id="hbody"></div>
+  <div class="sec"><span>Confronta i prezzi</span></div>
+  <input class="inp" id="cq" placeholder="Cerca un prodotto" autocomplete="off">
+  <div id="cl" style="margin-top:10px"></div>
 </section>
 
 <section class="view" id="v-dispensa">
@@ -198,10 +218,12 @@ textarea.inp{min-height:130px;resize:vertical}
 </main>
 
 <nav class="tabs">
+  <button data-t="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11 12 4l8 7"/><path d="M6 10v10h12V10"/></svg>Home</button>
   <button data-t="ricette"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 13h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z"/><path d="M4 13h16M9 9c0-2 2-2 2-4M13 9c0-2 2-2 2-4"/></svg>Ricette</button>
   <button data-t="menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Menu</button>
   <button data-t="lista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="m3 6 1.5 1.5L7 5M3 12l1.5 1.5L7 11"/><circle cx="5" cy="18" r="1.3"/></svg>Lista<span class="badge" id="lb" hidden></span></button>
   <button data-t="carrello"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2l2.4 11h10.2L20 8H6.2"/><circle cx="9" cy="19.5" r="1.5"/><circle cx="17" cy="19.5" r="1.5"/></svg>Carrello</button>
+  <button data-t="storico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>Storico</button>
   <button data-t="dispensa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h14v18H5zM5 12h14"/><path d="M9 7.5h2M9 16.5h2"/></svg>Dispensa<span class="badge" id="db" hidden></span></button>
 </nav>
 
@@ -295,8 +317,28 @@ let toastT;
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('on'),2000)}
 
 /* ---------- navigazione ---------- */
-const TABS=['ricette','menu','lista','carrello','dispensa'];
-function go(t){if(!TABS.includes(t))t='ricette';document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+t));document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));if(location.hash!=='#'+t)history.replaceState(null,'','#'+t);window.scrollTo(0,0)}
+const MODES={spesa:['lista','carrello','storico'],cucina:['ricette','menu','dispensa']};
+const modeOf=t=>Object.keys(MODES).find(m=>MODES[m].includes(t))||null;
+function go(t){
+  if(t!=='home'&&!modeOf(t))t='home';
+  const m=modeOf(t);
+  document.body.classList.toggle('home',!m);
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+t));
+  document.querySelectorAll('.tabs button').forEach(b=>{b.classList.toggle('on',b.dataset.t===t);b.classList.toggle('hid',b.dataset.t!=='home'&&modeOf(b.dataset.t)!==m)});
+  $('#homeB').hidden=!m;$('#topTot').hidden=m!=='spesa';
+  if(!m)renderH();if(t==='storico')renderS();
+  if(location.hash!=='#'+t)history.replaceState(null,'','#'+t);window.scrollTo(0,0)}
+function renderH(){
+  const h=new Date().getHours();$('#hi').textContent=h<12?'Buongiorno!':h<18?'Buon pomeriggio!':'Buonasera!';
+  const left=S.list.filter(x=>!x.done).length,ct=cartTot();
+  $('#hS').textContent=ct?`Carrello aperto: ${money(ct)}`+(left?` · ancora ${left} in lista`:''):left?`${left} ${left>1?'articoli':'articolo'} in lista`:'La lista è vuota';
+  const t=iso(today0()),slot=h<15?'pranzo':'cena',m=S.menu.find(x=>x.d===t&&x.s===slot&&getR(x.rid));
+  const soon=S.pantry.filter(p=>p.exp&&daysTo(p.exp)<=2).length;
+  $('#hC').textContent=[m?`${slot==='pranzo'?'Oggi a pranzo':'Stasera'}: ${getR(m.rid).name}`:'',soon?`${soon} ${soon>1?'prodotti':'prodotto'} in scadenza`:''].filter(Boolean).join(' · ')||`${allR().length} ricette pronte`;
+}
+$('#mS').onclick=()=>go(S.cart.length?'carrello':'lista');
+$('#mC').onclick=()=>{const t=iso(today0()),slot=new Date().getHours()<15?'pranzo':'cena';go(S.menu.some(x=>x.d===t&&x.s===slot)?'menu':'ricette')};
+$('#homeB').onclick=()=>go('home');
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>go(b.dataset.t));
 $('#topTot').onclick=()=>go('carrello');
 addEventListener('hashchange',()=>go(location.hash.slice(1)));
@@ -472,7 +514,7 @@ function renderL(){
   const L=S.list,left=L.filter(x=>!x.done).length;
   $('#lb').hidden=!left;$('#lb').textContent=left;
   $('#ask').checked=S.ask;$('#lacts').style.display=L.length?'':'none';
-  if(!L.length){$('#lbody').innerHTML=`<div class="empty"><svg viewBox="0 0 72 72" fill="none"><rect x="14" y="8" width="44" height="56" rx="6" fill="var(--soft)"/><path d="M24 24h24M24 34h24M24 44h14" stroke="var(--leaf)" stroke-width="4" stroke-linecap="round"/></svg><br>La lista è vuota.<br>Scegli un piatto in <b>Ricette</b> o nel <b>Menu</b>, oppure scrivi qui sopra.</div>`;return}
+  if(!L.length){$('#lbody').innerHTML=`<div class="empty"><svg viewBox="0 0 72 72" fill="none"><rect x="14" y="8" width="44" height="56" rx="6" fill="var(--soft)"/><path d="M24 24h24M24 34h24M24 44h14" stroke="var(--leaf)" stroke-width="4" stroke-linecap="round"/></svg><br>La lista è vuota.<br>Scrivi qui sopra, oppure da <b>Cucino</b> scegli un piatto o il menu della settimana.</div>`;return}
   let h='';
   for(const k of REPORD){
     const its=L.filter(x=>x.r===k).sort((a,b)=>a.done-b.done);if(!its.length)continue;
@@ -641,17 +683,14 @@ $('#close').onclick=()=>{
     };
   });
 };
-$('#cmp').onclick=()=>{
+function renderS(){
   const g=new Map();S.prices.forEach(r=>{const k=r.code||norm(r.name);const a=g.get(k)||{name:r.name,rs:[]};a.name=r.name;a.rs.push(r);g.set(k,a)});
   const items=[...g.values()].sort((a,b)=>b.rs[b.rs.length-1].d-a.rs[a.rs.length-1].d);
-  openSheet(`<h2>Confronta i prezzi</h2><input class="inp" id="cq" placeholder="Cerca un prodotto" autocomplete="off"><div id="cl" style="margin-top:10px"></div><button class="btn ghost wide" data-c>Chiudi</button>`,p=>{
-    p.querySelector('[data-c]').onclick=closeSheet;
-    const draw=()=>{const q=norm(p.querySelector('#cq').value);const f=items.filter(a=>!q||norm(a.name).includes(q)).slice(0,60);
-      p.querySelector('#cl').innerHTML=f.length?'<div class="list">'+f.map(a=>{const l=a.rs[a.rs.length-1],b=a.rs.reduce((x,y)=>y.p<x.p?y:x),shops=new Map();a.rs.forEach(r=>{if(r.shop)shops.set(r.shop,r.p)});return `<div class="hrow"><div><b>${esc(a.name)}</b><div style="color:var(--mute);font-size:13px">${[...shops].map(([s,v])=>esc(s)+' '+money(v)).join(' · ')||a.rs.length+' acquisti'}</div></div><div style="text-align:right"><span class="pr">${money(l.p)}</span>${b.p<l.p-0.004?`<div style="font-size:13px;color:var(--leaf);font-weight:700">min ${money(b.p)}</div>`:''}</div></div>`}).join('')+'</div>'
-      :'<div class="empty">Ancora nessun prezzo salvato. I prezzi entrano nello storico quando chiudi una spesa.</div>'};
-    p.querySelector('#cq').oninput=draw;draw();
-  });
-};
+  const q=norm($('#cq').value);const f=items.filter(a=>!q||norm(a.name).includes(q)).slice(0,80);
+  $('#cl').innerHTML=f.length?'<div class="list">'+f.map(a=>{const l=a.rs[a.rs.length-1],b=a.rs.reduce((x,y)=>y.p<x.p?y:x),shops=new Map();a.rs.forEach(r=>{if(r.shop)shops.set(r.shop,r.p)});return `<div class="hrow"><div><b>${esc(a.name)}</b><div style="color:var(--mute);font-size:13px">${[...shops].map(([s,v])=>esc(s)+' '+money(v)).join(' · ')||a.rs.length+' acquisti'}</div></div><div style="text-align:right"><span class="pr">${money(l.p)}</span>${b.p<l.p-0.004?`<div style="font-size:13px;color:var(--leaf);font-weight:700">min ${money(b.p)}</div>`:''}</div></div>`}).join('')+'</div>'
+  :`<div class="empty">${S.prices.length?'Nessun prodotto trovato.':'Ancora nessun prezzo salvato. I prezzi entrano qui quando chiudi una spesa.'}</div>`;
+}
+$('#cq').oninput=renderS;
 
 /* ---------- dispensa ---------- */
 function addPantry(o){
@@ -707,8 +746,8 @@ function pantrySheet(p){
   });
 }
 
-function renderAll(){renderR();renderM();renderL();renderC();renderD()}
-renderCats();renderAll();go(location.hash.slice(1)||'ricette');
+function renderAll(){renderR();renderM();renderL();renderC();renderD();renderS();if(document.body.classList.contains('home'))renderH()}
+renderCats();renderAll();go('home');
 const sp=$('#splash');setTimeout(()=>{sp.classList.add('out');setTimeout(()=>sp.remove(),500)},matchMedia('(prefers-reduced-motion: reduce)').matches?500:1400);sp.onclick=()=>sp.classList.add('out');
 }
 </script>
