@@ -205,6 +205,9 @@ body[data-page=spesa] .sbar{display:block}
 .pcard.on{outline:3px solid var(--leaf);outline-offset:-3px}
 .pcard em{position:absolute;left:6px;top:6px;background:var(--lemon);color:#2b1d00;font-style:normal;font-size:11px;font-weight:800;border-radius:99px;padding:2px 8px}
 .okb{position:absolute;right:6px;top:6px;width:28px;height:28px;border-radius:50%;background:var(--leaf);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:800}
+#selbar[hidden]{display:none!important}
+.rcard.picked{outline:3px solid var(--tom);outline-offset:-3px}.rcard.picked::after{content:"✓";position:absolute;left:8px;top:8px;width:28px;height:28px;border-radius:50%;background:var(--tom);color:#fff;display:grid;place-items:center;font-weight:800}
+body.selecting .favb{display:none}
 .top .tl{display:block;font:600 12px "Nunito Sans",sans-serif;color:#cfe5d4;letter-spacing:.2px;margin-top:2px}
 </style>
 </head>
@@ -218,7 +221,7 @@ body[data-page=spesa] .sbar{display:block}
  <path d="M420 560 L492 628 L624 480" fill="none" stroke="#f2c230" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"/>
  <circle cx="660" cy="736" r="34" fill="#e0412b"/><path d="M652 704q10-14 22-8" stroke="#2f7d47" stroke-width="10" fill="none" stroke-linecap="round"/>
 </g>
-</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v4.5 · © Marco – diritti riservati</small></div>
+</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v4.6 · © Marco – diritti riservati</small></div>
 <header class="top"><div class="in"><button class="homeb" id="homeB" aria-label="Indietro" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div style="flex:1"><h1 id="hT">Spesa<span>Chef</span></h1><span class="tl" id="hTl">Ricette · Spesa · Dispensa</span></div><button class="tot" id="topTot" aria-label="Vai al carrello">€ 0,00</button><button class="homeb" id="gear" aria-label="Impostazioni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div></header>
 
 <main>
@@ -228,14 +231,14 @@ body[data-page=spesa] .sbar{display:block}
   <button class="mode spesa" id="mS"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="186" rx="80" ry="8" fill="#000" opacity=".15"/><circle cx="92" cy="52" r="26" fill="#f2c230"/><circle cx="128" cy="58" r="24" fill="#e0412b"/><path d="M124 36q8-10 16-4" stroke="#7cc08f" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M60 58h104l-6 34" fill="none"/><rect x="146" y="40" width="22" height="44" rx="6" fill="#eaf1e6"/><path d="M20 30h26l24 104h106l16-70H58" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 98h118" stroke="#fff" stroke-width="8" opacity=".55"/><circle cx="84" cy="164" r="13" fill="#fff"/><circle cx="160" cy="164" r="13" fill="#fff"/></svg><b>Faccio la spesa</b><small id="hS"></small><span class="go">Lista, carrello, prezzi →</span></button>
   <button class="mode cucina" id="mC"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="188" rx="84" ry="8" fill="#000" opacity=".15"/><path d="M84 40q-12-14 0-28M110 36q-12-14 0-28M136 40q-12-14 0-28" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".7"/><rect x="40" y="86" width="140" height="92" rx="20" fill="#fff"/><rect x="40" y="86" width="140" height="18" rx="9" fill="#ffe2dc"/><rect x="18" y="104" width="30" height="14" rx="7" fill="#fff"/><rect x="172" y="104" width="30" height="14" rx="7" fill="#fff"/><path d="M34 74h152" stroke="#f2c230" stroke-width="12" stroke-linecap="round"/><rect x="96" y="56" width="28" height="16" rx="8" fill="#f2c230"/><circle cx="140" cy="140" r="14" fill="#e0412b" opacity=".85"/><path d="M76 140h36" stroke="#e0412b" stroke-width="8" stroke-linecap="round" opacity=".5"/></svg><b>Cucino</b><small id="hC"></small><span class="go">Oggi in cucina, dispensa →</span></button>
   <div class="hint" id="bkHint" hidden style="margin-top:4px"></div>
-  <p class="foot">SpesaChef v4.5 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
+  <p class="foot">SpesaChef v4.6 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
 </section>
 <section class="view" id="v-ricette">
   <div class="row"><input class="inp" id="q" placeholder="Cerca un piatto o un ingrediente" style="flex:1" autocomplete="off"><button class="btn pri" id="newR">+ Aggiungi</button></div>
   <div class="tiles" id="cats"></div>
   <div class="chips dchips" id="diets" style="padding-top:4px"></div>
   <p class="st" id="dnote" hidden style="font-size:13px">Etichette calcolate dagli ingredienti: con allergie o celiachia controlla sempre le confezioni (brodo, cioccolato, lievito…). Parmigiano e grana sono naturalmente privi di lattosio ma usano caglio animale.</p>
-  <div class="row" style="justify-content:space-between;margin:14px 0 2px"><b id="rcount" style="font-family:Rubik,sans-serif;font-size:18px"></b><div class="row" style="gap:6px"><select class="inp" id="rsort" style="width:auto;min-height:38px;padding:4px 8px;font-size:14px"><option value="az">A-Z</option><option value="fast">Più veloci</option><option value="top">Più votate</option><option value="new">Ultime aggiunte</option></select><div class="seg" id="rview"><button data-v="grid" aria-label="Griglia"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></button><button data-v="list" aria-label="Elenco"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="3" y="4" width="6" height="6" rx="1.5"/><rect x="11" y="6" width="10" height="2" rx="1"/><rect x="3" y="14" width="6" height="6" rx="1.5"/><rect x="11" y="16" width="10" height="2" rx="1"/></svg></button></div></div></div>
+  <div class="row" style="justify-content:space-between;margin:14px 0 2px"><b id="rcount" style="font-family:Rubik,sans-serif;font-size:18px"></b><div class="row" style="gap:6px"><button class="btn sm ghost" id="selB">Seleziona</button><select class="inp" id="rsort" style="width:auto;min-height:38px;padding:4px 8px;font-size:14px"><option value="az">A-Z</option><option value="fast">Più veloci</option><option value="top">Più votate</option><option value="new">Ultime aggiunte</option></select><div class="seg" id="rview"><button data-v="grid" aria-label="Griglia"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/></svg></button><button data-v="list" aria-label="Elenco"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="3" y="4" width="6" height="6" rx="1.5"/><rect x="11" y="6" width="10" height="2" rx="1"/><rect x="3" y="14" width="6" height="6" rx="1.5"/><rect x="11" y="16" width="10" height="2" rx="1"/></svg></button></div></div></div>
   <div class="rgrid2" id="rgrid"></div>
   </section>
 
@@ -292,6 +295,7 @@ body[data-page=spesa] .sbar{display:block}
 
 <div id="sh"><div class="pane" id="pane" role="dialog" aria-modal="true"></div></div>
 <div id="cook" role="dialog" aria-modal="true" aria-label="Modalità cucina"></div>
+<div class="sbar" id="selbar" hidden style="display:block"><div class="in"><button class="btn ghost" id="selX">Annulla</button><button class="btn red" id="selDel" style="flex:1"></button></div></div>
 <div class="toast" id="toast"></div>
 <div id="viewer" role="dialog" aria-label="Foto"><img alt=""></div>
 
@@ -452,10 +456,52 @@ const B=[
 ['Torta pere e cioccolato','Dolci',8,[['Pere abate',3,'pz','V'],['Farina 00',170,'g','D'],['Zucchero di canna',170,'g','D'],['Burro',120,'g','L'],['Cioccolato fondente',100,'g','D'],['Cacao amaro',30,'g','D'],['Uova',2,'pz','L'],['Lievito per dolci',1,'bustina','D'],['Cannella',0,'qb','D']],
 ["Accendi il forno a 180 °C. Sbatti le uova con lo zucchero, poi aggiungi il burro fuso.","In un'altra ciotola mescola farina, cacao, cannella e lievito; uniscili all'impasto e aggiungi il cioccolato a pezzetti.","Versa in una tortiera, affonda le pere sbucciate a spicchi e completa con un po' di zucchero di canna e qualche fiocchetto di burro.","Cuoci circa 40 min e lascia intiepidire prima di servire."],'https://www.benedettaparodi.it/torta-pere-e-cioccolato/'],
 ['Insalata russa di salmone','Piatti unici',6,[['Patate',500,'g','V'],['Salmone fresco',400,'g','C'],['Piselli',150,'g','S'],['Carote',150,'g','V'],['Maionese',1,'cucchiaio','D'],['Yogurt bianco',1,'cucchiaio','L']],
-["Taglia patate e carote a cubetti e lessale con i piselli in acqua salata, circa 15 min.","Cuoci il salmone al vapore o in acqua bollente, lasciandolo leggermente rosato all'interno, circa 8 min.","Lascia raffreddare tutto, poi spezzetta il salmone e uniscilo alle verdure.","Mescola maionese e yogurt con un pizzico di sale, condisci l'insalata e servi fresca."],'https://www.benedettaparodi.it/insalata-russa-di-salmone/']
+["Taglia patate e carote a cubetti e lessale con i piselli in acqua salata, circa 15 min.","Cuoci il salmone al vapore o in acqua bollente, lasciandolo leggermente rosato all'interno, circa 8 min.","Lascia raffreddare tutto, poi spezzetta il salmone e uniscilo alle verdure.","Mescola maionese e yogurt con un pizzico di sale, condisci l'insalata e servi fresca."],'https://www.benedettaparodi.it/insalata-russa-di-salmone/'],
+['Penne all\'arrabbiata','Primi',4,[['Penne rigate',320,'g','P'],['Pomodori pelati',420,'g','D'],['Aglio',1,'spicchio','V'],['Peperoncino fresco',1,'pz','V'],['Prezzemolo',0,'qb','V'],['Olio extravergine',0,'qb','D'],['Sale',0,'qb','D']],
+["Trita il prezzemolo e taglia il peperoncino a rondelle sottili.","Soffriggi aglio e peperoncino nell'olio a fuoco dolce per 3 min.","Aggiungi i pelati schiacciati con la forchetta, sala e cuoci a fuoco medio 20 min.","Quando al sugo mancano 10 min, butta le penne in acqua salata; togli l'aglio dal sugo.","Scola la pasta al dente, saltala nel sugo per 1 min e completa con il prezzemolo."],'https://ricette.giallozafferano.it/Penne-all-arrabbiata.html'],
+['Spaghetti alla puttanesca','Primi',4,[['Spaghetti',320,'g','P'],['Pomodori pelati',800,'g','D'],['Acciughe sott\'olio',25,'g','C'],['Capperi sotto sale',10,'g','D'],['Olive di Gaeta',100,'g','D'],['Prezzemolo',1,'mazzetto','V'],['Aglio',3,'spicchio','V'],['Peperoncino secco',2,'pz','D'],['Olio extravergine',30,'ml','D'],['Sale',0,'qb','D']],
+["Dissala i capperi sotto l'acqua corrente e tritali; denocciola e schiaccia le olive; trita il prezzemolo. Metti a bollire l'acqua per la pasta.","In una padella larga scalda l'olio con aglio, peperoncino tritato e acciughe.","Aggiungi i capperi e cuoci a fuoco medio 5 min, finché le acciughe si sciolgono.","Unisci i pelati schiacciati e cuoci 10 min. Intanto cuoci gli spaghetti al dente.","Togli l'aglio, aggiungi olive e prezzemolo, scola la pasta in padella e saltala qualche secondo."],'https://ricette.giallozafferano.it/Spaghetti-alla-puttanesca.html'],
+['Gnocchi alla sorrentina','Forno',4,[['Patate rosse',1000,'g','V'],['Farina 00',300,'g','D'],['Uova',1,'pz','L'],['Semola',0,'qb','D'],['Passata di pomodoro',600,'ml','D'],['Basilico',6,'foglia','V'],['Aglio',1,'spicchio','V'],['Mozzarella',250,'g','L'],['Parmigiano',70,'g','L'],['Olio extravergine',0,'qb','D']],
+["Lessa le patate con la buccia, circa 35 min.","Intanto prepara il sugo con olio, aglio, passata e sale; aggiungi il basilico e cuoci coperto a fiamma medio-bassa 30 min.","Schiaccia le patate ancora calde sulla farina a fontana, aggiungi uovo e sale e impasta velocemente.","Forma dei cordoncini, tagliali a tocchetti e rigali con una forchetta su un piano spolverato di semola.","Lessa gli gnocchi poco alla volta, scolali quando salgono a galla e condiscili con parte del sugo.","In una pirofila fai due strati di sugo, gnocchi, mozzarella a cubetti e parmigiano e gratina al grill a 250 °C per 5 min."],'https://ricette.giallozafferano.it/Gnocchi-alla-sorrentina.html'],
+['Pollo al limone','Secondi',4,[['Petto di pollo',600,'g','C'],['Limone (scorza)',1,'pz','V'],['Succo di limone',100,'ml','V'],['Amido di mais',20,'g','D'],['Zucchero',10,'g','D'],['Salsa di soia',10,'ml','D'],['Farina 00',0,'qb','D'],['Origano',0,'qb','D'],['Timo',0,'qb','V'],['Olio extravergine',0,'qb','D']],
+["Grattugia la scorza del limone, poi spremi e filtra il succo.","Taglia il petto di pollo a bocconcini e passali nella farina.","Rosola il pollo nell'olio caldo a fuoco medio per 5 min.","In una ciotola sciogli l'amido in 200 ml d'acqua, poi aggiungi zucchero, salsa di soia e succo di limone.","Versa il liquido nella padella e fallo addensare mescolando per 1 min.","Cuoci a fuoco basso altri 3 min con scorza, timo e origano e servi."],'https://ricette.giallozafferano.it/Pollo-al-limone.html'],
+['Frittata di patate','Secondi',4,[['Uova',8,'pz','L'],['Patate',500,'g','V'],['Parmigiano',100,'g','L'],['Prezzemolo',1,'mazzetto','V'],['Olio di semi di arachide',0,'qb','D'],['Olio extravergine',0,'qb','D'],['Sale',0,'qb','D']],
+["Sbuccia le patate e tagliale a cubetti di circa 1 cm.","Friggile in poco olio di semi, mescolando spesso, per 10 min; scolale su carta assorbente e lasciale intiepidire.","Sbatti le uova con il parmigiano, sale, pepe e prezzemolo tritato e unisci le patate.","Versa in una padella di circa 22 cm con un filo d'olio e cuoci con il coperchio a fuoco medio 12 min, finché la base è soda.","Gira la frittata aiutandoti con un piatto e cuoci coperta altri 5 min."],'https://ricette.giallozafferano.it/Frittata-di-patate.html'],
+['Zucchine trifolate','Contorni',4,[['Zucchine',600,'g','V'],['Aglio',2,'spicchio','V'],['Prezzemolo',2,'cucchiaio','V'],['Olio extravergine',40,'ml','D'],['Sale',0,'qb','D'],['Pepe nero',0,'qb','D']],
+["Lava, spunta e taglia le zucchine a rondelle sottili.","Scalda olio e aglio in una padella antiaderente, aggiungi le zucchine, sala, pepa e cuoci a fuoco vivace 8 min, mescolando ogni tanto con delicatezza.","Spegni, togli l'aglio, aggiungi il prezzemolo tritato e servi subito."],'https://ricette.giallozafferano.it/Zucchine-trifolate.html'],
+['Carne alla pizzaiola','Secondi',4,[['Fettine di vitello',400,'g','C'],['Passata di pomodoro',400,'ml','D'],['Aglio',2,'spicchio','V'],['Origano',0,'qb','D'],['Basilico',0,'qb','V'],['Olio extravergine',0,'qb','D'],['Sale',0,'qb','D']],
+["Scalda l'olio con l'aglio schiacciato; dopo 2 min versa la passata con un po' d'acqua e fai sobbollire a fuoco basso 15 min.","Incidi il grasso sui bordi delle fettine e appiattiscile tra due fogli di carta forno.","Quando il sugo si è ristretto aggiungi origano, sale e pepe e togli l'aglio.","Adagia la carne nel sugo e cuocila 2 min per lato; servi con il basilico."],'https://ricette.giallozafferano.it/Carne-alla-pizzaiola.html'],
+['Pasta e piselli','Piatti unici',4,[['Ditaloni rigati',320,'g','P'],['Piselli freschi in baccello',1000,'g','V'],['Cipollotto',100,'g','V'],['Olio extravergine',30,'ml','D'],['Parmigiano',30,'g','L'],['Pepe nero',0,'qb','D'],['Sale',0,'qb','D']],
+["Metti a bollire l'acqua salata. Sgrana i piselli e taglia il cipollotto a rondelle.","Scalda l'olio, aggiungi il cipollotto e un mestolo di acqua di cottura e stufalo 12 min.","Unisci i piselli, sale, pepe e un altro mestolo d'acqua e cuoci 10 min.","Lessa la pasta per metà del tempo indicato, circa 5 min, poi scolala nel tegame con i piselli.","Finisci la cottura in 5 min aggiungendo acqua di cottura poco alla volta, poi manteca con il parmigiano."],'https://ricette.giallozafferano.it/Pasta-e-piselli.html'],
+['Spinaci in padella','Contorni',4,[['Spinaci',1000,'g','V'],['Olio extravergine',50,'ml','D'],['Aglio',2,'spicchio','V'],['Sale',0,'qb','D'],['Pepe nero',0,'qb','D']],
+["Lava gli spinaci e togli la parte dura dei gambi.","Scalda l'olio con l'aglio a fuoco moderato.","Aggiungi gli spinaci, copri e cuoci a fuoco alto 5 min.","Scopri, sala, pepa, mescola e finisci la cottura a fuoco medio per 10 min."],'https://ricette.giallozafferano.it/Spinaci-in-padella.html'],
+['Pasta alla gricia','Primi',4,[['Rigatoni',320,'g','P'],['Guanciale',250,'g','C'],['Pecorino romano',60,'g','L'],['Pepe nero',0,'qb','D'],['Sale',0,'qb','D']],
+["Togli la cotenna al guanciale e taglialo a listarelle. Metti a bollire l'acqua salata.","Rosola il guanciale in padella a fuoco medio-alto 10 min; tienilo da parte lasciando il grasso in padella.","Cuoci i rigatoni un paio di minuti meno del tempo indicato.","Versa un mestolo di acqua di cottura nel grasso del guanciale e mescola; scola lì la pasta e finisci la cottura saltandola.","Spegni, aggiungi il pecorino grattugiato con poca acqua di cottura, poi il guanciale; servi con il pepe."],'https://ricette.giallozafferano.it/Pasta-alla-gricia.html'],
+['Pasta zucchine e speck','Primi',4,[['Pasta corta',360,'g','P'],['Zucchine',500,'g','V'],['Speck a listarelle',100,'g','C'],['Olio extravergine',0,'qb','D'],['Pepe nero',0,'qb','D'],['Sale',0,'qb','D']],
+["Rosola lo speck in padella senza olio finché è croccante e tienilo da parte.","Taglia le zucchine a metà e poi a fettine e cuocile nella stessa padella con un filo d'olio e un pizzico di sale per circa 10 min.","Cuoci la pasta qualche minuto meno del tempo indicato, scolala nelle zucchine con un po' di acqua di cottura e finisci la cottura.","Aggiungi lo speck croccante e il pepe e servi."],'https://www.fattoincasadabenedetta.it/ricetta/pasta-zucchine-e-speck/'],
+['Pasta e zucchine cremosa','Primi',4,[['Fusilli',320,'g','P'],['Zucchine',2,'pz','V'],['Cipolla',1,'pz','V'],['Robiola',100,'g','L'],['Olio extravergine',0,'qb','D'],['Pepe nero',0,'qb','D'],['Sale',0,'qb','D']],
+["Metti a bollire l'acqua salata per la pasta.","In una padella larga rosola la cipolla tritata con un filo d'olio, poi aggiungi le zucchine a cubetti e cuoci circa 10 min.","Cuoci i fusilli al dente e scolali nella padella con un po' di acqua di cottura.","Spegni, aggiungi la robiola e mescola finché la pasta è cremosa; completa con il pepe."],'https://www.fattoincasadabenedetta.it/ricetta/pasta-e-zucchine-cremosa/'],
+['Pasta zucchine, tonno e limone','Primi',4,[['Farfalle',320,'g','P'],['Tonno sott\'olio sgocciolato',200,'g','C'],['Zucchine',2,'pz','V'],['Limone',0.5,'pz','V'],['Aglio',1,'spicchio','V'],['Peperoncino',0,'qb','D'],['Olio extravergine',0,'qb','D'],['Sale',0,'qb','D']],
+["Metti a cuocere la pasta in acqua salata.","Soffriggi aglio e peperoncino nell'olio e rosola le zucchine a pezzetti, circa 8 min.","Aggiungi il tonno ben sgocciolato e lascia insaporire 2 min.","Scola la pasta nel condimento, aggiungi il succo di limone e mescola con poca acqua di cottura."],'https://www.fattoincasadabenedetta.it/ricetta/pasta-zucchine-tonno-e-limone/'],
+['Involtini di pollo al forno','Secondi',4,[['Petto di pollo a fette',500,'g','C'],['Prosciutto cotto',150,'g','C'],['Scamorza',150,'g','L'],['Pangrattato',0,'qb','P'],['Limone',1,'pz','V'],['Alloro',0,'qb','D'],['Olio extravergine',0,'qb','D']],
+["Accendi il forno a 200 °C.","Su ogni fettina di pollo metti una fetta di prosciutto cotto e un pezzo di scamorza, arrotola e chiudi con uno stuzzicadenti.","Passa gli involtini in un filo d'olio e nel pangrattato e sistemali affiancati in una pirofila.","Infila tra gli involtini mezze rondelle di limone e foglie di alloro.","Cuoci in forno circa 25 min, finché sono dorati."],'https://www.fattoincasadabenedetta.it/ricetta/involtini-di-pollo/'],
+['Tagliata di pollo','Secondi',4,[['Petto di pollo intero',600,'g','C'],['Limoni',2,'pz','V'],['Olio extravergine',120,'ml','D'],['Rosmarino',2,'rametto','V'],['Sale',0,'qb','D']],
+["Prepara la marinata con il succo dei limoni, l'olio, il sale e il rosmarino.","Lascia marinare il petto di pollo intero per 30 min.","Cuocilo in una padella o bistecchiera ben calda, circa 6 min per lato, bagnandolo con un po' di marinata.","Lascia riposare un attimo, taglialo a fette e servi con il fondo di cottura."],'https://www.fattoincasadabenedetta.it/ricetta/tagliata-di-pollo/'],
+['Polpette al limone','Secondi',4,[['Carne macinata',500,'g','C'],['Uova',2,'pz','L'],['Formaggio grattugiato',30,'g','L'],['Limoni',2,'pz','V'],['Prezzemolo',1,'mazzetto','V'],['Pangrattato',30,'g','P'],['Vino bianco',60,'ml','D'],['Farina 00',40,'g','D'],['Olio extravergine',20,'ml','D']],
+["Impasta la carne con uova, formaggio, pangrattato, prezzemolo tritato, scorza grattugiata di un limone, sale e pepe.","Forma le polpette e infarinale.","Rosolale nell'olio caldo su tutti i lati, poi sfuma con il vino bianco.","Aggiungi il succo dei limoni e un po' d'acqua, copri e cuoci a fuoco basso circa 15 min, finché si forma una salsina."],'https://www.fattoincasadabenedetta.it/ricetta/polpette-al-limone/'],
+['Riso alla cantonese veloce','Piatti unici',4,[['Riso basmati',250,'g','D'],['Piselli surgelati',100,'g','S'],['Prosciutto cotto',100,'g','C'],['Uova',4,'pz','L'],['Salsa di soia',0,'qb','D'],['Olio extravergine',0,'qb','D'],['Sale',0,'qb','D']],
+["Lessa il riso in acqua salata insieme ai piselli ancora surgelati per 11 min. Intanto taglia il prosciutto a striscioline.","Sbatti le uova con la salsa di soia e cuocile in padella con un filo d'olio, mescolando come per le uova strapazzate.","Scola riso e piselli, condiscili con uova e prosciutto e servi."],'https://www.benedettaparodi.it/riso-alla-cantonese-veloce/'],
+['Risotto alle vongole','Primi',4,[['Vongole',1000,'g','C'],['Riso',350,'g','D'],['Aglio',1,'spicchio','V'],['Scalogno',1,'pz','V'],['Vino bianco',1,'bicchiere','D'],['Prezzemolo',0,'qb','V'],['Pesto',1,'cucchiaino','D'],['Olio extravergine',0,'qb','D'],['Sale',0,'qb','D']],
+["Fai aprire le vongole in un tegame con olio e aglio, coperte e a fiamma vivace, circa 5 min.","Sguscia quasi tutte le vongole, tenendone da parte una manciata intere.","Filtra l'acqua delle vongole, aggiungi circa mezzo litro d'acqua, porta a bollore e spegni.","Rosola lo scalogno affettato nell'olio, tosta il riso, sala e sfuma con il vino.","Cuoci il risotto bagnandolo con l'acqua delle vongole, circa 16 min; poco prima della fine aggiungi le vongole, il prezzemolo e il pesto."],'https://www.benedettaparodi.it/risotto-alle-vongole/'],
+['Tomato soup','Primi',4,[['Passata di pomodoro',800,'ml','D'],['Latte',200,'ml','L'],['Burro',50,'g','L'],['Farina 00',2,'cucchiaio','D'],['Cipolla',1,'pz','V'],['Carota',1,'pz','V'],['Concentrato di pomodoro',1,'cucchiaino','D'],['Alloro',1,'foglia','D'],['Dado granulare',1,'cucchiaino','D'],['Timo',0,'qb','V']],
+["Affetta carota e cipolla e soffriggile nel burro con poco olio.","Aggiungi la farina e tostala brevemente, poi unisci passata, concentrato, alloro, timo e dado.","Cuoci a fuoco basso circa 20 min, poi togli l'alloro.","Aggiungi il latte, frulla con il frullatore a immersione fino a una crema liscia e servi calda."],'https://www.benedettaparodi.it/tomato-soup/'],
+['Pomodori col riso alla romana','Piatti unici',4,[['Pomodori da riso',8,'pz','V'],['Riso parboiled',250,'g','D'],['Patate',2,'pz','V'],['Aglio',1,'spicchio','V'],['Basilico',0,'qb','V'],['Olio extravergine',0,'qb','D'],['Sale',0,'qb','D']],
+["Accendi il forno a 180 °C. Taglia la calotta dei pomodori e svuotali con un cucchiaio.","Frulla la polpa per ottenere una passata; mescolane circa 250 ml con il riso crudo, l'aglio tritato, il basilico, olio, sale e pepe.","Riempi i pomodori con il riso e sistemali in una teglia con le patate a spicchi.","Versa la passata rimasta su pomodori e patate, copri con le calotte e un filo d'olio.","Cuoci in forno circa 60 min, finché il riso è cotto."],'https://www.benedettaparodi.it/pomodori-col-riso-alla-romana/'],
+['Tagliatelle con pesto di asparagi','Primi',4,[['Tagliatelle',250,'g','P'],['Asparagi',1,'mazzetto','V'],['Basilico',1,'mazzetto','V'],['Cipolla',0.5,'pz','V'],['Pinoli',2,'cucchiaio','D'],['Parmigiano',0,'qb','L'],['Olio extravergine',0,'qb','D'],['Sale',0,'qb','D']],
+["Separa le punte degli asparagi dai gambi e taglia i gambi a pezzetti.","Cuoci i gambi in padella con la cipolla tritata, un filo d'olio e un po' d'acqua finché sono morbidi, circa 10 min.","Frulla i gambi con il loro liquido, il basilico, i pinoli e l'olio, come un pesto.","Lessa le punte degli asparagi insieme alle tagliatelle, scola e condisci con il pesto e il parmigiano."],'https://www.benedettaparodi.it/pappardelle-ricce-agli-asparagi/']
 ].map((r,i)=>({id:'b'+i,name:r[0],cat:r[1],serv:r[2],ing:r[3].map(x=>({n:x[0],q:x[1],u:x[2],r:x[3]})),st:r[4],src:r[5]||null}));
 
-const DEF=()=>({mine:[],list:[],cart:[],hist:[],budget:0,ask:true,pantry:[],menu:[],prices:[],codes:{},people:2,shop:'',diet:'',events:[],ai:{prov:'gemini',key:'',model:''},meta:{},pexels:'',pixabay:'',phProv:'pixabay',rview:'grid',scheme:'pc',rsort:'az',theme:'',big:false,splash:true,wake:true,expDays:3,lastBackup:0});
+const DEF=()=>({mine:[],list:[],cart:[],hist:[],budget:0,ask:true,pantry:[],menu:[],prices:[],codes:{},people:2,shop:'',diet:'',events:[],ai:{prov:'gemini',key:'',model:''},meta:{},pexels:'',pixabay:'',phProv:'pixabay',rview:'grid',scheme:'pc',hidden:[],rsort:'az',theme:'',big:false,splash:true,wake:true,expDays:3,lastBackup:0});
 let S=DEF();
 try{const d=JSON.parse(localStorage.getItem(KEY));if(d)S={...S,...d}}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
@@ -468,15 +514,15 @@ function fmt(q,u){
   if(u==='g'||u==='ml'){const v=q<20?Math.round(q):Math.round(q/5)*5;return v>=1000?trim(v/1000)+(u==='g'?' kg':' l'):v+' '+u}
   const v=Math.max(1,Math.ceil(q-0.05));const l=UL[u];return l?(v+(l[0]?' '+l[v>1?1:0]:'')):v+' '+u;
 }
-const KW=[['V',/mel|pomodor|insalat|zucch|patat|cipoll|carot|banan|aranc|limon|frutt|verdur|fung|aglio|basilic|prezzem|finocc|spinac|peper|sedan|bietol|fagiolin|rosmarin/],['L',/latt|yog|formagg|mozzar|burro|uov|panna|ricott|parmig|grana|pecorin|mascarp|stracch|lievito di birra/],['C',/poll|manz|maial|salsicc|prosciut|salame|pesce|salmon|carne|macinat|tacchin|guancial|pancett|spezzatin/],['P',/pane|pasta|spaghett|penne|fusill|grissin|crackers|pangratt|brioche|biscott|trofie|ditalin|sfogli/],['S',/surgel|gelat|pisell|bastonc/]];
+const KW=[['V',/mel|pomodor|insalat|zucch|patat|cipoll|carot|banan|aranc|limon|frutt|verdur|fung|aglio|basilic|prezzem|finocc|spinac|peper|sedan|bietol|fagiolin|rosmarin/],['L',/latt|yog|formagg|mozzar|burro|uov|panna|ricott|parmig|grana|pecorin|mascarp|stracch|lievito di birra/],['C',/poll|manz|maial|salsicc|prosciut|salame|pesce|salmon|carne|macinat|tacchin|guancial|pancett|spezzatin/],['P',/pane|pasta|spaghett|penne|fusill|grissin|crackers|pangratt|brioche|biscott|trofie|ditalin|ditalon|sfogli/],['S',/surgel|gelat|pisell|bastonc/]];
 const guess=n=>{n=n.toLowerCase();for(const[k,re]of KW)if(re.test(n))return k;return 'D'};
 const norm=s=>String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/\b(di|del|della|dei|delle|al|alla|fresco|fresca|cotti|cotto)\b/g,' ').replace(/\s+/g,' ').trim();
 function same(a,b){a=norm(a);b=norm(b);if(!a||!b)return false;if(a===b||a.includes(b)||b.includes(a))return true;const fa=a.split(' ')[0],fb=b.split(' ')[0];return fa.length>=4&&fa===fb}
 const inPantry=n=>S.pantry.find(p=>same(p.n,n));
-const allR=()=>[...B,...S.mine];
+const allR=()=>[...B,...S.mine].filter(r=>!(S.hidden||[]).includes(r.id));
 const MEAT=/pollo|manzo|maial|vitello|macinat|guancial|pancett|prosciut|salam|salsicc|speck|bresaola|tacchin|agnello|conigli|spezzatin|carne|salmon|tonno|pesce|merluzz|gamber|vongol|cozz|acciug|alic[ie]|calamar|polpo|baccal|orat[ae]|branzin|sgombr|gelatin|strutto|midoll|scamone/;
 const ANIMAL=/uov|tuorl|albume|latte(?! (?:di )?(soia|riso|mandorl|avena|cocco))|burro|formagg|mozzar|parmig|pecorin|grana|ricott|mascarp|panna|yogurt|stracchin|scamorz|fontin|gorgonz|miele|savoiard|besciamell|provol|feta|crescenza|robiola|maionese/;
-const GLUTEN=/farina(?! (?:di )?(riso|mais|ceci|mandorl|grano saraceno|castagne))|pasta|spaghett|penne|trofie|ditalin|fusill|rigaton|tagliatell|lasagn|sfogli|pane|pangratt|grissin|cracker|biscott|savoiard|cous ?cous|farro|orzo|seitan|frisell|piadin|gnocch|semola|bulgur|tortill|paccher|\bpipe\b|maniche|orecchiett|tonnarell|bucatin|linguin|farfall|conchigl|raviol|tortellin|maccheron|tagliolin|fettuccin|lasagn/;
+const GLUTEN=/farina(?! (?:di )?(riso|mais|ceci|mandorl|grano saraceno|castagne))|pasta|spaghett|penne|trofie|ditalin|ditalon|fusill|rigaton|tagliatell|lasagn|sfogli|pane|pangratt|grissin|cracker|biscott|savoiard|cous ?cous|farro|orzo|seitan|frisell|piadin|gnocch|semola|bulgur|tortill|salsa soia|paccher|\bpipe\b|maniche|orecchiett|tonnarell|bucatin|linguin|farfall|conchigl|raviol|tortellin|maccheron|tagliolin|fettuccin|lasagn/;
 const LACT=/latte(?! (?:di )?(soia|riso|mandorl|avena|cocco))|burro|mozzar|ricott|mascarp|panna|yogurt|stracchin|scamorz|fontin|gorgonz|besciamell|provol|feta|crescenza|pecorin|formaggio fresco|robiola/;
 const DIETS=[['vegan','Vegano'],['veg','Vegetariano'],['gf','Senza glutine'],['lf','Senza lattosio']];
 const DSHORT={vegan:'vegano',veg:'vegetariano',gf:'senza glutine',lf:'senza lattosio'};
@@ -503,7 +549,7 @@ let cur='home';
 function go(t){
   t=OLD[t]||t;if(t!=='home'&&!PARENT[t])t='home';
   if(t==='tavolata'&&!S.events.some(e=>e.id===curEv))t='pasti';if(t==='ricetta'&&!(curR&&getR(curR.id)))t='ricette';
-  cur=t;document.body.dataset.page=t;document.body.classList.toggle('home',t==='home');
+  if(selMode&&t!=='ricette')setSel(false);cur=t;document.body.dataset.page=t;document.body.classList.toggle('home',t==='home');
   document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='v-'+t));
   $('#homeB').hidden=t==='home';$('#gear').hidden=t!=='home';$('#topTot').hidden=true;
   $('#hT').innerHTML=t==='home'?'Spesa<span>Chef</span>':esc(TITLE[t]);$('#hTl').textContent=t==='home'?'Ricette · Spesa · Dispensa':'SpesaChef';
@@ -602,13 +648,28 @@ function renderR(){
   const g=$('#rgrid');g.classList.toggle('list',S.rview==='list');
   g.innerHTML=rs.length?rs.map(r=>{const m=meta(r.id),t=rTime(r);return `<div class="rcard" data-id="${esc(r.id)}" role="button" tabindex="0"><div class="ph">${cover(r)}</div><div class="rb"><b>${esc(r.name)}</b><div class="meta">${t?`<i>${IC.clock}${tTxt(t)}</i>`:''}${m.rate?`<i style="color:var(--warn)">${IC.star}${m.rate}</i>`:''}<i>${esc(r.cat)}</i></div></div><button class="favb" data-fav aria-label="${m.fav?'Togli dai preferiti':'Aggiungi ai preferiti'}">${m.fav?IC.heart:IC.heartO}</button></div>`}).join('')
   :`<div class="empty" style="grid-column:1/-1">Nessuna ricetta trovata.<br><button class="btn pri" style="margin-top:12px" id="mk">Aggiungi “${esc($('#q').value.trim()||'nuova ricetta')}”</button></div>`;
-  g.querySelectorAll('.rcard').forEach(c=>{c.onclick=e=>{if(e.target.closest('[data-fav]'))return;openRecipe(c.dataset.id)};c.onkeydown=e=>{if(e.key==='Enter')openRecipe(c.dataset.id)};
+  g.querySelectorAll('.rcard').forEach(c=>{if(selMode&&selIds.has(c.dataset.id))c.classList.add('picked');c.onclick=e=>{if(selMode){selIds.has(c.dataset.id)?selIds.delete(c.dataset.id):selIds.add(c.dataset.id);c.classList.toggle('picked');updSel();return}if(e.target.closest('[data-fav]'))return;openRecipe(c.dataset.id)};c.onkeydown=e=>{if(e.key==='Enter')openRecipe(c.dataset.id)};
     c.querySelector('[data-fav]').onclick=()=>{const m=meta(c.dataset.id);m.fav=!m.fav;save();renderCats();renderR()}});
   const mk=$('#mk');if(mk)mk.onclick=()=>addMenu();
 }
 $('#q').oninput=renderR;
+$('#selB').onclick=()=>setSel(!selMode);$('#selX').onclick=()=>setSel(false);$('#selDel').onclick=()=>askRemove([...selIds],()=>setSel(false));
 $('#rsort').onchange=e=>{S.rsort=e.target.value;save();renderR()};
 $('#newR').onclick=()=>addMenu();
+
+/* eliminare ricette */
+function removeRecipes(ids){
+  ids.forEach(id=>{S.menu.filter(m=>m.rid===id).forEach(unlistMenu);S.menu=S.menu.filter(m=>m.rid!==id);S.events.forEach(e=>e.items=e.items.filter(i=>i.rid!==id));
+    if(S.mine.some(x=>x.id===id)){S.mine=S.mine.filter(x=>x.id!==id);delete S.meta[id];phSet(id,null)}else if(!S.hidden.includes(id))S.hidden.push(id)});
+  save();
+}
+function askRemove(ids,after){
+  const rs=ids.map(id=>[...B,...S.mine].find(r=>r.id===id)).filter(Boolean),mine=rs.filter(r=>r.mine).length;
+  confirmBox(rs.length>1?`Eliminare ${rs.length} ricette?`:'Eliminare la ricetta?',(rs.length===1?rs[0].name+'. ':'')+'Sparisce dal ricettario e dal menu.'+(mine<rs.length?' Le ricette già presenti nell\'app si possono ripristinare dalle Impostazioni.':'')+(mine?' Le ricette create da te vengono cancellate definitivamente.':''),()=>{removeRecipes(ids);renderCats();renderAll();toast(rs.length>1?`${rs.length} ricette eliminate`:'Ricetta eliminata');after&&after()},'Elimina');
+}
+let selMode=false;const selIds=new Set();
+function setSel(on){selMode=on;selIds.clear();$('#selB').textContent=on?'Annulla':'Seleziona';document.body.classList.toggle('selecting',on);updSel();renderR()}
+function updSel(){const n=selIds.size;$('#selbar').hidden=!selMode;$('#selDel').textContent=n?`Elimina ${n} ${n>1?'ricette':'ricetta'}`:'Tocca le ricette da eliminare';$('#selDel').disabled=!n}
 
 /* pagina della ricetta */
 let curR=null;
@@ -628,7 +689,7 @@ function renderRP(){
   ${r.st&&r.st.length?`<div class="sec" style="margin-top:24px"><span>Procedimento</span></div><div class="box"><ol class="steps">${r.st.map(x=>{const mm=mins(x);return `<li>${esc(x)}${mm?` <span class="tag w" style="margin-left:4px">${tTxt(mm)}</span>`:''}</li>`}).join('')}</ol></div>`:''}
   <div class="sec" style="margin-top:24px"><span>Le mie note</span></div>
   <textarea class="inp" id="noteR" style="min-height:90px" placeholder="Es. meno sale, al forno 5 minuti in più…">${esc(m.note||'')}</textarea>
-  ${r.mine?'<div class="acts"><button class="btn ghost" id="edR">Modifica ricetta</button><button class="btn ghost" id="delR" style="color:var(--tom)">Elimina</button></div>':'<div class="acts"><button class="btn ghost" id="cpR">Duplica e modifica</button></div>'}`;
+  <div class="acts">${r.mine?'<button class="btn ghost" id="edR">Modifica ricetta</button>':'<button class="btn ghost" id="cpR">Duplica e modifica</button>'}<button class="btn ghost" id="delR" style="color:var(--tom)">Elimina ricetta</button></div>`;
   const P=$('#rpage');
   P.querySelector('#phIn').onchange=async e=>{const fl=e.target.files[0];e.target.value='';if(!fl)return;try{phSet(r.id,await photoFromFile(fl));delete m.purl;delete m.phc;save();renderRP();renderCats();renderR();renderM();toast(idb?'Foto salvata':'Foto aggiunta (non verrà conservata in questa anteprima)')}catch(err){toast('Non riesco a leggere la foto')}};
   const rm=P.querySelector('#phRm');if(rm)rm.onclick=()=>{phSet(r.id,null);delete m.purl;delete m.phc;save();renderRP();renderCats();renderR();renderM()};
@@ -641,8 +702,9 @@ function renderRP(){
   bindStep(P,'srvR',()=>curR.n,v=>{curR.n=v;renderRP()});
   P.querySelectorAll('.ing input').forEach(c=>c.onchange=()=>{sel[c.dataset.k]=c.checked;const kk=sel.filter(Boolean).length,g=P.querySelector('#goR');g.textContent=kk?`Metti ${kk} in lista`:'Hai tutto';g.disabled=!kk});
   P.querySelector('#noteR').onchange=e=>{m.note=e.target.value;save()};
-  if(r.mine){P.querySelector('#edR').onclick=()=>editRecipe('',r);P.querySelector('#delR').onclick=()=>confirmBox('Eliminare la ricetta?',r.name,()=>{S.mine=S.mine.filter(x=>x.id!==r.id);S.menu=S.menu.filter(x=>x.rid!==r.id);delete S.meta[r.id];phSet(r.id,null);save();go('ricette');renderAll()},'Elimina')}
+  if(r.mine)P.querySelector('#edR').onclick=()=>editRecipe('',r);
   else P.querySelector('#cpR').onclick=()=>editRecipe('',{...r,id:null,name:r.name+' (mia versione)'});
+  P.querySelector('#delR').onclick=()=>askRemove([r.id],()=>go('ricette'));
 }
 $('#viewer').onclick=()=>$('#viewer').classList.remove('on');
 const UNIT=String.raw`kg|g|gr|grammi|ml|l|lt|litr[oi]|cl|pz|pezz[oi]|spicchi?o?|mazzett[oi]|ramett[oi]|cost[ae]|bustin[ae]|cucchiain[oi]|cucchia[io]|bicchier[ei]|pizzic[oh]i?|fogli[ae]|fett[ae]|vasett[oi]|scatol[ae]|confezion[ei]|lattin[ae]`;
@@ -740,7 +802,7 @@ function ptype(r){
   const key=r.id+'|'+r.ing.length;if(ptCache.has(key))return ptCache.get(key);
   const w={},mult={pesce:2,rossa:2,bianca:2,salumi:2,legumi:2,uova:1,formaggi:1};
   r.ing.filter(i=>i.u!=='qb').forEach(i=>{const n=norm(i.n);for(const[k,re]of PT){if(re.test(n)){if(k==='uova'&&r.cat==='Dolci')break;const g=i.u==='g'||i.u==='ml'?i.q:i.u==='fetta'?i.q*80:i.q*(k==='uova'?55:150);if(k==='formaggi'&&g/r.serv<25)break;w[k]=(w[k]||0)+g*mult[k]/r.serv;break}}});
-  let out=null,best=0;for(const k in w)if(w[k]>best){best=w[k];out=k}
+  let out=null,best=30;for(const k in w)if(w[k]>best){best=w[k];out=k}
   ptCache.set(key,out);return out;
 }
 const MINOR=/aglio|prezzem|basilic|limon|rosmarin|cipoll|peperoncin|menta|salvia|scalogn/;
@@ -1402,7 +1464,7 @@ const sizeKB=()=>{try{return Math.round((localStorage.getItem(KEY)||'').length/1
 async function exportData(){
   const d={...S,ai:{...S.ai,key:''},pexels:'',pixabay:''};const ph=await phAll(),photos={};
   for(const[k,b]of Object.entries(ph))photos[k]=await new Promise(ok=>{const fr=new FileReader();fr.onload=()=>ok(fr.result);fr.onerror=()=>ok(null);fr.readAsDataURL(b)});d.photos=photos;
-  const blob=new Blob([JSON.stringify({app:'SpesaChef',version:'4.5',date:new Date().toISOString(),data:d},null,1)],{type:'application/json'});
+  const blob=new Blob([JSON.stringify({app:'SpesaChef',version:'4.6',date:new Date().toISOString(),data:d},null,1)],{type:'application/json'});
   const name=`SpesaChef-backup-${iso(new Date())}.json`;
   try{const f=new File([blob],name,{type:'application/json'});
     if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'Backup SpesaChef'});S.lastBackup=Date.now();save();renderAll();toast('Backup pronto');return}
@@ -1452,6 +1514,9 @@ function renderSet(){
       <details><summary style="font-weight:700;cursor:pointer;min-height:32px;font-size:14px">Modello (avanzate)</summary><input class="inp" id="sModel" value="${esc(S.ai.model)}" placeholder="${AIDEF[S.ai.prov]}" autocapitalize="off" spellcheck="false"></details>
       <div class="row" style="margin-top:8px"><button class="btn sm" id="sTest">Prova la connessione</button>${S.ai.key?'<button class="btn sm ghost" id="sUnl">Scollega</button>':''}</div><p class="st" id="sTs" style="margin-bottom:4px"></p></div>
   </div>
+  <div class="sec"><span>Ricettario</span></div><div class="list">
+    <div class="srow"><span>Ricette eliminate<small>${(S.hidden||[]).length?(S.hidden.length+' ricette dell\'app nascoste'):'Nessuna'}</small></span><button class="btn sm ghost" id="sHid"${(S.hidden||[]).length?'':' disabled'}>Ripristina</button></div>
+  </div>
   <div class="sec" id="phSec"><span>Foto delle ricette</span></div><div class="list">
     <div class="srow"><span>Archivio di foto</span>${seg('sPhP',[['pixabay','Pixabay'],['pexels','Pexels']],S.phProv||'pixabay')}</div>
     <div class="srow" style="display:block"><span>Chiave ${S.phProv==='pexels'?'Pexels':'Pixabay'}<small>${S.phProv==='pexels'?'Pexels ha sospeso le nuove chiavi: usa questa voce solo se ne hai già una.':'Gratuita e immediata: registrati su <a href="https://pixabay.com/accounts/register/" target="_blank" rel="noopener">pixabay.com</a>, poi apri <a href="https://pixabay.com/api/docs/" target="_blank" rel="noopener">pixabay.com/api/docs</a>: la chiave è scritta nella pagina, alla voce “key”.'}</small></span>
@@ -1466,7 +1531,7 @@ function renderSet(){
     <div class="srow"><span>Storico spese e prezzi<small>${S.hist.length} spese, ${S.prices.length} prezzi</small></span><button class="btn sm ghost" id="sClrH">Svuota</button></div>
     <div class="srow"><span>Cancella tutti i dati<small>Ricette tue, liste, dispensa, menu, tavolate</small></span><button class="btn sm ghost" id="sReset" style="color:var(--tom)">Cancella</button></div>
   </div>`;
-  $('#setfoot').innerHTML=`SpesaChef v4.5 · Ricette · Spesa · Dispensa<br>${allR().length} ricette (${S.mine.length} tue) · © Marco – diritti riservati`;
+  $('#setfoot').innerHTML=`SpesaChef v4.6 · Ricette · Spesa · Dispensa<br>${allR().length} ricette (${S.mine.length} tue) · © Marco – diritti riservati`;
   const segOn=(id,f)=>$('#'+id).querySelectorAll('button').forEach(b=>b.onclick=()=>{f(b.dataset.v);save();applyLook();renderAll();renderSet()});
   segOn('sTheme',v=>S.theme=v);segOn('sExp',v=>S.expDays=+v);
   const swOn=(id,f)=>$('#'+id).onchange=e=>{f(e.target.checked);save();applyLook();renderAll()};
@@ -1486,6 +1551,10 @@ function renderSet(){
   segOn('sPhP',v=>{S.phProv=v});
   $('#sPx').onchange=e=>{const v=e.target.value.trim();if(S.phProv==='pexels')S.pexels=v;else S.pixabay=v;save();renderSet();toast(v?'Chiave salvata':'Chiave tolta')};
   $('#sFind').onclick=()=>findAll();
+  $('#sHid').onclick=()=>{const rs=B.filter(r=>S.hidden.includes(r.id));openSheet(`<h2>Ricette eliminate</h2><div class="list">${rs.map(r=>`<div class="hrow" style="align-items:center"><span>${esc(r.name)}</span><button class="btn sm ghost" data-r="${r.id}">Ripristina</button></div>`).join('')}</div><div class="acts"><button class="btn ghost" data-c>Chiudi</button><button class="btn pri" id="all">Ripristina tutte</button></div>`,p=>{
+    p.querySelector('[data-c]').onclick=closeSheet;
+    p.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>{S.hidden=S.hidden.filter(x=>x!==b.dataset.r);save();b.closest('.hrow').remove();renderCats();renderAll();renderSet();toast('Ricetta ripristinata');if(!S.hidden.length)closeSheet()});
+    p.querySelector('#all').onclick=()=>{S.hidden=[];save();closeSheet();renderCats();renderAll();renderSet();toast('Ricette ripristinate')}})};
   $('#sExp2').onclick=()=>exportData();
   $('#sImp').onchange=e=>{const f=e.target.files[0];e.target.value='';if(f)importData(f)};
   $('#sClrH').onclick=()=>confirmBox('Svuotare lo storico?','Spese passate e storico dei prezzi verranno cancellati.',()=>{S.hist=[];S.prices=[];save();renderAll();renderSet()},'Svuota');
