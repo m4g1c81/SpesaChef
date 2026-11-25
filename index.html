@@ -92,7 +92,9 @@ main{max-width:680px;margin:auto;padding:16px max(16px,env(safe-area-inset-right
 .pane{background:var(--bg);width:100%;max-width:680px;max-height:92vh;overflow:auto;border-radius:22px 22px 0 0;padding:20px 18px calc(20px + env(safe-area-inset-bottom));animation:up .22s ease-out}
 @keyframes up{from{transform:translateY(40px);opacity:.4}}
 @media (prefers-reduced-motion:reduce){.pane{animation:none}}
-.pane h2{font-size:24px;margin-bottom:12px}
+.pane h2{font-size:24px;margin-bottom:12px;padding-right:48px}
+.shtop{position:sticky;top:-20px;height:0;z-index:5;display:flex;justify-content:flex-end}
+.shx{width:42px;height:42px;border-radius:50%;border:0;background:var(--card);color:var(--ink);font-size:26px;line-height:1;box-shadow:0 2px 8px rgba(0,0,0,.2);transform:translate(6px,-6px);flex:none}
 .pane label.l{display:block;font-weight:700;font-size:14px;margin:12px 0 4px}
 .step{display:flex;align-items:center;gap:10px}.step button{width:44px;height:44px;border-radius:12px;border:0;background:var(--soft);font-size:22px;font-weight:700}
 .step b{min-width:2.5ch;text-align:center;font:700 20px Rubik,sans-serif}
@@ -221,7 +223,7 @@ body.selecting .favb{display:none}
  <path d="M420 560 L492 628 L624 480" fill="none" stroke="#f2c230" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"/>
  <circle cx="660" cy="736" r="34" fill="#e0412b"/><path d="M652 704q10-14 22-8" stroke="#2f7d47" stroke-width="10" fill="none" stroke-linecap="round"/>
 </g>
-</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v4.6 · © Marco – diritti riservati</small></div>
+</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v4.7 · © Marco – diritti riservati</small></div>
 <header class="top"><div class="in"><button class="homeb" id="homeB" aria-label="Indietro" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div style="flex:1"><h1 id="hT">Spesa<span>Chef</span></h1><span class="tl" id="hTl">Ricette · Spesa · Dispensa</span></div><button class="tot" id="topTot" aria-label="Vai al carrello">€ 0,00</button><button class="homeb" id="gear" aria-label="Impostazioni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div></header>
 
 <main>
@@ -231,7 +233,7 @@ body.selecting .favb{display:none}
   <button class="mode spesa" id="mS"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="186" rx="80" ry="8" fill="#000" opacity=".15"/><circle cx="92" cy="52" r="26" fill="#f2c230"/><circle cx="128" cy="58" r="24" fill="#e0412b"/><path d="M124 36q8-10 16-4" stroke="#7cc08f" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M60 58h104l-6 34" fill="none"/><rect x="146" y="40" width="22" height="44" rx="6" fill="#eaf1e6"/><path d="M20 30h26l24 104h106l16-70H58" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 98h118" stroke="#fff" stroke-width="8" opacity=".55"/><circle cx="84" cy="164" r="13" fill="#fff"/><circle cx="160" cy="164" r="13" fill="#fff"/></svg><b>Faccio la spesa</b><small id="hS"></small><span class="go">Lista, carrello, prezzi →</span></button>
   <button class="mode cucina" id="mC"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="188" rx="84" ry="8" fill="#000" opacity=".15"/><path d="M84 40q-12-14 0-28M110 36q-12-14 0-28M136 40q-12-14 0-28" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".7"/><rect x="40" y="86" width="140" height="92" rx="20" fill="#fff"/><rect x="40" y="86" width="140" height="18" rx="9" fill="#ffe2dc"/><rect x="18" y="104" width="30" height="14" rx="7" fill="#fff"/><rect x="172" y="104" width="30" height="14" rx="7" fill="#fff"/><path d="M34 74h152" stroke="#f2c230" stroke-width="12" stroke-linecap="round"/><rect x="96" y="56" width="28" height="16" rx="8" fill="#f2c230"/><circle cx="140" cy="140" r="14" fill="#e0412b" opacity=".85"/><path d="M76 140h36" stroke="#e0412b" stroke-width="8" stroke-linecap="round" opacity=".5"/></svg><b>Cucino</b><small id="hC"></small><span class="go">Oggi in cucina, dispensa →</span></button>
   <div class="hint" id="bkHint" hidden style="margin-top:4px"></div>
-  <p class="foot">SpesaChef v4.6 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
+  <p class="foot">SpesaChef v4.7 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
 </section>
 <section class="view" id="v-ricette">
   <div class="row"><input class="inp" id="q" placeholder="Cerca un piatto o un ingrediente" style="flex:1" autocomplete="off"><button class="btn pri" id="newR">+ Aggiungi</button></div>
@@ -580,9 +582,10 @@ addEventListener('hashchange',()=>go(location.hash.slice(1)));
 
 /* ---------- foglio (dialog) ---------- */
 const sh=$('#sh'),pane=$('#pane');
-function openSheet(html,bind){pane.innerHTML=html;sh.classList.add('on');pane.scrollTop=0;bind&&bind(pane);const f=pane.querySelector('[autofocus]');f&&setTimeout(()=>f.focus(),60)}
+function openSheet(html,bind){pane.innerHTML='<div class="shtop"><button class="shx" type="button" aria-label="Chiudi">×</button></div>'+html;pane.querySelector('.shx').onclick=closeSheet;sh.classList.add('on');pane.scrollTop=0;bind&&bind(pane);const f=pane.querySelector('[autofocus]');f&&setTimeout(()=>f.focus(),60)}
 function closeSheet(){sh.classList.remove('on');pane.innerHTML=''}
 sh.addEventListener('click',e=>{if(e.target===sh)closeSheet()});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&sh.classList.contains('on'))closeSheet()});
 function confirmBox(title,text,ok,label='Conferma'){openSheet(`<h2>${esc(title)}</h2><p>${esc(text)}</p><div class="acts"><button class="btn ghost" data-c>Annulla</button><button class="btn red" data-o>${esc(label)}</button></div>`,p=>{p.querySelector('[data-c]').onclick=closeSheet;p.querySelector('[data-o]').onclick=()=>{closeSheet();ok()}})}
 const stepper=(id,v)=>`<div class="step"><button data-d="-1" data-s="${id}" aria-label="Meno">−</button><b id="${id}">${v}</b><button data-d="1" data-s="${id}" aria-label="Più">+</button></div>`;
 function bindStep(p,id,get,set,min=1,max=30){p.querySelectorAll(`[data-s="${id}"]`).forEach(b=>b.onclick=()=>{set(Math.max(min,Math.min(max,get()+ +b.dataset.d)));p.querySelector('#'+id).textContent=get()})}
@@ -1464,7 +1467,7 @@ const sizeKB=()=>{try{return Math.round((localStorage.getItem(KEY)||'').length/1
 async function exportData(){
   const d={...S,ai:{...S.ai,key:''},pexels:'',pixabay:''};const ph=await phAll(),photos={};
   for(const[k,b]of Object.entries(ph))photos[k]=await new Promise(ok=>{const fr=new FileReader();fr.onload=()=>ok(fr.result);fr.onerror=()=>ok(null);fr.readAsDataURL(b)});d.photos=photos;
-  const blob=new Blob([JSON.stringify({app:'SpesaChef',version:'4.6',date:new Date().toISOString(),data:d},null,1)],{type:'application/json'});
+  const blob=new Blob([JSON.stringify({app:'SpesaChef',version:'4.7',date:new Date().toISOString(),data:d},null,1)],{type:'application/json'});
   const name=`SpesaChef-backup-${iso(new Date())}.json`;
   try{const f=new File([blob],name,{type:'application/json'});
     if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'Backup SpesaChef'});S.lastBackup=Date.now();save();renderAll();toast('Backup pronto');return}
@@ -1531,7 +1534,7 @@ function renderSet(){
     <div class="srow"><span>Storico spese e prezzi<small>${S.hist.length} spese, ${S.prices.length} prezzi</small></span><button class="btn sm ghost" id="sClrH">Svuota</button></div>
     <div class="srow"><span>Cancella tutti i dati<small>Ricette tue, liste, dispensa, menu, tavolate</small></span><button class="btn sm ghost" id="sReset" style="color:var(--tom)">Cancella</button></div>
   </div>`;
-  $('#setfoot').innerHTML=`SpesaChef v4.6 · Ricette · Spesa · Dispensa<br>${allR().length} ricette (${S.mine.length} tue) · © Marco – diritti riservati`;
+  $('#setfoot').innerHTML=`SpesaChef v4.7 · Ricette · Spesa · Dispensa<br>${allR().length} ricette (${S.mine.length} tue) · © Marco – diritti riservati`;
   const segOn=(id,f)=>$('#'+id).querySelectorAll('button').forEach(b=>b.onclick=()=>{f(b.dataset.v);save();applyLook();renderAll();renderSet()});
   segOn('sTheme',v=>S.theme=v);segOn('sExp',v=>S.expDays=+v);
   const swOn=(id,f)=>$('#'+id).onchange=e=>{f(e.target.checked);save();applyLook();renderAll()};
