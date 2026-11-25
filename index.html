@@ -195,6 +195,10 @@ body[data-page=spesa] .sbar{display:block}
 .box{background:var(--card);border-radius:18px;box-shadow:0 1px 0 var(--line);padding:6px 16px;margin-top:10px}
 .th{width:42px;height:42px;border-radius:10px;overflow:hidden;flex:none}
 #viewer{position:fixed;inset:0;z-index:45;background:#000;display:none;place-items:center;cursor:zoom-out}#viewer.on{display:grid}#viewer img{max-width:100%;max-height:100%;object-fit:contain}
+.credit{position:absolute;left:10px;top:12px;background:rgba(0,0,0,.55);color:#fff;font-size:12px;font-weight:600;border-radius:99px;padding:5px 10px;text-decoration:none;max-width:45%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pxg{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;margin-top:12px}
+.pxg button{border:0;padding:0;border-radius:12px;overflow:hidden;aspect-ratio:1;background:var(--soft);position:relative}.pxg img{width:100%;height:100%;object-fit:cover;display:block}
+.pxg button.on{outline:3px solid var(--leaf);outline-offset:2px}.pxg small{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;font-size:11px;font-weight:700;padding:12px 6px 5px;text-align:left;line-height:1.15}
 .top .tl{display:block;font:600 12px "Nunito Sans",sans-serif;color:#cfe5d4;letter-spacing:.2px;margin-top:2px}
 </style>
 </head>
@@ -208,7 +212,7 @@ body[data-page=spesa] .sbar{display:block}
  <path d="M420 560 L492 628 L624 480" fill="none" stroke="#f2c230" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"/>
  <circle cx="660" cy="736" r="34" fill="#e0412b"/><path d="M652 704q10-14 22-8" stroke="#2f7d47" stroke-width="10" fill="none" stroke-linecap="round"/>
 </g>
-</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v4.1 · © Marco – diritti riservati</small></div>
+</svg><h1>Spesa<span>Chef</span></h1><p>Ricette · Spesa · Dispensa</p><small>v4.2 · © Marco – diritti riservati</small></div>
 <header class="top"><div class="in"><button class="homeb" id="homeB" aria-label="Indietro" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><div style="flex:1"><h1 id="hT">Spesa<span>Chef</span></h1><span class="tl" id="hTl">Ricette · Spesa · Dispensa</span></div><button class="tot" id="topTot" aria-label="Vai al carrello">€ 0,00</button><button class="homeb" id="gear" aria-label="Impostazioni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div></header>
 
 <main>
@@ -218,8 +222,7 @@ body[data-page=spesa] .sbar{display:block}
   <button class="mode spesa" id="mS"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="186" rx="80" ry="8" fill="#000" opacity=".15"/><circle cx="92" cy="52" r="26" fill="#f2c230"/><circle cx="128" cy="58" r="24" fill="#e0412b"/><path d="M124 36q8-10 16-4" stroke="#7cc08f" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M60 58h104l-6 34" fill="none"/><rect x="146" y="40" width="22" height="44" rx="6" fill="#eaf1e6"/><path d="M20 30h26l24 104h106l16-70H58" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/><path d="M66 98h118" stroke="#fff" stroke-width="8" opacity=".55"/><circle cx="84" cy="164" r="13" fill="#fff"/><circle cx="160" cy="164" r="13" fill="#fff"/></svg><b>Faccio la spesa</b><small id="hS"></small><span class="go">Lista, carrello, prezzi →</span></button>
   <button class="mode cucina" id="mC"><svg viewBox="0 0 220 200" aria-hidden="true"><ellipse cx="110" cy="188" rx="84" ry="8" fill="#000" opacity=".15"/><path d="M84 40q-12-14 0-28M110 36q-12-14 0-28M136 40q-12-14 0-28" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" opacity=".7"/><rect x="40" y="86" width="140" height="92" rx="20" fill="#fff"/><rect x="40" y="86" width="140" height="18" rx="9" fill="#ffe2dc"/><rect x="18" y="104" width="30" height="14" rx="7" fill="#fff"/><rect x="172" y="104" width="30" height="14" rx="7" fill="#fff"/><path d="M34 74h152" stroke="#f2c230" stroke-width="12" stroke-linecap="round"/><rect x="96" y="56" width="28" height="16" rx="8" fill="#f2c230"/><circle cx="140" cy="140" r="14" fill="#e0412b" opacity=".85"/><path d="M76 140h36" stroke="#e0412b" stroke-width="8" stroke-linecap="round" opacity=".5"/></svg><b>Cucino</b><small id="hC"></small><span class="go">Oggi in cucina, dispensa →</span></button>
   <div class="hint" id="bkHint" hidden style="margin-top:4px"></div>
-  <button class="btn ghost wide" id="aiSet" style="margin-top:8px">Impostazioni</button>
-  <p class="foot">SpesaChef v4.1 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
+  <p class="foot">SpesaChef v4.2 · Ricette · Spesa · Dispensa<br>© Marco – diritti riservati</p>
 </section>
 <section class="view" id="v-ricette">
   <div class="row"><input class="inp" id="q" placeholder="Cerca un piatto o un ingrediente" style="flex:1" autocomplete="off"><button class="btn pri" id="newR">+ Aggiungi</button></div>
@@ -385,7 +388,7 @@ const B=[
 ["Sbuccia la frutta e tagliala a pezzetti.","Condisci con succo di limone e zucchero e mescola.","Lascia riposare in frigo 30 min prima di servire."]]
 ].map((r,i)=>({id:'b'+i,name:r[0],cat:r[1],serv:r[2],ing:r[3].map(x=>({n:x[0],q:x[1],u:x[2],r:x[3]})),st:r[4]}));
 
-const DEF=()=>({mine:[],list:[],cart:[],hist:[],budget:0,ask:true,pantry:[],menu:[],prices:[],codes:{},people:2,shop:'',diet:'',events:[],ai:{prov:'gemini',key:'',model:''},meta:{},rview:'grid',rsort:'az',theme:'',big:false,splash:true,wake:true,expDays:3,lastBackup:0});
+const DEF=()=>({mine:[],list:[],cart:[],hist:[],budget:0,ask:true,pantry:[],menu:[],prices:[],codes:{},people:2,shop:'',diet:'',events:[],ai:{prov:'gemini',key:'',model:''},meta:{},pexels:'',rview:'grid',rsort:'az',theme:'',big:false,splash:true,wake:true,expDays:3,lastBackup:0});
 let S=DEF();
 try{const d=JSON.parse(localStorage.getItem(KEY));if(d)S={...S,...d}}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
@@ -443,7 +446,6 @@ function renderH(){
   const h=new Date().getHours();$('#hi').textContent=h<12?'Buongiorno!':h<18?'Buon pomeriggio!':'Buonasera!';
   const left=S.list.filter(x=>!x.done).length,ct=cartTot();
   $('#hS').textContent=ct?`Carrello aperto: ${money(ct)}`+(left?` · ancora ${left} in lista`:''):left?`${left} ${left>1?'articoli':'articolo'} in lista`:'La lista è vuota';
-  $('#aiSet').textContent=hasAI()?`Impostazioni · IA: ${AINAME[S.ai.prov]}`:'Impostazioni · collega l\'IA';
   const hasData=S.list.length+S.hist.length+S.mine.length+S.pantry.length+S.events.length+S.menu.length>0,bd=S.lastBackup?Math.floor((Date.now()-S.lastBackup)/864e5):null;
   $('#bkHint').hidden=!(hasData&&(bd===null||bd>=30));$('#bkHint').innerHTML=bd===null?'Non hai ancora fatto un backup dei tuoi dati. <button class="chip" id="bkGo" style="min-height:32px;margin-left:4px">Fallo ora</button>':`Ultimo backup ${bd} giorni fa. <button class="chip" id="bkGo" style="min-height:32px;margin-left:4px">Aggiorna</button>`;
   const bg=$('#bkGo');if(bg)bg.onclick=()=>exportData();
@@ -458,7 +460,7 @@ $('#mC').onclick=()=>go('cucino');
 $('#mP').onclick=()=>go('pasti');
 $('#homeB').onclick=()=>go(cur==='ricetta'&&curR?curR.prev||'ricette':PARENT[cur]||'home');
 $('#toRic').onclick=()=>go('ricette');$('#newR2').onclick=()=>addMenu();$('#toSto').onclick=()=>go('storico');$('#nEv').onclick=()=>evSheet(null);
-$('#aiSet').onclick=()=>go('impostazioni');$('#gear').onclick=()=>go('impostazioni');
+$('#gear').onclick=()=>go('impostazioni');
 $('#rcp').onchange=e=>{const f=e.target.files[0];e.target.value='';if(!f)return;if(!hasAI()){aiSettings();toast("Per leggere lo scontrino collega l'IA");return}receipt(f)};
 $('#aiI').onclick=e=>aiIdeas(e.currentTarget);
 addEventListener('hashchange',()=>go(location.hash.slice(1)));
@@ -497,8 +499,10 @@ function art(cat,seed){
     default:return `<circle cx="100" cy="80" r="30" fill="#e9a94c"/>${lf(100,60,0)}`;
   }
 }
+const hasPhoto=r=>PH.has(r.id)||!!(S.meta[r.id]&&S.meta[r.id].purl);
 function cover(r){
   if(PH.has(r.id))return `<img src="${PH.get(r.id)}" alt="" loading="lazy">`;
+  const pu=S.meta[r.id]&&S.meta[r.id].purl;if(pu&&/^https:\/\/images\.pexels\.com\//.test(pu))return `<img src="${esc(pu)}" alt="" loading="lazy">`;
   const c=CBG[r.cat]||['#eaf1e6','#a6d16a'],sd=hsh(r.name),rot=sd%40-20;
   return `<svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="g${sd}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs><rect width="200" height="150" fill="url(#g${sd})"/><circle cx="${30+sd%140}" cy="${sd%2?20:132}" r="${30+sd%30}" fill="#fff" opacity=".18"/><ellipse cx="100" cy="128" rx="64" ry="8" fill="#000" opacity=".1"/><circle cx="100" cy="80" r="60" fill="#fff"/><circle cx="100" cy="80" r="48" fill="#f6f6f3"/><g transform="rotate(${rot} 100 80)">${art(r.cat,sd)}</g></svg>`;
 }
@@ -545,7 +549,7 @@ function renderRP(){
   const r=curR&&getR(curR.id);if(!r){$('#rpage').innerHTML='';return}
   const m=meta(r.id),n=curR.n,f=n/r.serv,t=rTime(r),sel=curR.sel;
   const k=sel.filter(Boolean).length;
-  $('#rpage').innerHTML=`<div class="ph rhero">${cover(r)}<div class="pbtn">${PH.has(r.id)?'<button id="phRm" aria-label="Togli la foto">×</button>':''}<label><input type="file" accept="image/*" id="phIn" hidden>${PH.has(r.id)?'Cambia foto':'Aggiungi foto'}</label></div></div>
+  $('#rpage').innerHTML=`<div class="ph rhero">${cover(r)}${m.phc?`<a class="credit" href="${esc(m.phc.url)}" target="_blank" rel="noopener">Foto: ${esc(m.phc.by)} · Pexels</a>`:''}<div class="pbtn">${hasPhoto(r)?'<button id="phRm" aria-label="Togli la foto">×</button>':''}<button id="phPx">Cerca foto</button><label><input type="file" accept="image/*" id="phIn" hidden>${hasPhoto(r)?'La mia foto':'Mia foto'}</label></div></div>
   <h1 class="rtitle">${esc(r.name)}</h1>
   <div class="meta" style="font-size:15px">${t?`<i>${IC.clock}${tTxt(t)}</i>`:''}<i>${IC.ppl}${r.serv} persone nella ricetta</i><i>${esc(r.cat)}</i></div>
   <div style="margin:6px 0 2px">${dietTags(r)}</div>
@@ -558,8 +562,9 @@ function renderRP(){
   <textarea class="inp" id="noteR" style="min-height:90px" placeholder="Es. meno sale, al forno 5 minuti in più…">${esc(m.note||'')}</textarea>
   ${r.mine?'<div class="acts"><button class="btn ghost" id="edR">Modifica ricetta</button><button class="btn ghost" id="delR" style="color:var(--tom)">Elimina</button></div>':'<div class="acts"><button class="btn ghost" id="cpR">Duplica e modifica</button></div>'}`;
   const P=$('#rpage');
-  P.querySelector('#phIn').onchange=async e=>{const fl=e.target.files[0];e.target.value='';if(!fl)return;try{phSet(r.id,await photoFromFile(fl));renderRP();renderCats();renderR();renderM();toast(idb?'Foto salvata':'Foto aggiunta (non verrà conservata in questa anteprima)')}catch(err){toast('Non riesco a leggere la foto')}};
-  const rm=P.querySelector('#phRm');if(rm)rm.onclick=()=>{phSet(r.id,null);renderRP();renderCats();renderR();renderM()};
+  P.querySelector('#phIn').onchange=async e=>{const fl=e.target.files[0];e.target.value='';if(!fl)return;try{phSet(r.id,await photoFromFile(fl));delete m.purl;delete m.phc;save();renderRP();renderCats();renderR();renderM();toast(idb?'Foto salvata':'Foto aggiunta (non verrà conservata in questa anteprima)')}catch(err){toast('Non riesco a leggere la foto')}};
+  const rm=P.querySelector('#phRm');if(rm)rm.onclick=()=>{phSet(r.id,null);delete m.purl;delete m.phc;save();renderRP();renderCats();renderR();renderM()};
+  P.querySelector('#phPx').onclick=()=>pxSheet(r);
   const im=P.querySelector('.rhero img');if(im)im.onclick=()=>{$('#viewer img').src=im.src;$('#viewer').classList.add('on')};
   P.querySelectorAll('#stars button').forEach(b=>b.onclick=()=>{m.rate=m.rate===+b.dataset.v?0:+b.dataset.v;save();renderRP();renderR()});
   P.querySelector('#favR').onclick=()=>{m.fav=!m.fav;save();renderRP();renderCats();renderR()};
@@ -985,7 +990,7 @@ function aiSheet(){
   <label class="l" for="ans">Risposta dell'IA</label><textarea class="inp" id="ans" placeholder="Incolla qui la risposta"></textarea>
   <button class="btn wide" id="ok">Importa la risposta</button>${hasAI()?'</details>':''}
   <button class="btn ghost wide" data-c>Annulla</button>`,p=>{
-    const st=p.querySelector('#set');if(st)st.onclick=aiSettings;
+    const st=p.querySelector('#set');if(st)st.onclick=()=>aiSettings();
     const gen=p.querySelector('#gen');if(gen)gen.onclick=async()=>{const d=p.querySelector('#ad').value.trim();if(!d){toast('Scrivi prima il piatto');return}
       gen.disabled=true;gen.textContent='Sto scrivendo la ricetta…';const gs=p.querySelector('#gs');gs.textContent='';
       try{const r=recipeFromObj((x=>Array.isArray(x)?x[0]:x)(pickJSON(await aiCall(aiPrompt(d,n,p.querySelector('#adi').value)))));if(!r||!r.ing.length)throw new Error('La risposta non contiene una ricetta');editRecipe('',r)}
@@ -1022,29 +1027,7 @@ async function aiCall(prompt,img){
   return c.content.parts.map(x=>x.text||'').join('');
 }
 async function imgB64(file){const c=await prep(file,1600,false);return c.toDataURL('image/jpeg',.85).split(',')[1]}
-function aiSettings(){
-  const a={...S.ai};
-  openSheet(`<h2>Impostazioni IA</h2>
-  <label class="l" for="ap">Servizio</label><select class="inp" id="ap"><option value="gemini"${a.prov==='gemini'?' selected':''}>Google Gemini</option><option value="claude"${a.prov==='claude'?' selected':''}>Anthropic Claude</option></select>
-  <div class="hint" id="howto" style="margin-top:10px"></div>
-  <label class="l" for="ak">Chiave API</label><input class="inp" id="ak" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(a.key)}" placeholder="Incolla qui la chiave">
-  <p class="st">La chiave resta salvata solo su questo telefono, non finisce su GitHub.</p>
-  <details><summary style="font-weight:700;cursor:pointer;min-height:32px">Avanzate</summary><label class="l" for="am">Modello</label><input class="inp" id="am" value="${esc(a.model)}" autocapitalize="off" spellcheck="false"></details>
-  <button class="btn wide" id="tst">Prova la connessione</button><p class="st" id="ts"></p>
-  <div class="acts">${a.key?'<button class="btn ghost" id="rmk">Scollega</button>':''}<button class="btn ghost" data-c>Annulla</button><button class="btn pri" id="ok">Salva</button></div>`,p=>{
-    const ap=p.querySelector('#ap'),am=p.querySelector('#am'),hw=p.querySelector('#howto');
-    const how=()=>{am.placeholder=AIDEF[ap.value];hw.innerHTML=ap.value==='gemini'
-      ?'<b>Come avere la chiave:</b> apri <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a>, accedi con il tuo account Google, tocca <b>Create API key</b> e copiala. Se c\'è il piano gratuito non paghi nulla, ma Google può usare le richieste per migliorare i suoi prodotti.'
-      :'<b>Come avere la chiave:</b> apri <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>, ricarica del credito e crea una chiave. Si paga a consumo.'};
-    ap.onchange=how;how();
-    const read=()=>({prov:ap.value,key:p.querySelector('#ak').value.trim(),model:am.value.trim()});
-    p.querySelector('[data-c]').onclick=closeSheet;
-    const rk=p.querySelector('#rmk');if(rk)rk.onclick=()=>{S.ai={prov:ap.value,key:'',model:''};save();closeSheet();toast('IA scollegata');renderAll()};
-    p.querySelector('#tst').onclick=async()=>{const ts=p.querySelector('#ts'),old=S.ai;S.ai=read();ts.textContent='Provo…';
-      try{const t=await aiCall('Rispondi solo con questo JSON: {"ok":true}');pickJSON(t);ts.innerHTML='<b style="color:var(--leaf)">Funziona! '+AINAME[S.ai.prov]+' è collegato.</b>'}catch(e){ts.innerHTML='<b style="color:var(--tom)">Non funziona:</b> '+esc(aiErr(e))}finally{S.ai=old}};
-    p.querySelector('#ok').onclick=()=>{S.ai=read();save();closeSheet();renderAll();toast(S.ai.key?AINAME[S.ai.prov]+' collegato':'Impostazioni salvate')};
-  });
-}
+function aiSettings(sec='aiSec'){closeSheet();go('impostazioni');setTimeout(()=>{const e=document.getElementById(sec);if(e)e.scrollIntoView({behavior:'smooth',block:'start'})},60)}
 const RFMT=n=>`{"nome":"","categoria":"Antipasti|Primi|Secondi|Piatti unici|Contorni|Forno|Dolci","persone":${n},"ingredienti":[{"nome":"","quantita":0,"unita":"g|ml|pz|spicchio|mazzetto|rametto|costa|cucchiaio|qb"}],"passaggi":["un passaggio per voce, con i tempi scritti come 10 min o 1 ora"]}`;
 async function receipt(file){
   toast('Leggo lo scontrino…');
@@ -1068,7 +1051,7 @@ Rispondi SOLO con questo JSON: {"negozio":"","articoli":[{"nome":"","prezzo":0.0
         S.cart.push({id:uid(),name:x.nome,p:+x.prezzo,n:Math.max(1,Math.round(+x.quantita||1)),code:null,listId:li?li.id:null,t:Date.now()});k++});
         if(o.negozio&&!S.shop)S.shop=o.negozio;save();closeSheet();renderAll();toast(`${k} articoli nel carrello${m?`, ${m} spuntati in lista`:''}`)};
     });
-  }catch(e){openSheet(`<h2>Scontrino non letto</h2><p>${esc(aiErr(e))}</p><div class="acts"><button class="btn ghost" data-c>Chiudi</button>${hasAI()?'':'<button class="btn pri" id="set">Collega l\'IA</button>'}</div>`,p=>{p.querySelector('[data-c]').onclick=closeSheet;const b=p.querySelector('#set');if(b)b.onclick=aiSettings})}
+  }catch(e){openSheet(`<h2>Scontrino non letto</h2><p>${esc(aiErr(e))}</p><div class="acts"><button class="btn ghost" data-c>Chiudi</button>${hasAI()?'':'<button class="btn pri" id="set">Collega l\'IA</button>'}</div>`,p=>{p.querySelector('[data-c]').onclick=closeSheet;const b=p.querySelector('#set');if(b)b.onclick=()=>aiSettings()})}
 }
 async function aiIdeas(btn){
   if(!hasAI()){aiSettings();return}
@@ -1197,6 +1180,54 @@ function evSheet(e){
 }
 
 
+
+/* ---------- foto da Pexels ---------- */
+const pxQ=r=>r.name.replace(/\(.*?\)/g,'').trim();
+async function pxSearch(q,n=15){
+  const r=await fetch(`https://api.pexels.com/v1/search?query=${encodeURIComponent(q)}&per_page=${n}&locale=it-IT`,{headers:{Authorization:S.pexels}});
+  if(!r.ok)throw new Error(r.status===401||r.status===403?'La chiave Pexels non è valida.':r.status===429?'Troppe ricerche: riprova tra un po\'.':'Errore Pexels '+r.status);
+  const j=await r.json();return(j.photos||[]).map(p=>({thumb:p.src.medium,big:p.src.large,by:p.photographer,url:p.url}));
+}
+const pxErr=e=>/fetch|network|load failed/i.test(e&&e.message||'')?"Non riesco a raggiungere Pexels. Controlla la connessione. Nell'anteprima su Claude non funziona: usa l'app installata.":(e&&e.message||'Errore');
+async function pxSave(rid,p){
+  const m=meta(rid);m.phc={by:p.by,url:p.url};
+  try{const rs=await fetch(p.big);if(!rs.ok)throw 0;const b=await rs.blob();phSet(rid,b);delete m.purl}
+  catch(e){if(PH.has(rid))phSet(rid,null);m.purl=p.big}
+  save();
+}
+function pxSheet(r){
+  if(!S.pexels){openSheet(`<h2>Cerca una foto</h2><p>Per cercare foto vere di piatti serve una chiave gratuita di Pexels: si crea in un minuto con un account su pexels.com/api.</p><div class="acts"><button class="btn ghost" data-c>Chiudi</button><button class="btn pri" id="ok">Vai alle impostazioni</button></div>`,p=>{p.querySelector('[data-c]').onclick=closeSheet;p.querySelector('#ok').onclick=()=>aiSettings('phSec')});return}
+  openSheet(`<h2>Cerca una foto</h2><form class="row" id="pxf"><input class="inp" id="pxq" value="${esc(pxQ(r))}" style="flex:1" autocomplete="off"><button class="btn pri">Cerca</button></form><p class="st" id="pxs"></p><div class="pxg" id="pxg"></div><p class="st" style="font-size:13px">Foto gratuite da Pexels. Tocca quella che ti piace.</p><button class="btn ghost wide" data-c>Chiudi</button>`,p=>{
+    p.querySelector('[data-c]').onclick=closeSheet;
+    const run=async()=>{const st=p.querySelector('#pxs'),g=p.querySelector('#pxg');st.textContent='Cerco…';g.innerHTML='';
+      try{const ps=await pxSearch(p.querySelector('#pxq').value.trim()||pxQ(r),18);
+        if(!ps.length){st.textContent='Nessuna foto trovata: prova con parole più semplici (es. “lasagne”).';return}
+        st.textContent='';g.innerHTML=ps.map((x,k)=>`<button data-k="${k}" aria-label="Foto di ${esc(x.by)}"><img src="${esc(x.thumb)}" alt="" loading="lazy"><small>${esc(x.by)}</small></button>`).join('');
+        g.querySelectorAll('button').forEach(b=>b.onclick=async()=>{st.textContent='Salvo la foto…';await pxSave(r.id,ps[b.dataset.k]);closeSheet();renderRP();renderCats();renderR();renderM();toast('Foto aggiunta')});
+      }catch(e){st.textContent=pxErr(e)}};
+    p.querySelector('#pxf').onsubmit=e=>{e.preventDefault();run()};run();
+  });
+}
+async function findAll(){
+  if(!S.pexels){toast('Prima incolla la chiave Pexels');return}
+  const todo=allR().filter(r=>!hasPhoto(r));if(!todo.length){toast('Tutte le ricette hanno già una foto');return}
+  let stop=false;const props=[];
+  openSheet(`<h2>Trovo le foto</h2><p class="st" id="fa">Cerco 0 di ${todo.length}…</p><div class="pxg" id="fg"></div><div class="acts" id="fact"><button class="btn ghost" data-c>Annulla</button></div>`,p=>{p.querySelector('[data-c]').onclick=()=>{stop=true;closeSheet()}});
+  for(const r of todo){
+    if(stop)return;
+    try{const ps=await pxSearch(pxQ(r),4);if(ps.length)props.push({r,ps,i:0,on:true})}catch(e){const fa=$('#fa');if(fa)fa.textContent=pxErr(e);return}
+    const fa=$('#fa');if(!fa)return;fa.textContent=`Cerco ${props.length} di ${todo.length}…`;
+  }
+  if(stop||!$('#fa'))return;
+  const draw=()=>{$('#fg').innerHTML=props.map((x,k)=>`<button data-k="${k}" class="${x.on?'on':''}" style="${x.on?'':'opacity:.4'}"><img src="${esc(x.ps[x.i].thumb)}" alt="" loading="lazy"><small>${esc(x.r.name)}</small></button>`).join('');
+    $('#fg').querySelectorAll('button').forEach(b=>b.onclick=()=>{const x=props[b.dataset.k];if(!x.on){x.on=true}else if(x.i<x.ps.length-1){x.i++}else{x.i=0;x.on=false}draw()});
+    const n=props.filter(x=>x.on).length;$('#fok').textContent=`Salva ${n} foto`;$('#fok').disabled=!n};
+  $('#fa').innerHTML=`Ho trovato una foto per <b>${props.length}</b> ricette. Tocca una foto per vedere un'alternativa; dopo l'ultima alternativa la ricetta viene esclusa.`;
+  $('#fact').innerHTML='<button class="btn ghost" data-c>Annulla</button><button class="btn pri" id="fok"></button>';$('#fact [data-c]').onclick=closeSheet;
+  draw();
+  $('#fok').onclick=async()=>{const sel=props.filter(x=>x.on);let k=0;$('#fok').disabled=true;for(const x of sel){await pxSave(x.r.id,x.ps[x.i]);k++;$('#fok').textContent=`Salvo ${k} di ${sel.length}…`}closeSheet();renderCats();renderAll();if(cur==='impostazioni')renderSet();toast(`${k} foto aggiunte`)};
+}
+
 /* ---------- impostazioni ---------- */
 function applyLook(){
   const r=document.documentElement;
@@ -1206,9 +1237,9 @@ function applyLook(){
 }
 const sizeKB=()=>{try{return Math.round((localStorage.getItem(KEY)||'').length/1024)}catch(e){return 0}};
 async function exportData(){
-  const d={...S,ai:{...S.ai,key:''}};const ph=await phAll(),photos={};
+  const d={...S,ai:{...S.ai,key:''},pexels:''};const ph=await phAll(),photos={};
   for(const[k,b]of Object.entries(ph))photos[k]=await new Promise(ok=>{const fr=new FileReader();fr.onload=()=>ok(fr.result);fr.onerror=()=>ok(null);fr.readAsDataURL(b)});d.photos=photos;
-  const blob=new Blob([JSON.stringify({app:'SpesaChef',version:'4.1',date:new Date().toISOString(),data:d},null,1)],{type:'application/json'});
+  const blob=new Blob([JSON.stringify({app:'SpesaChef',version:'4.2',date:new Date().toISOString(),data:d},null,1)],{type:'application/json'});
   const name=`SpesaChef-backup-${iso(new Date())}.json`;
   try{const f=new File([blob],name,{type:'application/json'});
     if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'Backup SpesaChef'});S.lastBackup=Date.now();save();renderAll();toast('Backup pronto');return}
@@ -1222,7 +1253,7 @@ function importData(file){
     if(!o||o.app!=='SpesaChef'||!o.data){toast('Questo non è un backup di SpesaChef');return}
     const d=o.data,c=k=>(d[k]||[]).length;
     confirmBox('Ripristinare il backup?',`Backup del ${new Date(o.date).toLocaleString('it-IT',{dateStyle:'medium',timeStyle:'short'})}: ${c('mine')} ricette tue, ${c('list')} articoli in lista, ${c('pantry')} in dispensa, ${c('hist')} spese. I dati attuali verranno sostituiti.`,()=>{
-      const key=S.ai.key,photos=d.photos||{};delete d.photos;S={...DEF(),...d};Object.entries(photos).forEach(([k,u])=>{try{const[h,b64]=u.split(','),bin=atob(b64),a=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)a[i]=bin.charCodeAt(i);phSet(k,new Blob([a],{type:(h.match(/data:([^;]+)/)||[])[1]||'image/jpeg'}))}catch(e){}});if(!S.ai||!S.ai.key)S.ai={...(S.ai||DEF().ai),key};save();applyLook();renderCats();renderAll();go('impostazioni');toast('Backup ripristinato')},'Ripristina');
+      const key=S.ai.key,pxk=S.pexels,photos=d.photos||{};delete d.photos;S={...DEF(),...d};if(!S.pexels)S.pexels=pxk;Object.entries(photos).forEach(([k,u])=>{try{const[h,b64]=u.split(','),bin=atob(b64),a=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)a[i]=bin.charCodeAt(i);phSet(k,new Blob([a],{type:(h.match(/data:([^;]+)/)||[])[1]||'image/jpeg'}))}catch(e){}});if(!S.ai||!S.ai.key)S.ai={...(S.ai||DEF().ai),key};save();applyLook();renderCats();renderAll();go('impostazioni');toast('Backup ripristinato')},'Ripristina');
   };
   fr.readAsText(file);
 }
@@ -1234,7 +1265,7 @@ function renderSet(){
   <div class="sec"><span>Aspetto</span></div><div class="list">
     <div class="srow"><span>Tema</span>${seg('sTheme',[['','Auto'],['light','Chiaro'],['dark','Scuro']],S.theme)}</div>
     <div class="srow"><span>Testo più grande<small>Ingrandisce tutta l'app</small></span>${sw('sBig',S.big)}</div>
-    <div class="srow"><span>Schermata di avvio</span>${sw('sSplash',S.splash!==false)}</div>
+    <div class="srow"><span>Schermata di avvio animata<small>Nel browser. Dall'icona sulla Home compare quella di iPhone.</small></span>${sw('sSplash',S.splash!==false)}</div>
   </div>
   <div class="sec"><span>Casa</span></div><div class="list">
     <div class="srow"><span>Persone in casa<small>Dosi predefinite per ricette e menu</small></span>${stepper('sPpl',S.people)}</div>
@@ -1249,8 +1280,18 @@ function renderSet(){
     <div class="srow"><span>Avvisa delle scadenze<small>Quanti giorni prima</small></span>${seg('sExp',[[1,'1'],[2,'2'],[3,'3'],[5,'5'],[7,'7']],S.expDays)}</div>
     <div class="srow"><span>Schermo sempre acceso<small>Mentre segui una ricetta</small></span>${sw('sWake',S.wake!==false)}</div>
   </div>
-  <div class="sec"><span>Intelligenza artificiale</span></div><div class="list">
-    <div class="srow"><span>${hasAI()?AINAME[S.ai.prov]+' collegato':'Non collegata'}<small>Ricette, scontrini e idee dalla dispensa</small></span><button class="btn sm ${hasAI()?'ghost':'pri'}" id="sAI">${hasAI()?'Gestisci':'Collega'}</button></div>
+  <div class="sec" id="aiSec"><span>Intelligenza artificiale</span><span>${hasAI()?'<span class="tag">collegata</span>':''}</span></div><div class="list">
+    <div class="srow"><span>Servizio</span>${seg('sProv',[['gemini','Gemini'],['claude','Claude']],S.ai.prov)}</div>
+    <div class="srow" style="display:block"><span>Chiave API<small>Resta salvata solo su questo telefono.</small></span>
+      <input class="inp" id="sKey" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Incolla qui la chiave" value="${esc(S.ai.key)}" style="margin-top:8px">
+      <p class="st" style="font-size:13px">${S.ai.prov==='gemini'?'Si crea gratis su <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com/apikey</a> → Create API key. Col piano gratuito Google può usare le richieste per migliorare i suoi prodotti.':'Si crea su <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a>; si paga a consumo.'}</p>
+      <details><summary style="font-weight:700;cursor:pointer;min-height:32px;font-size:14px">Modello (avanzate)</summary><input class="inp" id="sModel" value="${esc(S.ai.model)}" placeholder="${AIDEF[S.ai.prov]}" autocapitalize="off" spellcheck="false"></details>
+      <div class="row" style="margin-top:8px"><button class="btn sm" id="sTest">Prova la connessione</button>${S.ai.key?'<button class="btn sm ghost" id="sUnl">Scollega</button>':''}</div><p class="st" id="sTs" style="margin-bottom:4px"></p></div>
+  </div>
+  <div class="sec" id="phSec"><span>Foto delle ricette</span></div><div class="list">
+    <div class="srow" style="display:block"><span>Chiave Pexels<small>Foto gratuite di piatti. Crea un account gratuito su <a href="https://www.pexels.com/api/" target="_blank" rel="noopener">pexels.com/api</a> e copia la chiave.</small></span>
+      <input class="inp" id="sPx" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Incolla qui la chiave Pexels" value="${esc(S.pexels)}" style="margin-top:8px"></div>
+    <div class="srow"><span>Trova foto per tutte<small>${allR().filter(r=>!hasPhoto(r)).length} ricette senza foto</small></span><button class="btn sm ${S.pexels?'pri':'ghost'}" id="sFind">Trova</button></div>
   </div>
   <div class="sec"><span>Backup</span></div><div class="list">
     <div class="srow"><span>Salva un backup<small>Ultimo: ${bd}. Su iPhone scegli “Salva su File” o iCloud Drive.</small></span><button class="btn sm pri" id="sExp2">Salva</button></div>
@@ -1260,7 +1301,7 @@ function renderSet(){
     <div class="srow"><span>Storico spese e prezzi<small>${S.hist.length} spese, ${S.prices.length} prezzi</small></span><button class="btn sm ghost" id="sClrH">Svuota</button></div>
     <div class="srow"><span>Cancella tutti i dati<small>Ricette tue, liste, dispensa, menu, tavolate</small></span><button class="btn sm ghost" id="sReset" style="color:var(--tom)">Cancella</button></div>
   </div>`;
-  $('#setfoot').innerHTML=`SpesaChef v4.1 · Ricette · Spesa · Dispensa<br>${allR().length} ricette (${S.mine.length} tue) · © Marco – diritti riservati`;
+  $('#setfoot').innerHTML=`SpesaChef v4.2 · Ricette · Spesa · Dispensa<br>${allR().length} ricette (${S.mine.length} tue) · © Marco – diritti riservati`;
   const segOn=(id,f)=>$('#'+id).querySelectorAll('button').forEach(b=>b.onclick=()=>{f(b.dataset.v);save();applyLook();renderAll();renderSet()});
   segOn('sTheme',v=>S.theme=v);segOn('sExp',v=>S.expDays=+v);
   const swOn=(id,f)=>$('#'+id).onchange=e=>{f(e.target.checked);save();applyLook();renderAll()};
@@ -1270,7 +1311,14 @@ function renderSet(){
   $('#sDiet').querySelectorAll('button').forEach(b=>b.onclick=()=>{S.diet=b.dataset.d;save();renderCats();renderAll();renderSet()});
   $('#sBud').onclick=()=>$('#setB').click();
   $('#sShop').onclick=()=>openSheet(`<h2>Negozio abituale</h2><input class="inp" id="shn" list="shops" value="${esc(S.shop)}" placeholder="Es. Coop" autofocus><div class="acts"><button class="btn ghost" data-c>Annulla</button><button class="btn pri" id="ok">Salva</button></div>`,p=>{p.querySelector('[data-c]').onclick=closeSheet;p.querySelector('#ok').onclick=()=>{S.shop=p.querySelector('#shn').value.trim();save();closeSheet();renderAll();renderSet()}});
-  $('#sAI').onclick=()=>aiSettings();
+  segOn('sProv',v=>{S.ai={prov:v,key:v===S.ai.prov?S.ai.key:'',model:''}});
+  $('#sKey').onchange=e=>{S.ai.key=e.target.value.trim();save();renderAll();renderSet();toast(S.ai.key?'Chiave salvata':'Chiave tolta')};
+  $('#sModel').onchange=e=>{S.ai.model=e.target.value.trim();save()};
+  $('#sTest').onclick=async()=>{const ts=$('#sTs');S.ai.key=$('#sKey').value.trim();S.ai.model=$('#sModel').value.trim();save();ts.textContent='Provo…';
+    try{pickJSON(await aiCall('Rispondi solo con questo JSON: {"ok":true}'));ts.innerHTML='<b style="color:var(--leaf)">Funziona! '+AINAME[S.ai.prov]+' è collegato.</b>'}catch(e){ts.innerHTML='<b style="color:var(--tom)">Non funziona:</b> '+esc(aiErr(e))}};
+  const un=$('#sUnl');if(un)un.onclick=()=>{S.ai={prov:S.ai.prov,key:'',model:''};save();renderAll();renderSet();toast('IA scollegata')};
+  $('#sPx').onchange=e=>{S.pexels=e.target.value.trim();save();renderSet();toast(S.pexels?'Chiave Pexels salvata':'Chiave Pexels tolta')};
+  $('#sFind').onclick=()=>findAll();
   $('#sExp2').onclick=()=>exportData();
   $('#sImp').onchange=e=>{const f=e.target.files[0];e.target.value='';if(f)importData(f)};
   $('#sClrH').onclick=()=>confirmBox('Svuotare lo storico?','Spese passate e storico dei prezzi verranno cancellati.',()=>{S.hist=[];S.prices=[];save();renderAll();renderSet()},'Svuota');
@@ -1327,7 +1375,7 @@ function renderAll(){renderR();renderM();renderTL();renderL();renderC();renderD(
 renderCats();renderAll();go('home');
 applyLook();
 dbOpen().then(phLoadAll).then(()=>{renderCats();renderAll();if(cur==='ricetta')renderRP()});
-const sp=$('#splash');if(S.splash===false){sp.remove()}else setTimeout(()=>{sp.classList.add('out');setTimeout(()=>sp.remove(),500)},matchMedia('(prefers-reduced-motion: reduce)').matches?500:1400);if(S.splash!==false)sp.onclick=()=>sp.classList.add('out');
+const sp=$('#splash'),inst=navigator.standalone===true||matchMedia('(display-mode: standalone)').matches;if(S.splash===false||inst){sp.remove()}else setTimeout(()=>{sp.classList.add('out');setTimeout(()=>sp.remove(),500)},matchMedia('(prefers-reduced-motion: reduce)').matches?500:1400);if(sp.isConnected)sp.onclick=()=>sp.classList.add('out');
 }
 </script>
 </body>
